@@ -1,22 +1,15 @@
-ROOT=PATH_TO_FROSTER_WORKSPACE
-CKPT=PATH_TO_FROSTER_WORKSPACE
-
-# TRAIN_FILE can be set as train_1.csv or train_2.csv or train_3.csv;
-
-B2N_hmdb_file=B2N_hmdb
-TRAIN_FILE=train.csv
-VAL_FILE=val.csv
-TEST_FILE=test.csv
+ROOT=/mnt/SSD8T/home/huangwei/projects/FROSTER
+CKPT=$ROOT/checkpoints
 
 cd $ROOT
 
 TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \
   --cfg configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml \
-  --opts DATA.PATH_TO_DATA_DIR $ROOT/zs_label_db/$B2N_hmdb_file \
-  DATA.PATH_PREFIX $ROOT/hmdb51_test \
-  TRAIN_FILE $TRAIN_FILE \
-  VAL_FILE $VAL_FILE \
-  TEST_FILE $TEST_FILE \
+  --opts DATA.PATH_TO_DATA_DIR $ROOT/zs_label_db/B2N_hmdb \
+  DATA.PATH_PREFIX $ROOT/data/hmdb51 \
+  TRAIN_FILE train_1.csv \
+  VAL_FILE val_1.csv \
+  TEST_FILE test.csv \
   DATA.PATH_LABEL_SEPARATOR , \
   DATA.INDEX_LABEL_MAPPING_FILE $ROOT/zs_label_db/B2N_hmdb/train_rephrased.json \
   TRAIN.ENABLE True \
@@ -41,8 +34,18 @@ TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \
   TRAIN.CHECKPOINT_PERIOD 1 \
   MODEL.LOSS_FUNC soft_cross_entropy \
   TRAIN.LINEAR_CONNECT_CLIMB False \
-  TRAIN.CLIP_ORI_PATH /root/.cache/clip/ViT-B-16.pt \
+  TRAIN.CLIP_ORI_PATH $HOME/.cache/clip/ViT-B-16.pt \
   TRAIN.LINEAR_CONNECT_LOSS_RATIO 0.0 \
   MODEL.RAW_MODEL_DISTILLATION True \
   MODEL.KEEP_RAW_MODEL True \
   MODEL.DISTILLATION_RATIO 2.0
+
+  MODEL.TEMPORAL_MODELING_TYPE 'expand_temporal_view' \  # 时序建模类型
+  MODEL.USE_CHECKPOINT False \  # 是否使用梯度检查点
+  MODEL.STATIC_GRAPH True  # 使用静态计算图
+
+  # 建议添加以下配置
+  DATA.DECODING_SHORT_SIZE 256  # 视频解码尺寸
+  DATA.RANDOM_FLIP True  # 数据增强
+  DATA.NUM_FRAMES 8  # 每个片段的帧数
+  DATA.SAMPLING_RATE 16  # 采样率
