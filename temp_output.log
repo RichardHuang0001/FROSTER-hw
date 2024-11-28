@@ -1,5 +1,6 @@
-[11/27 21:35:01][INFO] train_net.py:  937: --Train with config:
-[11/27 21:35:01][INFO] train_net.py:  938: {'AUG': {'AA_TYPE': 'rand-m7-n4-mstd0.5-inc1',
+config files: ['configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml']
+[11/28 22:52:25][INFO] train_net.py:  937: --Train with config:
+[11/28 22:52:25][INFO] train_net.py:  938: {'AUG': {'AA_TYPE': 'rand-m7-n4-mstd0.5-inc1',
          'COLOR_JITTER': 0.4,
          'ENABLE': False,
          'GEN_MASK_LOADER': False,
@@ -111,7 +112,7 @@
                                [-0.5836, -0.6948, 0.4203]],
           'USE_OFFSET_SAMPLING': True},
  'DATA_LOADER': {'ENABLE_MULTI_THREAD_DECODE': False,
-                 'NUM_WORKERS': 8,
+                 'NUM_WORKERS': 0,
                  'PIN_MEMORY': True},
  'DEMO': {'BUFFER_SIZE': 0,
           'CLIP_VIS_SIZE': 10,
@@ -407,9 +408,9 @@
            'ZS_INIT_CONS': False,
            'ZS_RESTART_CONS': False,
            'ZS_RESTART_EPOCH': -1},
- 'TRAIN_FILE': 'train_1.csv',
+ 'TRAIN_FILE': 'train.csv',
  'TUNE_HEAD': False,
- 'VAL_FILE': 'val_1.csv',
+ 'VAL_FILE': 'val.csv',
  'VAL_MODE': False,
  'VIS_MASK': CfgNode({'ENABLE': False}),
  'X3D': {'BN_LIN5': False,
@@ -420,10 +421,10 @@
          'DIM_C5': 2048,
          'SCALE_RES2': False,
          'WIDTH_FACTOR': 1.0}}
-[11/27 21:35:05][INFO] temporalclip_video_model.py:  602: load pretrained CLIP:<All keys matched successfully>
-[11/27 21:35:13][INFO] temporalclip_video_model.py:  602: load pretrained CLIP:<All keys matched successfully>
-[11/27 21:35:15][INFO] train_net.py:  946: total trainable parameters:
-[11/27 21:35:15][INFO] train_net.py:  947: ['module.model.positional_embedding',
+[11/28 22:52:29][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
+[11/28 22:52:38][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
+[11/28 22:52:40][INFO] train_net.py:  946: total trainable parameters:
+[11/28 22:52:40][INFO] train_net.py:  947: ['module.model.positional_embedding',
  'module.model.text_projection',
  'module.model.logit_scale',
  'module.model.visual.class_embedding',
@@ -729,7 +730,7 @@
  'module.projector_v.2.weight',
  'module.projector_t.0.weight',
  'module.projector_t.2.weight']
-[11/27 21:35:15][INFO] misc.py:  185: Model:
+[11/28 22:52:40][INFO] misc.py:  185: Model:
 DistributedDataParallel(
   (module): TemporalClipVideo(
     (model): WCLIP(
@@ -1354,320 +1355,104 @@ DistributedDataParallel(
     )
   )
 )
-[11/27 21:35:15][INFO] misc.py:  187: Params: 300,290,050
-[11/27 21:35:15][INFO] misc.py:  188: Mem: 1.6999154090881348 MB
-[11/27 21:35:15][INFO] misc.py:  197: nvidia-smi
-[11/27 21:35:16][INFO] kinetics.py:   94: Constructing Kinetics train...
-[11/27 21:35:16][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 416 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train_1.csv 
-[11/27 21:35:16][INFO] kinetics.py:   94: Constructing Kinetics val...
-[11/27 21:35:16][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 780 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/val_1.csv 
-[11/27 21:35:16][INFO] kinetics.py:   94: Constructing Kinetics train...
-[11/27 21:35:16][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 416 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train_1.csv 
-[11/27 21:35:16][INFO] train_net.py: 1129: Start epoch: 1
-[11/27 21:35:16][INFO] train_net.py:  304: total trainable params:
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.positional_embedding
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.text_projection
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.logit_scale
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.class_embedding
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.positional_embedding
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.proj
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.conv1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.ln_pre.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.ln_pre.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.ln_post.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.visual.ln_post.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.0.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.0.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.0.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.0.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.0.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.0.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.0.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.0.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.0.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.0.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.0.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.0.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.1.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.1.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.1.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.1.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.1.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.1.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.1.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.1.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.1.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.1.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.1.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.1.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.2.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.2.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.2.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.2.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.2.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.2.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.2.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.2.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.2.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.2.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.2.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.2.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.3.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.3.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.3.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.3.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.3.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.3.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.3.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.3.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.3.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.3.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.3.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.3.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.4.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.4.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.4.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.4.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.4.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.4.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.4.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.4.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.4.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.4.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.4.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.4.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.5.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.5.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.5.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.5.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.5.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.5.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.5.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.5.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.5.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.5.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.5.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.5.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.6.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.6.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.6.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.6.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.6.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.6.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.6.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.6.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.6.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.6.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.6.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.6.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.7.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.7.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.7.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.7.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.7.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.7.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.7.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.7.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.7.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.7.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.7.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.7.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.8.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.8.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.8.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.8.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.8.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.8.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.8.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.8.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.8.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.8.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.8.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.8.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.9.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.9.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.9.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.9.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.9.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.9.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.9.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.9.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.9.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.9.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.9.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.9.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.10.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.10.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.10.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.10.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.10.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.10.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.10.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.10.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.10.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.10.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.10.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.10.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.11.attn.in_proj_weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.11.attn.in_proj_bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.11.attn.out_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.11.attn.out_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.11.ln_1.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.11.ln_1.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.11.mlp.c_fc.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.11.mlp.c_fc.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.11.mlp.c_proj.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.11.mlp.c_proj.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.11.ln_2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.transformer.resblocks.11.ln_2.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.token_embedding.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.ln_final.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.model.ln_final.bias
-[11/27 21:35:16][INFO] train_net.py:  307: module.projector_v.0.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.projector_v.2.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.projector_t.0.weight
-[11/27 21:35:16][INFO] train_net.py:  307: module.projector_t.2.weight
+[11/28 22:52:40][INFO] misc.py:  187: Params: 300,290,050
+[11/28 22:52:40][INFO] misc.py:  188: Mem: 1.6999154090881348 MB
+[11/28 22:52:40][INFO] misc.py:  197: nvidia-smi
+Thu Nov 28 22:52:40 2024       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0 Off |                  Off |
+| 42%   29C    P2   104W / 450W |   9736MiB / 24564MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:23:00.0 Off |                  Off |
+| 41%   25C    P2    56W / 450W |   5062MiB / 24564MiB |     30%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  Off  | 00000000:41:00.0 Off |                  Off |
+| 41%   26C    P2    61W / 450W |   5062MiB / 24564MiB |     67%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA GeForce ...  Off  | 00000000:61:00.0 Off |                  Off |
+| 40%   25C    P2    57W / 450W |   5062MiB / 24564MiB |     62%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA GeForce ...  Off  | 00000000:81:00.0 Off |                  Off |
+| 42%   25C    P2    60W / 450W |   5062MiB / 24564MiB |     45%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA GeForce ...  Off  | 00000000:A1:00.0 Off |                  Off |
+| 41%   24C    P2    61W / 450W |   5062MiB / 24564MiB |     76%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA GeForce ...  Off  | 00000000:C1:00.0 Off |                  Off |
+| 42%   25C    P2    53W / 450W |   5062MiB / 24564MiB |     55%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA GeForce ...  Off  | 00000000:E1:00.0 Off |                  Off |
+| 39%   25C    P2    58W / 450W |   5062MiB / 24564MiB |     56%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
+|    0   N/A  N/A    825000      C   ...nda3/envs/py39/bin/python     4674MiB |
+|    0   N/A  N/A    834353      C   .../envs/slowfast/bin/python     5054MiB |
+|    1   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
+|    1   N/A  N/A    834354      C   .../envs/slowfast/bin/python     5054MiB |
+|    2   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
+|    2   N/A  N/A    834358      C   .../envs/slowfast/bin/python     5054MiB |
+|    3   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
+|    3   N/A  N/A    834359      C   .../envs/slowfast/bin/python     5054MiB |
+|    4   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
+|    4   N/A  N/A    834360      C   .../envs/slowfast/bin/python     5054MiB |
+|    5   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
+|    5   N/A  N/A    834365      C   .../envs/slowfast/bin/python     5054MiB |
+|    6   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
+|    6   N/A  N/A    834368      C   .../envs/slowfast/bin/python     5054MiB |
+|    7   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
+|    7   N/A  N/A    834369      C   .../envs/slowfast/bin/python     5054MiB |
++-----------------------------------------------------------------------------+
+bn 0, non bn 107, zero 199, no grad 302
+[11/28 22:52:41][INFO] train_net.py: 1038: Load from last checkpoint.
+[11/28 22:52:41][INFO] checkpoint.py:  222: Loading network weights from /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00001.pyth.
+Traceback (most recent call last):
+  File "tools/run_net.py", line 56, in <module>
+    main()
+  File "tools/run_net.py", line 32, in main
+    launch_job(cfg=cfg, init_method=args.init_method, func=train)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/utils/misc.py", line 416, in launch_job
+    torch.multiprocessing.spawn(
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 240, in spawn
+    return start_processes(fn, args, nprocs, join, daemon, start_method='spawn')
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 198, in start_processes
+    while not context.join():
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 160, in join
+    raise ProcessRaisedException(msg, error_index, failed_process.pid)
+torch.multiprocessing.spawn.ProcessRaisedException: 
+
+-- Process 7 terminated with the following error:
+Traceback (most recent call last):
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 69, in _wrap
+    fn(i, *args)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/utils/multiprocessing.py", line 60, in run
+    ret = func(cfg)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/tools/train_net.py", line 1041, in train
+    checkpoint_epoch = cu.load_checkpoint(
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/utils/checkpoint.py", line 298, in load_checkpoint
+    checkpoint = torch.load(f, map_location="cpu")
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+

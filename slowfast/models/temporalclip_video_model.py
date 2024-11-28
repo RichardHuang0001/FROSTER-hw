@@ -164,6 +164,7 @@ class TemporalClipVideo(nn.Module):
                     num_experts=cfg.MODEL.NUM_EXPERTS, expert_insert_layers=cfg.MODEL.EXPERT_INSERT_LAYERS,
                     record_routing=cfg.MODEL.RECORD_ROUTING, routing_type=cfg.MODEL.ROUTING_TYPE
                     )
+            # 2. 如果需要知识蒸馏，加载原始CLIP模型
             if cfg.MODEL.KEEP_RAW_MODEL:   
                 self.raw_model, self.preprocess = load("ViT-B/16", jit=False, 
                         T=cfg.DATA.NUM_FRAMES, temporal_modeling_type=None,
@@ -171,6 +172,7 @@ class TemporalClipVideo(nn.Module):
                         num_experts=cfg.MODEL.NUM_EXPERTS, expert_insert_layers=cfg.MODEL.EXPERT_INSERT_LAYERS,
                         record_routing=cfg.MODEL.RECORD_ROUTING, routing_type=cfg.MODEL.ROUTING_TYPE
                         )
+                # 冻结原始模型参数
                 for name, p in self.raw_model.named_parameters():
                     p.requires_grad = False
                 

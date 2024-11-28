@@ -1,0 +1,4 @@
+
+执行训练脚本并把输出重定向到log文件
+
+bash script/training/temporal_b16/train_clip_B2N_hmdb.sh > temp_output.log 2>&1

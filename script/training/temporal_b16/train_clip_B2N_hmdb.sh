@@ -1,14 +1,21 @@
 ROOT=/mnt/SSD8T/home/huangwei/projects/FROSTER
 CKPT=$ROOT/checkpoints
 
+# B2N_hmdb文件夹包含了训练所需的标签文件
+B2N_hmdb_file=B2N_hmdb
+# 可以选择train_1.csv、train_2.csv或train_3.csv
+TRAIN_FILE=train.csv 
+VAL_FILE=val.csv
+TEST_FILE=test.csv
+
 cd $ROOT
 
 TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \
-  --cfg configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml \
+  --cfg configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml\
   --opts DATA.PATH_TO_DATA_DIR $ROOT/zs_label_db/B2N_hmdb \
   DATA.PATH_PREFIX $ROOT/data/hmdb51 \
-  TRAIN_FILE train_1.csv \
-  VAL_FILE val_1.csv \
+  TRAIN_FILE train.csv \
+  VAL_FILE val.csv \
   TEST_FILE test.csv \
   DATA.PATH_LABEL_SEPARATOR , \
   DATA.INDEX_LABEL_MAPPING_FILE $ROOT/zs_label_db/B2N_hmdb/train_rephrased.json \
@@ -39,13 +46,3 @@ TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \
   MODEL.RAW_MODEL_DISTILLATION True \
   MODEL.KEEP_RAW_MODEL True \
   MODEL.DISTILLATION_RATIO 2.0
-
-  MODEL.TEMPORAL_MODELING_TYPE 'expand_temporal_view' \  # 时序建模类型
-  MODEL.USE_CHECKPOINT False \  # 是否使用梯度检查点
-  MODEL.STATIC_GRAPH True  # 使用静态计算图
-
-  # 建议添加以下配置
-  DATA.DECODING_SHORT_SIZE 256  # 视频解码尺寸
-  DATA.RANDOM_FLIP True  # 数据增强
-  DATA.NUM_FRAMES 8  # 每个片段的帧数
-  DATA.SAMPLING_RATE 16  # 采样率
