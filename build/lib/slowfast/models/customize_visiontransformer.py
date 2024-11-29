@@ -9,7 +9,7 @@ from .clip.model import LayerNorm, QuickGELU
 from .torch_utils import activation
 
 
-# TYPE 1: expand temporal attention view
+# TYPE 1: expand temporal attention view  默认的配置文件中使用这个
 class TimesAttentionBlock(nn.Module):
     def __init__(self, d_model: int, n_head: int, attn_mask: torch.Tensor = None, T=0, temporal_modeling_type='expand_temporal_view'):
         super().__init__()

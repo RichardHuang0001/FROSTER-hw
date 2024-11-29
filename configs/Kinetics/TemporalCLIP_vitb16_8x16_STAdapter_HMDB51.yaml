@@ -54,7 +54,7 @@ MODEL:
   RAW_MODEL_DISTILLATION: False
   DISTILLATION_RATIO: 2.0
 TEST:
-  ENABLE: True
+  ENABLE: True # 关闭测试,原本是True的，为了debug
   DATASET: kinetics
   BATCH_SIZE: 64
   NUM_SPATIAL_CROPS: 1

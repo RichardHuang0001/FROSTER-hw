@@ -1,0 +1,105 @@
+absl-py==2.1.0
+antlr4-python3-runtime==4.9.3
+autocommand==2.2.2
+av @ file:///home/conda/feedstock_root/build_artifacts/av_1721561957838/work
+backports.tarfile==1.2.0
+beautifulsoup4==4.12.3
+black==24.8.0
+Brotli @ file:///croot/brotli-split_1714483155106/work
+cachetools==5.5.0
+certifi @ file:///home/conda/feedstock_root/build_artifacts/certifi_1725278078093/work/certifi
+charset-normalizer @ file:///croot/charset-normalizer_1721748349566/work
+click==8.1.7
+cloudpickle==3.1.0
+contourpy==1.1.1
+cycler==0.12.1
+decorator==4.4.2
+-e git+https://github.com/facebookresearch/detectron2.git@c69939aa85460e8135f40bce908a6cddaa73065f#egg=detectron2
+fairscale @ git+https://github.com/facebookresearch/fairscale@5f484b3545f27eddb19d970fbe1d361b9c5f2b07
+filelock==3.16.1
+fonttools==4.55.0
+fsspec==2024.10.0
+ftfy==6.2.3
+fvcore==0.1.5.post20221221
+gdown==5.2.0
+google-auth==2.36.0
+google-auth-oauthlib==1.0.0
+grpcio==1.68.0
+huggingface-hub==0.26.2
+hydra-core==1.3.2
+idna @ file:///croot/idna_1714398848350/work
+imageio==2.35.1
+imageio-ffmpeg==0.5.1
+importlib_metadata==8.5.0
+importlib_resources==6.4.5
+inflect==7.3.1
+iopath==0.1.9
+jaraco.collections==5.1.0
+jaraco.context==5.3.0
+jaraco.functools==4.0.1
+jaraco.text==3.12.1
+joblib==1.4.2
+kiwisolver==1.4.7
+Markdown==3.7
+MarkupSafe==2.1.5
+matplotlib==3.7.5
+mkl-fft @ file:///croot/mkl_fft_1695058164594/work
+mkl-random @ file:///croot/mkl_random_1695059800811/work
+mkl-service==2.4.0
+more-itertools==10.3.0
+moviepy==1.0.3
+mypy-extensions==1.0.0
+networkx==3.1
+numpy @ file:///work/mkl/numpy_and_numpy_base_1682953417311/work
+oauthlib==3.2.2
+omegaconf==2.3.0
+opencv-python==4.10.0.84
+packaging==24.2
+pandas==2.0.3
+parameterized==0.9.0
+pathspec==0.12.1
+pillow @ file:///croot/pillow_1721059439630/work
+platformdirs==4.3.6
+portalocker==3.0.0
+proglog==0.1.10
+protobuf==5.28.3
+psutil==6.1.0
+pyasn1==0.6.1
+pyasn1_modules==0.4.1
+pycocotools==2.0.7
+pyparsing==3.1.4
+PySocks @ file:///tmp/build/80754af9/pysocks_1605305779399/work
+python-dateutil==2.9.0.post0
+pytorchvideo @ git+https://github.com/facebookresearch/pytorchvideo@e02c17b480f4b2a70a000df4e1aaf9d45fdaefb5
+pytz==2024.2
+PyYAML==6.0.2
+regex==2024.11.6
+requests @ file:///croot/requests_1721410876868/work
+requests-oauthlib==2.0.0
+rsa==4.9
+safetensors==0.4.5
+scikit-learn==1.3.2
+scipy==1.10.1
+simplejson==3.19.3
+six==1.16.0
+-e git+ssh://git@github.com/RichardHuang0001/FROSTER-learn.git@c4215c7ddc98cb6105572de806b4d8553ef25fde#egg=slowfast
+soupsieve==2.6
+tabulate==0.9.0
+tensorboard==2.14.0
+tensorboard-data-server==0.7.2
+termcolor==2.4.0
+threadpoolctl==3.5.0
+timm==1.0.11
+tomli==2.1.0
+torch==1.11.0
+torchaudio==0.11.0
+torchvision==0.12.0
+tqdm==4.67.0
+typeguard==4.3.0
+typing_extensions @ file:///croot/typing_extensions_1715268824938/work
+tzdata==2024.2
+urllib3 @ file:///croot/urllib3_1727769808118/work
+wcwidth==0.2.13
+Werkzeug==3.0.6
+yacs==0.1.8
+zipp==3.20.2

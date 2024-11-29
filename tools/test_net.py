@@ -141,7 +141,11 @@ def perform_test(test_loader, model, test_meter, cfg, writer=None):
             else:
                 preds = model(inputs)
         # Gather all the predictions across all the devices to perform ensemble.
-        if cfg.NUM_GPUS > 1:
+        if cfg.NUM_GPUS > 1:  #如果单卡训练是否能避免这个bug？  可能是因为pytorch版本、cuda版本不同引发的
+
+            #这里报了个错误，expected tuple of Tensors, but got tuple of Tuples
+            #在调用 all_gather 之前，打印 preds, labels, video_idx 的类型，确保它们都是张量。
+            print(f"type of preds: {type(preds)}, type of labels: {type(labels)}, type of video_idx: {type(video_idx)}")
             preds, labels, video_idx = du.all_gather([preds, labels, video_idx])
             """
             if cfg.MODEL.RECORD_ROUTING:
