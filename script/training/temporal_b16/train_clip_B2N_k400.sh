@@ -1,5 +1,5 @@
-ROOT=PATH_TO_FROSTER_WORKSPACE
-CKPT=PATH_TO_FROSTER_WORKSPACE
+ROOT=/mnt/SSD8T/home/huangwei/projects/FROSTER
+CKPT=$ROOT/checkpoints
 
 # TRAIN_FILE can be set as train_1.csv or train_2.csv or train_3.csv;
 
