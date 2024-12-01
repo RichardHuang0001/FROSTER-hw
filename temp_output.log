@@ -1,7 +1,7 @@
 nohup: ignoring input
 config files: ['configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml']
-[12/01 09:48:13][INFO] train_net.py:  937: --Train with config:
-[12/01 09:48:13][INFO] train_net.py:  938: {'AUG': {'AA_TYPE': 'rand-m7-n4-mstd0.5-inc1',
+[12/01 21:51:18][INFO] train_net.py:  937: --Train with config:
+[12/01 21:51:18][INFO] train_net.py:  938: {'AUG': {'AA_TYPE': 'rand-m7-n4-mstd0.5-inc1',
          'COLOR_JITTER': 0.4,
          'ENABLE': False,
          'GEN_MASK_LOADER': False,
@@ -30,7 +30,7 @@ config files: ['configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml'
          'TEST_LISTS': ['val.csv'],
          'TEST_PREDICT_BOX_LISTS': ['ava_val_predicted_boxes.csv'],
          'TRAIN_GT_BOX_LISTS': ['ava_train_v2.2.csv'],
-         'TRAIN_LISTS': ['train.csv'],
+         'TRAIN_LISTS': ['train_all.csv'],
          'TRAIN_PCA_JITTER_ONLY': True,
          'TRAIN_PREDICT_BOX_LISTS': [],
          'TRAIN_USE_COLOR_AUGMENTATION': False},
@@ -287,7 +287,7 @@ config files: ['configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml'
                        [[1, 2, 2], [1, 2, 2]],
                        [[1, 2, 2], [1, 2, 2]],
                        [[1, 2, 2], [1, 2, 2]]]},
- 'NUM_GPUS': 8,
+ 'NUM_GPUS': 4,
  'NUM_SHARDS': 1,
  'OUTPUT_DIR': '/mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster',
  'RESNET': {'DEPTH': 50,
@@ -359,7 +359,7 @@ config files: ['configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml'
                  'WRONG_PRED_VIS': {'ENABLE': False,
                                     'SUBSET_PATH': '',
                                     'TAG': 'Incorrectly classified videos.'}},
- 'TEST': {'BATCH_SIZE': 240,
+ 'TEST': {'BATCH_SIZE': 120,
           'CHECKPOINT_FILE_PATH': '',
           'CHECKPOINT_TYPE': 'pytorch',
           'CLIP_ORI_PATH': None,
@@ -378,7 +378,7 @@ config files: ['configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml'
  'TEST_FILE': 'test.csv',
  'TRAIN': {'ADAPT_ZS_CONS_RATIO': False,
            'AUTO_RESUME': True,
-           'BATCH_SIZE': 32,
+           'BATCH_SIZE': 16,
            'CHECKPOINT_CLEAR_NAME_PATTERN': (),
            'CHECKPOINT_EPOCH_RESET': False,
            'CHECKPOINT_FILE_PATH': '',
@@ -422,10 +422,10 @@ config files: ['configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml'
          'DIM_C5': 2048,
          'SCALE_RES2': False,
          'WIDTH_FACTOR': 1.0}}
-[12/01 09:48:21][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
-[12/01 09:48:35][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
-[12/01 09:48:41][INFO] train_net.py:  946: total trainable parameters:
-[12/01 09:48:41][INFO] train_net.py:  947: ['module.model.positional_embedding',
+[12/01 21:51:24][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
+[12/01 21:51:37][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
+[12/01 21:51:39][INFO] train_net.py:  946: total trainable parameters:
+[12/01 21:51:39][INFO] train_net.py:  947: ['module.model.positional_embedding',
  'module.model.text_projection',
  'module.model.logit_scale',
  'module.model.visual.class_embedding',
@@ -731,7 +731,7 @@ config files: ['configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml'
  'module.projector_v.2.weight',
  'module.projector_t.0.weight',
  'module.projector_t.2.weight']
-[12/01 09:48:41][INFO] misc.py:  185: Model:
+[12/01 21:51:39][INFO] misc.py:  185: Model:
 DistributedDataParallel(
   (module): TemporalClipVideo(
     (model): WCLIP(
@@ -1356,10 +1356,10 @@ DistributedDataParallel(
     )
   )
 )
-[12/01 09:48:41][INFO] misc.py:  187: Params: 300,290,050
-[12/01 09:48:41][INFO] misc.py:  188: Mem: 1.6999154090881348 MB
-[12/01 09:48:41][INFO] misc.py:  197: nvidia-smi
-Sun Dec  1 09:48:41 2024       
+[12/01 21:51:39][INFO] misc.py:  187: Params: 300,290,050
+[12/01 21:51:39][INFO] misc.py:  188: Mem: 1.6999154090881348 MB
+[12/01 21:51:39][INFO] misc.py:  197: nvidia-smi
+Sun Dec  1 21:51:39 2024       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
@@ -1368,35 +1368,35 @@ Sun Dec  1 09:48:41 2024
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
 |   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0 Off |                  Off |
-| 42%   26C    P2    59W / 450W |   5062MiB / 24564MiB |     36%      Default |
+| 42%   34C    P2    62W / 450W |  20560MiB / 24564MiB |     56%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   1  NVIDIA GeForce ...  Off  | 00000000:23:00.0 Off |                  Off |
-| 41%   26C    P2    54W / 450W |   5062MiB / 24564MiB |     33%      Default |
+| 42%   32C    P2    94W / 450W |   7834MiB / 24564MiB |     66%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   2  NVIDIA GeForce ...  Off  | 00000000:41:00.0 Off |                  Off |
-| 41%   34C    P2    93W / 450W |   9414MiB / 24564MiB |     78%      Default |
+| 41%   34C    P2    97W / 450W |   7626MiB / 24564MiB |     42%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   3  NVIDIA GeForce ...  Off  | 00000000:61:00.0 Off |                  Off |
-| 40%   27C    P2    57W / 450W |   5062MiB / 24564MiB |     68%      Default |
+| 40%   29C    P2    60W / 450W |   8126MiB / 24564MiB |      1%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   4  NVIDIA GeForce ...  Off  | 00000000:81:00.0 Off |                  Off |
-| 42%   27C    P2    59W / 450W |   5062MiB / 24564MiB |     69%      Default |
+| 42%   36C    P2    89W / 450W |   3112MiB / 24564MiB |      7%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   5  NVIDIA GeForce ...  Off  | 00000000:A1:00.0 Off |                  Off |
-| 41%   34C    P2    94W / 450W |   8372MiB / 24564MiB |     67%      Default |
+| 41%   22C    P8    23W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   6  NVIDIA GeForce ...  Off  | 00000000:C1:00.0 Off |                  Off |
-| 42%   33C    P2    91W / 450W |   8374MiB / 24564MiB |     36%      Default |
+| 42%   23C    P8    15W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   7  NVIDIA GeForce ...  Off  | 00000000:E1:00.0 Off |                  Off |
-| 40%   35C    P2    91W / 450W |   8890MiB / 24564MiB |     71%      Default |
+| 40%   22C    P8    17W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -1406,1891 +1406,406 @@ Sun Dec  1 09:48:41 2024
 |        ID   ID                                                   Usage      |
 |=============================================================================|
 |    0   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    0   N/A  N/A    947459      C   .../envs/slowfast/bin/python     5054MiB |
+|    0   N/A  N/A   2427836      C   ...nda3/envs/py39/bin/python    15498MiB |
+|    0   N/A  N/A   2817619      C   .../envs/slowfast/bin/python     5054MiB |
 |    1   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    1   N/A  N/A    947463      C   .../envs/slowfast/bin/python     5054MiB |
+|    1   N/A  N/A   2728153      C   python                           2772MiB |
+|    1   N/A  N/A   2817620      C   .../envs/slowfast/bin/python     5054MiB |
 |    2   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    2   N/A  N/A    947464      C   .../envs/slowfast/bin/python     5054MiB |
-|    2   N/A  N/A   1941948      C   ...onda3/envs/AD/bin/python3     4352MiB |
+|    2   N/A  N/A   2753319      C   python                           2564MiB |
+|    2   N/A  N/A   2817621      C   .../envs/slowfast/bin/python     5054MiB |
 |    3   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    3   N/A  N/A    947465      C   .../envs/slowfast/bin/python     5054MiB |
+|    3   N/A  N/A     63955      C   python                           3064MiB |
+|    3   N/A  N/A   2817623      C   .../envs/slowfast/bin/python     5054MiB |
 |    4   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    4   N/A  N/A    947466      C   .../envs/slowfast/bin/python     5054MiB |
+|    4   N/A  N/A     92462      C   python                           3104MiB |
 |    5   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    5   N/A  N/A    947476      C   .../envs/slowfast/bin/python     5054MiB |
-|    5   N/A  N/A   3289638      C   python                           3310MiB |
 |    6   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    6   N/A  N/A    947477      C   .../envs/slowfast/bin/python     5054MiB |
-|    6   N/A  N/A   3225251      C   python                           3312MiB |
 |    7   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    7   N/A  N/A    947478      C   .../envs/slowfast/bin/python     5054MiB |
-|    7   N/A  N/A   3210639      C   python                           3828MiB |
 +-----------------------------------------------------------------------------+
 bn 0, non bn 107, zero 199, no grad 302
-[12/01 09:48:42][INFO] train_net.py: 1038: Load from last checkpoint.
-[12/01 09:48:42][INFO] checkpoint.py:  222: Loading network weights from /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00012.pyth.
+[12/01 21:51:40][INFO] train_net.py: 1038: Load from last checkpoint.
+[12/01 21:51:40][INFO] checkpoint.py:  222: Loading network weights from /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00001.pyth.
 missing keys: []
 unexpected keys: []
-[12/01 09:48:51][INFO] kinetics.py:   94: Constructing Kinetics train...
+[12/01 21:51:47][INFO] kinetics.py:   94: Constructing Kinetics train...
 path: ---------------------------- /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train.csv
-[12/01 09:48:51][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 412 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train.csv 
-[12/01 09:48:51][INFO] kinetics.py:   94: Constructing Kinetics val...
+[12/01 21:51:47][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 416 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train.csv 
+[12/01 21:51:47][INFO] kinetics.py:   94: Constructing Kinetics val...
 path: ---------------------------- /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/val.csv
-[12/01 09:48:51][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 780 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/val.csv 
-[12/01 09:48:51][INFO] kinetics.py:   94: Constructing Kinetics train...
+[12/01 21:51:47][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 780 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/val.csv 
+[12/01 21:51:47][INFO] kinetics.py:   94: Constructing Kinetics train...
 path: ---------------------------- /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train.csv
-[12/01 09:48:51][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 412 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train.csv 
-[12/01 09:48:51][INFO] train_net.py: 1129: Start epoch: 13
-[12/01 09:49:31][INFO] logging.py:   99: json_stats: {"_type": "val_iter", "epoch": "13/12", "eta": "0:00:07", "gpu_mem": "3.54G", "iter": "10/25", "time_diff": 0.49485263, "top1_err": 23.43750000, "top5_err": 4.68750000}
-[12/01 09:49:36][INFO] logging.py:   99: json_stats: {"_type": "val_iter", "epoch": "13/12", "eta": "0:00:02", "gpu_mem": "3.54G", "iter": "20/25", "time_diff": 0.50884186, "top1_err": 28.12500000, "top5_err": 3.12500000}
-[12/01 09:49:41][INFO] logging.py:   99: json_stats: {"RAM": "113.62/251.74G", "_type": "val_epoch", "epoch": "13/12", "gpu_mem": "3.54G", "min_top1_err": 27.04081633, "min_top5_err": 4.97448980, "time_diff": 2.06229950, "top1_err": 27.04081633, "top5_err": 4.97448980}
-[12/01 09:49:41][INFO] train_net.py: 1438: training done: _p300.29_f10.00 _t0.00_m3.54 _a72.96 Top5 Acc: 95.03 MEM: 3.54 f: 10.0000
-[12/01 09:49:50][INFO] test_net.py:  319: Test with config:
-[12/01 09:49:50][INFO] test_net.py:  320: AUG:
-  AA_TYPE: rand-m7-n4-mstd0.5-inc1
-  COLOR_JITTER: 0.4
-  ENABLE: False
-  GEN_MASK_LOADER: False
-  INTERPOLATION: bicubic
-  MASK_FRAMES: False
-  MASK_RATIO: 0.0
-  MASK_TUBE: False
-  MASK_WINDOW_SIZE: [8, 7, 7]
-  MAX_MASK_PATCHES_PER_BLOCK: None
-  NUM_SAMPLE: 1
-  RE_COUNT: 1
-  RE_MODE: pixel
-  RE_PROB: 0.25
-  RE_SPLIT: False
-AVA:
-  ANNOTATION_DIR: /mnt/vol/gfsai-flash3-east/ai-group/users/haoqifan/ava/frame_list/
-  BGR: False
-  DETECTION_SCORE_THRESH: 0.9
-  EXCLUSION_FILE: ava_val_excluded_timestamps_v2.2.csv
-  FRAME_DIR: /mnt/fair-flash3-east/ava_trainval_frames.img/
-  FRAME_LIST_DIR: /mnt/vol/gfsai-flash3-east/ai-group/users/haoqifan/ava/frame_list/
-  FULL_TEST_ON_VAL: False
-  GROUNDTRUTH_FILE: ava_val_v2.2.csv
-  IMG_PROC_BACKEND: cv2
-  LABEL_MAP_FILE: ava_action_list_v2.2_for_activitynet_2019.pbtxt
-  TEST_FORCE_FLIP: False
-  TEST_LISTS: ['val.csv']
-  TEST_PREDICT_BOX_LISTS: ['ava_val_predicted_boxes.csv']
-  TRAIN_GT_BOX_LISTS: ['ava_train_v2.2.csv']
-  TRAIN_LISTS: ['train.csv']
-  TRAIN_PCA_JITTER_ONLY: True
-  TRAIN_PREDICT_BOX_LISTS: []
-  TRAIN_USE_COLOR_AUGMENTATION: False
-BENCHMARK:
-  LOG_PERIOD: 100
-  NUM_EPOCHS: 5
-  SHUFFLE: True
-BN:
-  GLOBAL_SYNC: False
-  NORM_TYPE: batchnorm
-  NUM_BATCHES_PRECISE: 200
-  NUM_SPLITS: 1
-  NUM_SYNC_DEVICES: 1
-  USE_PRECISE_STATS: False
-  WEIGHT_DECAY: 0.0
-CONTRASTIVE:
-  BN_MLP: False
-  BN_SYNC_MLP: False
-  DELTA_CLIPS_MAX: inf
-  DELTA_CLIPS_MIN: -inf
-  DIM: 128
-  INTERP_MEMORY: False
-  KNN_ON: True
-  LENGTH: 239975
-  LOCAL_SHUFFLE_BN: True
-  MEM_TYPE: 1d
-  MLP_DIM: 2048
-  MOCO_MULTI_VIEW_QUEUE: False
-  MOMENTUM: 0.5
-  MOMENTUM_ANNEALING: False
-  NUM_CLASSES_DOWNSTREAM: 400
-  NUM_MLP_LAYERS: 1
-  PREDICTOR_DEPTHS: []
-  QUEUE_LEN: 65536
-  SEQUENTIAL: False
-  SIMCLR_DIST_ON: True
-  SWAV_QEUE_LEN: 0
-  T: 0.07
-  TYPE: mem
-DATA:
-  COLOR_RND_GRAYSCALE: 0.0
-  DECODING_BACKEND: pyav
-  DECODING_SHORT_SIZE: 256
-  DUMMY_LOAD: False
-  ENSEMBLE_METHOD: sum
-  IN22K_TRAINVAL: False
-  IN22k_VAL_IN1K: 
-  INDEX_LABEL_MAPPING_FILE: /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train_rephrased.json
-  INPUT_CHANNEL_NUM: [3]
-  INV_UNIFORM_SAMPLE: False
-  IN_VAL_CROP_RATIO: 0.875
-  LOADER_CHUNK_OVERALL_SIZE: 0
-  LOADER_CHUNK_SIZE: 0
-  MEAN: [0.48145466, 0.4578275, 0.40821073]
-  MULTI_LABEL: False
-  NUM_FRAMES: 8
-  PATH_LABEL_SEPARATOR: ,
-  PATH_PREFIX: /mnt/SSD8T/home/huangwei/projects/FROSTER/data/hmdb51
-  PATH_TO_DATA_DIR: /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb
-  PATH_TO_PRELOAD_IMDB: 
-  RANDOM_FLIP: True
-  REVERSE_INPUT_CHANNEL: False
-  SAMPLING_RATE: 16
-  SKIP_ROWS: 0
-  SSL_BLUR_SIGMA_MAX: [0.0, 2.0]
-  SSL_BLUR_SIGMA_MIN: [0.0, 0.1]
-  SSL_COLOR_BRI_CON_SAT: [0.4, 0.4, 0.4]
-  SSL_COLOR_HUE: 0.1
-  SSL_COLOR_JITTER: False
-  SSL_MOCOV2_AUG: False
-  STD: [0.26862954, 0.26130258, 0.27577711]
-  TARGET_FPS: 30
-  TEST_CROP_SIZE: 224
-  TIME_DIFF_PROB: 0.0
-  TRAIN_CROP_NUM_SPATIAL: 1
-  TRAIN_CROP_NUM_TEMPORAL: 1
-  TRAIN_CROP_SIZE: 224
-  TRAIN_JITTER_ASPECT_RELATIVE: []
-  TRAIN_JITTER_FPS: 0.0
-  TRAIN_JITTER_MOTION_SHIFT: False
-  TRAIN_JITTER_SCALES: [224, 256]
-  TRAIN_JITTER_SCALES_RELATIVE: []
-  TRAIN_PCA_EIGVAL: [0.225, 0.224, 0.229]
-  TRAIN_PCA_EIGVEC: [[-0.5675, 0.7192, 0.4009], [-0.5808, -0.0045, -0.814], [-0.5836, -0.6948, 0.4203]]
-  USE_OFFSET_SAMPLING: True
-DATA_LOADER:
-  ENABLE_MULTI_THREAD_DECODE: False
-  NUM_WORKERS: 8
-  PIN_MEMORY: True
-DEMO:
-  BUFFER_SIZE: 0
-  CLIP_VIS_SIZE: 10
-  COMMON_CLASS_NAMES: ['watch (a person)', 'talk to (e.g., self, a person, a group)', 'listen to (a person)', 'touch (an object)', 'carry/hold (an object)', 'walk', 'sit', 'lie/sleep', 'bend/bow (at the waist)']
-  COMMON_CLASS_THRES: 0.7
-  DETECTRON2_CFG: COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml
-  DETECTRON2_THRESH: 0.9
-  DETECTRON2_WEIGHTS: detectron2://COCO-Detection/faster_rcnn_R_50_FPN_3x/137849458/model_final_280758.pkl
-  DISPLAY_HEIGHT: 0
-  DISPLAY_WIDTH: 0
-  ENABLE: False
-  FPS: 30
-  GT_BOXES: 
-  INPUT_FORMAT: BGR
-  INPUT_VIDEO: 
-  LABEL_FILE_PATH: 
-  NUM_CLIPS_SKIP: 0
-  NUM_VIS_INSTANCES: 2
-  OUTPUT_FILE: 
-  OUTPUT_FPS: -1
-  PREDS_BOXES: 
-  SLOWMO: 1
-  STARTING_SECOND: 900
-  THREAD_ENABLE: False
-  UNCOMMON_CLASS_THRES: 0.3
-  VIS_MODE: thres
-  WEBCAM: -1
-DETECTION:
-  ALIGNED: True
-  ENABLE: False
-  ROI_XFORM_RESOLUTION: 7
-  SPATIAL_SCALE_FACTOR: 16
-DIST_BACKEND: nccl
-IMAGENET_SIMPLELABEL_PATH: None
-LOG_MODEL_INFO: True
-LOG_PERIOD: 10
-MASK:
-  DECODER_DEPTH: 0
-  DECODER_EMBED_DIM: 512
-  DECODER_SEP_POS_EMBED: False
-  DEC_KV_KERNEL: []
-  DEC_KV_STRIDE: []
-  ENABLE: False
-  HEAD_TYPE: separate
-  MAE_ON: False
-  MAE_RND_MASK: False
-  NORM_PRED_PIXEL: True
-  PER_FRAME_MASKING: False
-  PRED_HOG: False
-  PRETRAIN_DEPTH: [15]
-  SCALE_INIT_BY_DEPTH: False
-  TIME_STRIDE_LOSS: True
-MIXUP:
-  ALPHA: 0.8
-  CUTMIX_ALPHA: 1.0
-  ENABLE: False
-  LABEL_SMOOTH_VALUE: 0.1
-  PROB: 1.0
-  SWITCH_PROB: 0.5
-MODEL:
-  ACT_CHECKPOINT: False
-  ADAPT_FINETUNE_FACTOR: 1.0
-  ARCH: vitb16
-  CLS_LOSS_RATIO: 1.0
-  CONTEXT_LENGTH: 77
-  DEFAULT_FINETUNE_FACTOR: 1.0
-  DETACH_FINAL_FC: False
-  DISTILLATION_RATIO: 2.0
-  DROPCONNECT_RATE: 0.0
-  DROPOUT_RATE: 0.5
-  ENSEMBLE_PRED: False
-  ENSEMBLE_RAWMODEL_RATIO: 0.0
-  EXPERT_FINETUNE_FACTOR: 1.0
-  EXPERT_INSERT_LAYERS: [10, 11]
-  FC_INIT_STD: 0.01
-  FINETUNE_FACTOR: 1.0
-  FP16_ALLREDUCE: False
-  FROZEN_BN: False
-  HEAD_ACT: softmax
-  KEEP_RAW_MODEL: True
-  LOSS_FREQ_TYPE: mse
-  LOSS_FUNC: soft_cross_entropy
-  MLP_FINETUNE_FACTOR: 1.0
-  MODEL_NAME: TemporalClipVideo
-  MULTI_PATHWAY_ARCH: ['slowfast']
-  NUM_CLASSES: 26
-  NUM_EXPERTS: 0
-  PROMPT_NUM: 1
-  RAW_MODEL_DISTILLATION: True
-  RECORD_ROUTING: False
-  ROUTING_FINETUNE_FACTOR: 1.0
-  ROUTING_FREQUENCE_CONSTRAIN: 0.5
-  ROUTING_FREQ_CONS_FACTOR: 1.0
-  ROUTING_TYPE: patch-level
-  SINGLE_PATHWAY_ARCH: ['2d', 'c2d', 'i3d', 'slow', 'x3d', 'mvit', 'maskmvit', 'vitb32', 'vitb16', 'vitl14']
-  STATIC_GRAPH: False
-  TEMPORAL_MODELING_TYPE: expand_temporal_view
-  TEXT_PROMPT: False
-  USE_CHECKPOINT: False
-MULTIGRID:
-  BN_BASE_SIZE: 8
-  DEFAULT_B: 0
-  DEFAULT_S: 0
-  DEFAULT_T: 0
-  EPOCH_FACTOR: 1.5
-  EVAL_FREQ: 3
-  LONG_CYCLE: False
-  LONG_CYCLE_FACTORS: [(0.25, 0.7071067811865476), (0.5, 0.7071067811865476), (0.5, 1), (1, 1)]
-  LONG_CYCLE_SAMPLING_RATE: 0
-  SHORT_CYCLE: False
-  SHORT_CYCLE_FACTORS: [0.5, 0.7071067811865476]
-MVIT:
-  CLS_EMBED_ON: True
-  DEPTH: 16
-  DIM_MUL: []
-  DIM_MUL_IN_ATT: False
-  DROPOUT_RATE: 0.0
-  DROPPATH_RATE: 0.1
-  EMBED_DIM: 96
-  HEAD_INIT_SCALE: 1.0
-  HEAD_MUL: []
-  LAYER_SCALE_INIT_VALUE: 0.0
-  MLP_RATIO: 4.0
-  MODE: conv
-  NORM: layernorm
-  NORM_STEM: False
-  NUM_HEADS: 1
-  PATCH_2D: False
-  PATCH_KERNEL: [3, 7, 7]
-  PATCH_PADDING: [2, 4, 4]
-  PATCH_STRIDE: [2, 4, 4]
-  POOL_FIRST: False
-  POOL_KVQ_KERNEL: None
-  POOL_KV_STRIDE: []
-  POOL_KV_STRIDE_ADAPTIVE: None
-  POOL_Q_STRIDE: []
-  QKV_BIAS: True
-  REL_POS_SPATIAL: False
-  REL_POS_TEMPORAL: False
-  REL_POS_ZERO_INIT: False
-  RESIDUAL_POOLING: False
-  REV:
-    BUFFER_LAYERS: []
-    ENABLE: False
-    PRE_Q_FUSION: avg
-    RESPATH_FUSE: concat
-    RES_PATH: conv
-  SEPARATE_QKV: False
-  SEP_POS_EMBED: False
-  USE_ABS_POS: True
-  USE_FIXED_SINCOS_POS: False
-  USE_MEAN_POOLING: False
-  ZERO_DECAY_POS_CLS: True
-NONLOCAL:
-  GROUP: [[1], [1], [1], [1]]
-  INSTANTIATION: dot_product
-  LOCATION: [[[]], [[]], [[]], [[]]]
-  POOL: [[[1, 2, 2], [1, 2, 2]], [[1, 2, 2], [1, 2, 2]], [[1, 2, 2], [1, 2, 2]], [[1, 2, 2], [1, 2, 2]]]
-NUM_GPUS: 8
-NUM_SHARDS: 1
-OUTPUT_DIR: /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster
-RESNET:
-  DEPTH: 50
-  INPLACE_RELU: True
-  NUM_BLOCK_TEMP_KERNEL: [[3], [4], [6], [3]]
-  NUM_GROUPS: 1
-  SPATIAL_DILATIONS: [[1], [1], [1], [1]]
-  SPATIAL_STRIDES: [[1], [2], [2], [2]]
-  STRIDE_1X1: False
-  TRANS_FUNC: bottleneck_transform
-  WIDTH_PER_GROUP: 64
-  ZERO_INIT_FINAL_BN: False
-  ZERO_INIT_FINAL_CONV: False
-RNG_SEED: 0
-SHARD_ID: 0
-SLOWFAST:
-  ALPHA: 8
-  BETA_INV: 8
-  FUSION_CONV_CHANNEL_RATIO: 2
-  FUSION_KERNEL_SZ: 5
-SOLVER:
-  BASE_LR: 3.33e-06
-  BASE_LR_SCALE_NUM_SHARDS: True
-  BETAS: (0.9, 0.999)
-  CLIP_GRAD_L2NORM: 1.0
-  CLIP_GRAD_VAL: None
-  COSINE_AFTER_WARMUP: True
-  COSINE_END_LR: 3.33e-08
-  COSINE_RESTART_EPOCH: 0
-  DAMPENING: 0.0
-  GAMMA: 0.1
-  LARS_ON: False
-  LAYER_DECAY: 1.0
-  LRS: []
-  LR_POLICY: cosine
-  MAX_EPOCH: 12
-  MOMENTUM: 0.9
-  NESTEROV: True
-  OPTIMIZING_METHOD: adamw
-  STEPS: []
-  STEP_SIZE: 1
-  WARMUP_EPOCHS: 2.0
-  WARMUP_FACTOR: 0.1
-  WARMUP_START_LR: 3.33e-08
-  WEIGHT_DECAY: 0.01
-  ZERO_WD_1D_PARAM: True
-TASK: 
-TENSORBOARD:
-  CATEGORIES_PATH: 
-  CLASS_NAMES_PATH: 
-  CONFUSION_MATRIX:
-    ENABLE: False
-    FIGSIZE: [8, 8]
-    SUBSET_PATH: 
-  ENABLE: False
-  HISTOGRAM:
-    ENABLE: False
-    FIGSIZE: [8, 8]
-    SUBSET_PATH: 
-    TOPK: 10
-  LOG_DIR: 
-  MODEL_VIS:
-    ACTIVATIONS: False
-    COLORMAP: Pastel2
-    ENABLE: False
-    GRAD_CAM:
-      COLORMAP: viridis
-      ENABLE: True
-      LAYER_LIST: []
-      USE_TRUE_LABEL: False
-    INPUT_VIDEO: False
-    LAYER_LIST: []
-    MODEL_WEIGHTS: False
-    TOPK_PREDS: 1
-  PREDICTIONS_PATH: 
-  WRONG_PRED_VIS:
-    ENABLE: False
-    SUBSET_PATH: 
-    TAG: Incorrectly classified videos.
-TEST:
-  BATCH_SIZE: 240
-  CHECKPOINT_FILE_PATH: 
-  CHECKPOINT_TYPE: pytorch
-  CLIP_ORI_PATH: None
-  CUSTOM_LOAD: False
-  CUSTOM_LOAD_FILE: None
-  DATASET: kinetics
-  ENABLE: True
-  NUM_ENSEMBLE_VIEWS: 3
-  NUM_SPATIAL_CROPS: 1
-  NUM_TEMPORAL_CLIPS: [3]
-  OPENSET: False
-  PATCHING_MODEL: False
-  PATCHING_RATIO: 0.5
-  SAVE_RESULTS_PATH: 
-  UPDATE_STATE: False
-TEST_FILE: test.csv
-TRAIN:
-  ADAPT_ZS_CONS_RATIO: False
-  AUTO_RESUME: True
-  BATCH_SIZE: 32
-  CHECKPOINT_CLEAR_NAME_PATTERN: ()
-  CHECKPOINT_EPOCH_RESET: False
-  CHECKPOINT_FILE_PATH: 
-  CHECKPOINT_INFLATE: False
-  CHECKPOINT_IN_INIT: False
-  CHECKPOINT_PERIOD: 1
-  CHECKPOINT_TYPE: pytorch
-  CLIP_ORI_PATH: /mnt/SSD8T/home/huangwei/.cache/clip/ViT-B-16.pt
-  CUSTOM_LOAD: False
-  CUSTOM_LOAD_FILE: None
-  DATASET: kinetics
-  ENABLE: True
-  EVAL_PERIOD: 1
-  EWC_CONSTRAIN_RATIO: 1.0
-  EWC_IDENTITY_FISHER: False
-  EWC_IGNORE_LOGIT_SCALE: False
-  EWC_LOAD_FILE: None
-  EWC_SET: False
-  KILL_LOSS_EXPLOSION_FACTOR: 0.0
-  LINEAR_CONNECT_CLIMB: False
-  LINEAR_CONNECT_LOSS_RATIO: 0.0
-  LINEAR_CONNECT_SAMPLE: True
-  LINEAR_CONNECT_SAMPLE_L: 0.4
-  LINEAR_CONNECT_SAMPLE_R: 0.6
-  MIXED_PRECISION: True
-  ZS_CONS: False
-  ZS_CONS_RATIO: 0.8
-  ZS_INIT_CONS: False
-  ZS_RESTART_CONS: False
-  ZS_RESTART_EPOCH: -1
-TRAIN_FILE: train.csv
-TUNE_HEAD: False
-VAL_FILE: val.csv
-VAL_MODE: False
-VIS_MASK:
-  ENABLE: False
-X3D:
-  BN_LIN5: False
-  BOTTLENECK_FACTOR: 1.0
-  CHANNELWISE_3x3x3: True
-  DEPTH_FACTOR: 1.0
-  DIM_C1: 12
-  DIM_C5: 2048
-  SCALE_RES2: False
-  WIDTH_FACTOR: 1.0
-[12/01 09:49:57][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
-[12/01 09:50:09][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
-[12/01 09:50:15][INFO] checkpoint.py:  222: Loading network weights from /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00012.pyth.
-missing keys: []
-unexpected keys: []
-[12/01 09:50:16][INFO] misc.py:  185: Model:
-DistributedDataParallel(
-  (module): TemporalClipVideo(
-    (model): WCLIP(
-      (visual): TemporalVisionTransformer(
-        (conv1): Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16), bias=False)
-        (ln_pre): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-        (transformer): TSTransformer(
-          (resblocks): Sequential(
-            (0): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (1): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (2): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (3): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (4): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (5): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (6): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (7): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (8): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (9): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (10): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (11): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-          )
-        )
-        (ln_post): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-      )
-      (transformer): Transformer(
-        (resblocks): Sequential(
-          (0): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (1): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (2): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (3): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (4): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (5): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (6): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (7): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (8): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (9): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (10): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (11): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-        )
-      )
-      (token_embedding): Embedding(49408, 512)
-      (ln_final): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-    )
-    (raw_model): WCLIP(
-      (visual): TemporalVisionTransformer(
-        (conv1): Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16), bias=False)
-        (ln_pre): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-        (transformer): TSTransformer(
-          (resblocks): Sequential(
-            (0): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (1): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (2): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (3): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (4): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (5): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (6): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (7): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (8): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (9): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (10): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (11): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-          )
-        )
-        (ln_post): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-      )
-      (transformer): Transformer(
-        (resblocks): Sequential(
-          (0): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (1): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (2): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (3): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (4): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (5): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (6): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (7): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (8): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (9): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (10): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (11): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-        )
-      )
-      (token_embedding): Embedding(49408, 512)
-      (ln_final): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-    )
-    (projector_v): Sequential(
-      (0): Linear(in_features=512, out_features=512, bias=False)
-      (1): GELU()
-      (2): Linear(in_features=512, out_features=512, bias=False)
-    )
-    (projector_t): Sequential(
-      (0): Linear(in_features=512, out_features=512, bias=False)
-      (1): GELU()
-      (2): Linear(in_features=512, out_features=512, bias=False)
-    )
-  )
-)
-[12/01 09:50:16][INFO] misc.py:  187: Params: 300,290,050
-[12/01 09:50:16][INFO] misc.py:  188: Mem: 1.6999154090881348 MB
-[12/01 09:50:16][INFO] misc.py:  197: nvidia-smi
-Sun Dec  1 09:50:16 2024       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 12.0     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0 Off |                  Off |
-| 42%   28C    P2    67W / 450W |   5062MiB / 24564MiB |     22%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   1  NVIDIA GeForce ...  Off  | 00000000:23:00.0 Off |                  Off |
-| 41%   28C    P2    65W / 450W |   5062MiB / 24564MiB |      9%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   2  NVIDIA GeForce ...  Off  | 00000000:41:00.0 Off |                  Off |
-| 41%   36C    P2   116W / 450W |   9414MiB / 24564MiB |     30%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   3  NVIDIA GeForce ...  Off  | 00000000:61:00.0 Off |                  Off |
-| 40%   29C    P2    68W / 450W |   5062MiB / 24564MiB |     27%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   4  NVIDIA GeForce ...  Off  | 00000000:81:00.0 Off |                  Off |
-| 42%   29C    P2    66W / 450W |   5062MiB / 24564MiB |     14%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   5  NVIDIA GeForce ...  Off  | 00000000:A1:00.0 Off |                  Off |
-| 41%   32C    P2   113W / 450W |   8372MiB / 24564MiB |     36%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   6  NVIDIA GeForce ...  Off  | 00000000:C1:00.0 Off |                  Off |
-| 42%   39C    P2   105W / 450W |   8374MiB / 24564MiB |     28%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   7  NVIDIA GeForce ...  Off  | 00000000:E1:00.0 Off |                  Off |
-| 40%   32C    P2   113W / 450W |   8890MiB / 24564MiB |     44%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
-|=============================================================================|
-|    0   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    0   N/A  N/A    956619      C   .../envs/slowfast/bin/python     5054MiB |
-|    1   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    1   N/A  N/A    956620      C   .../envs/slowfast/bin/python     5054MiB |
-|    2   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    2   N/A  N/A    956621      C   .../envs/slowfast/bin/python     5054MiB |
-|    2   N/A  N/A   1941948      C   ...onda3/envs/AD/bin/python3     4352MiB |
-|    3   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    3   N/A  N/A    956622      C   .../envs/slowfast/bin/python     5054MiB |
-|    4   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    4   N/A  N/A    956623      C   .../envs/slowfast/bin/python     5054MiB |
-|    5   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    5   N/A  N/A    956624      C   .../envs/slowfast/bin/python     5054MiB |
-|    5   N/A  N/A   3289638      C   python                           3310MiB |
-|    6   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    6   N/A  N/A    956627      C   .../envs/slowfast/bin/python     5054MiB |
-|    6   N/A  N/A   3225251      C   python                           3312MiB |
-|    7   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    7   N/A  N/A    956630      C   .../envs/slowfast/bin/python     5054MiB |
-|    7   N/A  N/A   3210639      C   python                           3828MiB |
-+-----------------------------------------------------------------------------+
-[12/01 09:50:18][INFO] misc.py:  185: Model:
-DistributedDataParallel(
-  (module): TemporalClipVideo(
-    (model): WCLIP(
-      (visual): TemporalVisionTransformer(
-        (conv1): Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16), bias=False)
-        (ln_pre): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-        (transformer): TSTransformer(
-          (resblocks): Sequential(
-            (0): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (1): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (2): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (3): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (4): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (5): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (6): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (7): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (8): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (9): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (10): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (11): TimesAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-          )
-        )
-        (ln_post): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-      )
-      (transformer): Transformer(
-        (resblocks): Sequential(
-          (0): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (1): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (2): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (3): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (4): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (5): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (6): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (7): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (8): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (9): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (10): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (11): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-        )
-      )
-      (token_embedding): Embedding(49408, 512)
-      (ln_final): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-    )
-    (raw_model): WCLIP(
-      (visual): TemporalVisionTransformer(
-        (conv1): Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16), bias=False)
-        (ln_pre): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-        (transformer): TSTransformer(
-          (resblocks): Sequential(
-            (0): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (1): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (2): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (3): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (4): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (5): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (6): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (7): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (8): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (9): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (10): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-            (11): ResidualAttentionBlock(
-              (attn): MultiheadAttention(
-                (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
-              )
-              (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-              (mlp): Sequential(
-                (c_fc): Linear(in_features=768, out_features=3072, bias=True)
-                (gelu): QuickGELU()
-                (c_proj): Linear(in_features=3072, out_features=768, bias=True)
-              )
-              (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-            )
-          )
-        )
-        (ln_post): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-      )
-      (transformer): Transformer(
-        (resblocks): Sequential(
-          (0): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (1): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (2): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (3): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (4): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (5): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (6): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (7): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (8): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (9): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (10): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-          (11): ResidualAttentionBlock(
-            (attn): MultiheadAttention(
-              (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
-            )
-            (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-            (mlp): Sequential(
-              (c_fc): Linear(in_features=512, out_features=2048, bias=True)
-              (gelu): QuickGELU()
-              (c_proj): Linear(in_features=2048, out_features=512, bias=True)
-            )
-            (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-          )
-        )
-      )
-      (token_embedding): Embedding(49408, 512)
-      (ln_final): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
-    )
-    (projector_v): Sequential(
-      (0): Linear(in_features=512, out_features=512, bias=False)
-      (1): GELU()
-      (2): Linear(in_features=512, out_features=512, bias=False)
-    )
-    (projector_t): Sequential(
-      (0): Linear(in_features=512, out_features=512, bias=False)
-      (1): GELU()
-      (2): Linear(in_features=512, out_features=512, bias=False)
-    )
-  )
-)
-[12/01 09:50:18][INFO] misc.py:  187: Params: 300,290,050
-[12/01 09:50:18][INFO] misc.py:  188: Mem: 1.6999154090881348 MB
-[12/01 09:50:18][INFO] misc.py:  197: nvidia-smi
-Sun Dec  1 09:50:19 2024       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 12.0     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0 Off |                  Off |
-| 42%   27C    P2    57W / 450W |   5062MiB / 24564MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   1  NVIDIA GeForce ...  Off  | 00000000:23:00.0 Off |                  Off |
-| 42%   28C    P2    56W / 450W |   5062MiB / 24564MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   2  NVIDIA GeForce ...  Off  | 00000000:41:00.0 Off |                  Off |
-| 41%   34C    P2    81W / 450W |   9414MiB / 24564MiB |     22%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   3  NVIDIA GeForce ...  Off  | 00000000:61:00.0 Off |                  Off |
-| 40%   28C    P2    57W / 450W |   5062MiB / 24564MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   4  NVIDIA GeForce ...  Off  | 00000000:81:00.0 Off |                  Off |
-| 42%   28C    P2    56W / 450W |   5062MiB / 24564MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   5  NVIDIA GeForce ...  Off  | 00000000:A1:00.0 Off |                  Off |
-| 41%   33C    P2    88W / 450W |   8372MiB / 24564MiB |     17%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   6  NVIDIA GeForce ...  Off  | 00000000:C1:00.0 Off |                  Off |
-| 42%   33C    P2    90W / 450W |   8374MiB / 24564MiB |      8%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   7  NVIDIA GeForce ...  Off  | 00000000:E1:00.0 Off |                  Off |
-| 40%   35C    P2    98W / 450W |   8890MiB / 24564MiB |     17%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
-|=============================================================================|
-|    0   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    0   N/A  N/A    956619      C   .../envs/slowfast/bin/python     5054MiB |
-|    1   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    1   N/A  N/A    956620      C   .../envs/slowfast/bin/python     5054MiB |
-|    2   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    2   N/A  N/A    956621      C   .../envs/slowfast/bin/python     5054MiB |
-|    2   N/A  N/A   1941948      C   ...onda3/envs/AD/bin/python3     4352MiB |
-|    3   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    3   N/A  N/A    956622      C   .../envs/slowfast/bin/python     5054MiB |
-|    4   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    4   N/A  N/A    956623      C   .../envs/slowfast/bin/python     5054MiB |
-|    5   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    5   N/A  N/A    956624      C   .../envs/slowfast/bin/python     5054MiB |
-|    5   N/A  N/A   3289638      C   python                           3310MiB |
-|    6   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    6   N/A  N/A    956627      C   .../envs/slowfast/bin/python     5054MiB |
-|    6   N/A  N/A   3225251      C   python                           3312MiB |
-|    7   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    7   N/A  N/A    956630      C   .../envs/slowfast/bin/python     5054MiB |
-|    7   N/A  N/A   3210639      C   python                           3828MiB |
-+-----------------------------------------------------------------------------+
-[12/01 09:50:19][INFO] kinetics.py:   94: Constructing Kinetics test...
-path: ---------------------------- /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/test.csv
-[12/01 09:50:19][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 2250 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/test.csv 
-[12/01 09:50:19][INFO] test_net.py:  434: Testing model for 10 iterations
-[12/01 09:51:17][INFO] logging.py:   99: json_stats: {"cur_iter": "1", "eta": "0:09:33", "split": "test_iter", "time_diff": 57.33001920}
-[12/01 09:51:56][INFO] logging.py:   99: json_stats: {"cur_iter": "2", "eta": "0:05:51", "split": "test_iter", "time_diff": 39.06102671}
-[12/01 09:51:57][INFO] logging.py:   99: json_stats: {"cur_iter": "3", "eta": "0:00:07", "split": "test_iter", "time_diff": 0.98178518}
-[12/01 09:51:58][INFO] logging.py:   99: json_stats: {"cur_iter": "4", "eta": "0:00:06", "split": "test_iter", "time_diff": 0.86221358}
-[12/01 09:51:59][INFO] logging.py:   99: json_stats: {"cur_iter": "5", "eta": "0:00:05", "split": "test_iter", "time_diff": 0.86761994}
-[12/01 09:52:00][INFO] logging.py:   99: json_stats: {"cur_iter": "6", "eta": "0:00:04", "split": "test_iter", "time_diff": 0.81558132}
-[12/01 09:52:01][INFO] logging.py:   99: json_stats: {"cur_iter": "7", "eta": "0:00:03", "split": "test_iter", "time_diff": 0.91693416}
-[12/01 09:52:02][INFO] logging.py:   99: json_stats: {"cur_iter": "8", "eta": "0:00:02", "split": "test_iter", "time_diff": 0.84107631}
-[12/01 09:52:02][INFO] logging.py:   99: json_stats: {"cur_iter": "9", "eta": "0:00:01", "split": "test_iter", "time_diff": 0.82017615}
-[12/01 09:52:03][INFO] logging.py:   99: json_stats: {"cur_iter": "10", "eta": "0:00:00", "split": "test_iter", "time_diff": 0.58998853}
-clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
-clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
-clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
-clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
-clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
-[12/01 09:52:05][WARNING] meters.py:  394: clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
-[12/01 09:52:05][INFO] logging.py:   99: json_stats: {"split": "test_final", "top1_acc": "8.53", "top5_acc": "20.27"}
-[12/01 09:52:05][INFO] test_net.py:  474: Finalized testing with 3 temporal clips and 1 spatial crops
-[12/01 09:52:05][INFO] test_net.py:  496: _p300.29_f10.00_3a8.53 Top5 Acc: 20.27 MEM: 7.18 f: 10.0000
-[12/01 09:52:05][INFO] test_net.py:  497: _p300.29_f10.00_3a8.53
-clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
-clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
+[12/01 21:51:47][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 416 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train.csv 
+[12/01 21:51:47][INFO] train_net.py: 1129: Start epoch: 2
+[12/01 21:51:47][INFO] train_net.py:  304: total trainable params:
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.positional_embedding
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.text_projection
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.logit_scale
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.class_embedding
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.positional_embedding
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.proj
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.conv1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.ln_pre.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.ln_pre.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.0.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.1.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.2.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.3.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.4.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.5.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.6.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.7.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.8.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.9.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.10.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.transformer.resblocks.11.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.ln_post.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.visual.ln_post.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.0.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.0.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.0.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.0.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.0.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.0.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.0.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.0.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.0.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.0.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.0.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.0.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.1.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.1.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.1.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.1.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.1.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.1.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.1.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.1.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.1.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.1.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.1.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.1.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.2.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.2.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.2.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.2.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.2.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.2.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.2.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.2.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.2.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.2.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.2.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.2.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.3.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.3.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.3.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.3.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.3.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.3.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.3.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.3.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.3.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.3.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.3.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.3.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.4.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.4.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.4.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.4.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.4.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.4.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.4.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.4.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.4.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.4.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.4.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.4.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.5.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.5.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.5.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.5.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.5.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.5.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.5.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.5.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.5.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.5.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.5.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.5.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.6.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.6.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.6.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.6.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.6.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.6.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.6.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.6.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.6.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.6.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.6.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.6.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.7.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.7.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.7.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.7.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.7.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.7.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.7.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.7.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.7.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.7.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.7.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.7.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.8.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.8.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.8.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.8.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.8.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.8.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.8.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.8.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.8.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.8.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.8.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.8.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.9.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.9.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.9.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.9.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.9.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.9.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.9.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.9.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.9.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.9.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.9.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.9.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.10.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.10.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.10.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.10.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.10.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.10.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.10.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.10.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.10.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.10.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.10.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.10.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.11.attn.in_proj_weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.11.attn.in_proj_bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.11.attn.out_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.11.attn.out_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.11.ln_1.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.11.ln_1.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.11.mlp.c_fc.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.11.mlp.c_fc.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.11.mlp.c_proj.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.11.mlp.c_proj.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.11.ln_2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.transformer.resblocks.11.ln_2.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.token_embedding.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.ln_final.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.model.ln_final.bias
+[12/01 21:51:47][INFO] train_net.py:  307: module.projector_v.0.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.projector_v.2.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.projector_t.0.weight
+[12/01 21:51:47][INFO] train_net.py:  307: module.projector_t.2.weight
+[W reducer.cpp:1289] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1289] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1289] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+Traceback (most recent call last):
+  File "tools/run_net.py", line 56, in <module>
+    main()
+  File "tools/run_net.py", line 32, in main
+    launch_job(cfg=cfg, init_method=args.init_method, func=train)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/utils/misc.py", line 416, in launch_job
+    torch.multiprocessing.spawn(
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 240, in spawn
+    return start_processes(fn, args, nprocs, join, daemon, start_method='spawn')
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 198, in start_processes
+    while not context.join():
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 160, in join
+    raise ProcessRaisedException(msg, error_index, failed_process.pid)
+torch.multiprocessing.spawn.ProcessRaisedException: 
+
+-- Process 0 terminated with the following error:
+Traceback (most recent call last):
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 69, in _wrap
+    fn(i, *args)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/utils/multiprocessing.py", line 60, in run
+    ret = func(cfg)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/tools/train_net.py", line 1321, in train
+    train_epoch(
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/tools/train_net.py", line 438, in train_epoch
+    outputs = model(inputs)
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 963, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/models/temporalclip_video_model.py", line 227, in forward
+    img_encode = self.model.encode_image(x)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/models/temporalclip_video_model.py", line 524, in encode_image
+    return self.visual([image.type(self.dtype), [maskf, mask]])
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/models/customize_visiontransformer.py", line 759, in forward
+    x = self.transformer(x)
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/models/customize_visiontransformer.py", line 688, in forward
+    x = block(x)
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/models/customize_visiontransformer.py", line 39, in forward
+    x = x + self.attention(self.ln_1(x))
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/models/customize_visiontransformer.py", line 33, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=self.attn_mask)[0]
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/models/torch_utils/activation.py", line 1040, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/models/torch_utils/functional.py", line 1059, in multi_head_attention_forward
+    attn_output, attn_output_weights = _scaled_dot_product_attention(q, k, v, attn_mask, dropout_p, temporal_shift=temporal_shift, num_heads = num_heads, T=T)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/models/torch_utils/functional.py", line 734, in _scaled_dot_product_attention
+    attn = softmax(attn, dim=-1)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/models/torch_utils/functional.py", line 127, in softmax
+    ret = input.softmax(dim)
+RuntimeError: CUDA out of memory. Tried to allocate 172.00 MiB (GPU 0; 23.65 GiB total capacity; 6.30 GiB already allocated; 110.81 MiB free; 6.43 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+

@@ -986,7 +986,7 @@ _C.AVA.ANNOTATION_DIR = (
 )
 
 # Filenames of training samples list files.
-_C.AVA.TRAIN_LISTS = ["train.csv"]
+_C.AVA.TRAIN_LISTS = ["train_all.csv"]
 
 # Filenames of test samples list files.
 _C.AVA.TEST_LISTS = ["val.csv"]

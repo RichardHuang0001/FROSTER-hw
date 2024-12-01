@@ -14,18 +14,18 @@ TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \
   --cfg configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml\
   --opts DATA.PATH_TO_DATA_DIR $ROOT/zs_label_db/B2N_hmdb \
   DATA.PATH_PREFIX $ROOT/data/hmdb51 \
-  TRAIN_FILE train.csv \
+  TRAIN_FILE $TRAIN_FILE \
   VAL_FILE val.csv \
   TEST_FILE test.csv \
   DATA.PATH_LABEL_SEPARATOR , \
   DATA.INDEX_LABEL_MAPPING_FILE $ROOT/zs_label_db/B2N_hmdb/train_rephrased.json \
   TRAIN.ENABLE True \
   OUTPUT_DIR $CKPT/basetraining/B2N_hmdb51_froster \
-  TRAIN.BATCH_SIZE 32 \
-  TEST.BATCH_SIZE 240 \
+  TRAIN.BATCH_SIZE 16 \
+  TEST.BATCH_SIZE 120 \
   TEST.NUM_ENSEMBLE_VIEWS 3 \
   TEST.NUM_SPATIAL_CROPS 1 \
-  NUM_GPUS 8 \
+  NUM_GPUS 4 \
   SOLVER.MAX_EPOCH 12 \
   SOLVER.WARMUP_EPOCHS 2.0 \
   SOLVER.BASE_LR 3.33e-6 \
