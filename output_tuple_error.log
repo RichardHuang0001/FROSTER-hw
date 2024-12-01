@@ -1,7 +1,7 @@
 nohup: ignoring input
 config files: ['configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml']
-[12/01 09:48:13][INFO] train_net.py:  937: --Train with config:
-[12/01 09:48:13][INFO] train_net.py:  938: {'AUG': {'AA_TYPE': 'rand-m7-n4-mstd0.5-inc1',
+[11/29 22:52:48][INFO] train_net.py:  937: --Train with config:
+[11/29 22:52:48][INFO] train_net.py:  938: {'AUG': {'AA_TYPE': 'rand-m7-n4-mstd0.5-inc1',
          'COLOR_JITTER': 0.4,
          'ENABLE': False,
          'GEN_MASK_LOADER': False,
@@ -422,10 +422,10 @@ config files: ['configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml'
          'DIM_C5': 2048,
          'SCALE_RES2': False,
          'WIDTH_FACTOR': 1.0}}
-[12/01 09:48:21][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
-[12/01 09:48:35][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
-[12/01 09:48:41][INFO] train_net.py:  946: total trainable parameters:
-[12/01 09:48:41][INFO] train_net.py:  947: ['module.model.positional_embedding',
+[11/29 22:52:53][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
+[11/29 22:53:02][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
+[11/29 22:53:04][INFO] train_net.py:  946: total trainable parameters:
+[11/29 22:53:04][INFO] train_net.py:  947: ['module.model.positional_embedding',
  'module.model.text_projection',
  'module.model.logit_scale',
  'module.model.visual.class_embedding',
@@ -731,7 +731,7 @@ config files: ['configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml'
  'module.projector_v.2.weight',
  'module.projector_t.0.weight',
  'module.projector_t.2.weight']
-[12/01 09:48:41][INFO] misc.py:  185: Model:
+[11/29 22:53:04][INFO] misc.py:  185: Model:
 DistributedDataParallel(
   (module): TemporalClipVideo(
     (model): WCLIP(
@@ -1356,10 +1356,10 @@ DistributedDataParallel(
     )
   )
 )
-[12/01 09:48:41][INFO] misc.py:  187: Params: 300,290,050
-[12/01 09:48:41][INFO] misc.py:  188: Mem: 1.6999154090881348 MB
-[12/01 09:48:41][INFO] misc.py:  197: nvidia-smi
-Sun Dec  1 09:48:41 2024       
+[11/29 22:53:04][INFO] misc.py:  187: Params: 300,290,050
+[11/29 22:53:04][INFO] misc.py:  188: Mem: 1.6999154090881348 MB
+[11/29 22:53:04][INFO] misc.py:  197: nvidia-smi
+Fri Nov 29 22:53:04 2024       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
@@ -1368,35 +1368,35 @@ Sun Dec  1 09:48:41 2024
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
 |   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0 Off |                  Off |
-| 42%   26C    P2    59W / 450W |   5062MiB / 24564MiB |     36%      Default |
+| 42%   24C    P2    59W / 450W |   5062MiB / 24564MiB |     32%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   1  NVIDIA GeForce ...  Off  | 00000000:23:00.0 Off |                  Off |
-| 41%   26C    P2    54W / 450W |   5062MiB / 24564MiB |     33%      Default |
+| 41%   25C    P2    58W / 450W |   5062MiB / 24564MiB |     69%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   2  NVIDIA GeForce ...  Off  | 00000000:41:00.0 Off |                  Off |
-| 41%   34C    P2    93W / 450W |   9414MiB / 24564MiB |     78%      Default |
+| 41%   26C    P2    61W / 450W |   5062MiB / 24564MiB |     75%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   3  NVIDIA GeForce ...  Off  | 00000000:61:00.0 Off |                  Off |
-| 40%   27C    P2    57W / 450W |   5062MiB / 24564MiB |     68%      Default |
+| 40%   25C    P2    60W / 450W |   5062MiB / 24564MiB |     42%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   4  NVIDIA GeForce ...  Off  | 00000000:81:00.0 Off |                  Off |
-| 42%   27C    P2    59W / 450W |   5062MiB / 24564MiB |     69%      Default |
+| 42%   25C    P2    61W / 450W |   5062MiB / 24564MiB |     73%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   5  NVIDIA GeForce ...  Off  | 00000000:A1:00.0 Off |                  Off |
-| 41%   34C    P2    94W / 450W |   8372MiB / 24564MiB |     67%      Default |
+| 41%   25C    P2    59W / 450W |   5062MiB / 24564MiB |     69%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   6  NVIDIA GeForce ...  Off  | 00000000:C1:00.0 Off |                  Off |
-| 42%   33C    P2    91W / 450W |   8374MiB / 24564MiB |     36%      Default |
+| 42%   25C    P2    54W / 450W |   5062MiB / 24564MiB |     78%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   7  NVIDIA GeForce ...  Off  | 00000000:E1:00.0 Off |                  Off |
-| 40%   35C    P2    91W / 450W |   8890MiB / 24564MiB |     71%      Default |
+| 40%   39C    P2   153W / 450W |   8894MiB / 24564MiB |     49%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -1406,47 +1406,44 @@ Sun Dec  1 09:48:41 2024
 |        ID   ID                                                   Usage      |
 |=============================================================================|
 |    0   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    0   N/A  N/A    947459      C   .../envs/slowfast/bin/python     5054MiB |
+|    0   N/A  N/A   1430296      C   .../envs/slowfast/bin/python     5054MiB |
 |    1   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    1   N/A  N/A    947463      C   .../envs/slowfast/bin/python     5054MiB |
+|    1   N/A  N/A   1430297      C   .../envs/slowfast/bin/python     5054MiB |
 |    2   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    2   N/A  N/A    947464      C   .../envs/slowfast/bin/python     5054MiB |
-|    2   N/A  N/A   1941948      C   ...onda3/envs/AD/bin/python3     4352MiB |
+|    2   N/A  N/A   1430298      C   .../envs/slowfast/bin/python     5054MiB |
 |    3   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    3   N/A  N/A    947465      C   .../envs/slowfast/bin/python     5054MiB |
+|    3   N/A  N/A   1430299      C   .../envs/slowfast/bin/python     5054MiB |
 |    4   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    4   N/A  N/A    947466      C   .../envs/slowfast/bin/python     5054MiB |
+|    4   N/A  N/A   1430300      C   .../envs/slowfast/bin/python     5054MiB |
 |    5   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    5   N/A  N/A    947476      C   .../envs/slowfast/bin/python     5054MiB |
-|    5   N/A  N/A   3289638      C   python                           3310MiB |
+|    5   N/A  N/A   1430302      C   .../envs/slowfast/bin/python     5054MiB |
 |    6   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    6   N/A  N/A    947477      C   .../envs/slowfast/bin/python     5054MiB |
-|    6   N/A  N/A   3225251      C   python                           3312MiB |
+|    6   N/A  N/A   1430304      C   .../envs/slowfast/bin/python     5054MiB |
 |    7   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    7   N/A  N/A    947478      C   .../envs/slowfast/bin/python     5054MiB |
-|    7   N/A  N/A   3210639      C   python                           3828MiB |
+|    7   N/A  N/A   1430306      C   .../envs/slowfast/bin/python     5054MiB |
+|    7   N/A  N/A   1731087      C   python                           3832MiB |
 +-----------------------------------------------------------------------------+
 bn 0, non bn 107, zero 199, no grad 302
-[12/01 09:48:42][INFO] train_net.py: 1038: Load from last checkpoint.
-[12/01 09:48:42][INFO] checkpoint.py:  222: Loading network weights from /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00012.pyth.
+[11/29 22:53:05][INFO] train_net.py: 1038: Load from last checkpoint.
+[11/29 22:53:05][INFO] checkpoint.py:  222: Loading network weights from /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00012.pyth.
 missing keys: []
 unexpected keys: []
-[12/01 09:48:51][INFO] kinetics.py:   94: Constructing Kinetics train...
+[11/29 22:53:07][INFO] kinetics.py:   94: Constructing Kinetics train...
 path: ---------------------------- /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train.csv
-[12/01 09:48:51][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 412 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train.csv 
-[12/01 09:48:51][INFO] kinetics.py:   94: Constructing Kinetics val...
+[11/29 22:53:07][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 416 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train.csv 
+[11/29 22:53:07][INFO] kinetics.py:   94: Constructing Kinetics val...
 path: ---------------------------- /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/val.csv
-[12/01 09:48:51][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 780 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/val.csv 
-[12/01 09:48:51][INFO] kinetics.py:   94: Constructing Kinetics train...
+[11/29 22:53:07][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 780 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/val.csv 
+[11/29 22:53:07][INFO] kinetics.py:   94: Constructing Kinetics train...
 path: ---------------------------- /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train.csv
-[12/01 09:48:51][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 412 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train.csv 
-[12/01 09:48:51][INFO] train_net.py: 1129: Start epoch: 13
-[12/01 09:49:31][INFO] logging.py:   99: json_stats: {"_type": "val_iter", "epoch": "13/12", "eta": "0:00:07", "gpu_mem": "3.54G", "iter": "10/25", "time_diff": 0.49485263, "top1_err": 23.43750000, "top5_err": 4.68750000}
-[12/01 09:49:36][INFO] logging.py:   99: json_stats: {"_type": "val_iter", "epoch": "13/12", "eta": "0:00:02", "gpu_mem": "3.54G", "iter": "20/25", "time_diff": 0.50884186, "top1_err": 28.12500000, "top5_err": 3.12500000}
-[12/01 09:49:41][INFO] logging.py:   99: json_stats: {"RAM": "113.62/251.74G", "_type": "val_epoch", "epoch": "13/12", "gpu_mem": "3.54G", "min_top1_err": 27.04081633, "min_top5_err": 4.97448980, "time_diff": 2.06229950, "top1_err": 27.04081633, "top5_err": 4.97448980}
-[12/01 09:49:41][INFO] train_net.py: 1438: training done: _p300.29_f10.00 _t0.00_m3.54 _a72.96 Top5 Acc: 95.03 MEM: 3.54 f: 10.0000
-[12/01 09:49:50][INFO] test_net.py:  319: Test with config:
-[12/01 09:49:50][INFO] test_net.py:  320: AUG:
+[11/29 22:53:07][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 416 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train.csv 
+[11/29 22:53:07][INFO] train_net.py: 1129: Start epoch: 13
+[11/29 22:53:34][INFO] logging.py:   99: json_stats: {"_type": "val_iter", "epoch": "13/12", "eta": "0:00:05", "gpu_mem": "3.54G", "iter": "10/25", "time_diff": 0.37128893, "top1_err": 23.43750000, "top5_err": 4.68750000}
+[11/29 22:53:38][INFO] logging.py:   99: json_stats: {"_type": "val_iter", "epoch": "13/12", "eta": "0:00:01", "gpu_mem": "3.54G", "iter": "20/25", "time_diff": 0.31392449, "top1_err": 28.12500000, "top5_err": 3.12500000}
+[11/29 22:53:41][INFO] logging.py:   99: json_stats: {"RAM": "101.89/251.74G", "_type": "val_epoch", "epoch": "13/12", "gpu_mem": "3.54G", "min_top1_err": 27.04081633, "min_top5_err": 4.97448980, "time_diff": 1.44952735, "top1_err": 27.04081633, "top5_err": 4.97448980}
+[11/29 22:53:41][INFO] train_net.py: 1438: training done: _p300.29_f10.00 _t0.00_m3.54 _a72.96 Top5 Acc: 95.03 MEM: 3.54 f: 10.0000
+[11/29 22:53:48][INFO] test_net.py:  290: Test with config:
+[11/29 22:53:48][INFO] test_net.py:  291: AUG:
   AA_TYPE: rand-m7-n4-mstd0.5-inc1
   COLOR_JITTER: 0.4
   ENABLE: False
@@ -1873,12 +1870,12 @@ X3D:
   DIM_C5: 2048
   SCALE_RES2: False
   WIDTH_FACTOR: 1.0
-[12/01 09:49:57][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
-[12/01 09:50:09][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
-[12/01 09:50:15][INFO] checkpoint.py:  222: Loading network weights from /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00012.pyth.
+[11/29 22:53:52][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
+[11/29 22:54:01][INFO] temporalclip_video_model.py:  604: load pretrained CLIP:<All keys matched successfully>
+[11/29 22:54:03][INFO] checkpoint.py:  222: Loading network weights from /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00012.pyth.
 missing keys: []
 unexpected keys: []
-[12/01 09:50:16][INFO] misc.py:  185: Model:
+[11/29 22:54:04][INFO] misc.py:  185: Model:
 DistributedDataParallel(
   (module): TemporalClipVideo(
     (model): WCLIP(
@@ -2503,10 +2500,10 @@ DistributedDataParallel(
     )
   )
 )
-[12/01 09:50:16][INFO] misc.py:  187: Params: 300,290,050
-[12/01 09:50:16][INFO] misc.py:  188: Mem: 1.6999154090881348 MB
-[12/01 09:50:16][INFO] misc.py:  197: nvidia-smi
-Sun Dec  1 09:50:16 2024       
+[11/29 22:54:04][INFO] misc.py:  187: Params: 300,290,050
+[11/29 22:54:04][INFO] misc.py:  188: Mem: 1.6999154090881348 MB
+[11/29 22:54:04][INFO] misc.py:  197: nvidia-smi
+Fri Nov 29 22:54:04 2024       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
@@ -2515,35 +2512,35 @@ Sun Dec  1 09:50:16 2024
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
 |   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0 Off |                  Off |
-| 42%   28C    P2    67W / 450W |   5062MiB / 24564MiB |     22%      Default |
+| 42%   27C    P2    71W / 450W |   5062MiB / 24564MiB |     25%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   1  NVIDIA GeForce ...  Off  | 00000000:23:00.0 Off |                  Off |
-| 41%   28C    P2    65W / 450W |   5062MiB / 24564MiB |      9%      Default |
+| 41%   28C    P2    68W / 450W |   5062MiB / 24564MiB |     27%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   2  NVIDIA GeForce ...  Off  | 00000000:41:00.0 Off |                  Off |
-| 41%   36C    P2   116W / 450W |   9414MiB / 24564MiB |     30%      Default |
+| 41%   29C    P2    72W / 450W |   5062MiB / 24564MiB |     24%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   3  NVIDIA GeForce ...  Off  | 00000000:61:00.0 Off |                  Off |
-| 40%   29C    P2    68W / 450W |   5062MiB / 24564MiB |     27%      Default |
+| 40%   28C    P2    70W / 450W |   5062MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   4  NVIDIA GeForce ...  Off  | 00000000:81:00.0 Off |                  Off |
-| 42%   29C    P2    66W / 450W |   5062MiB / 24564MiB |     14%      Default |
+| 42%   28C    P2    68W / 450W |   5062MiB / 24564MiB |     16%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   5  NVIDIA GeForce ...  Off  | 00000000:A1:00.0 Off |                  Off |
-| 41%   32C    P2   113W / 450W |   8372MiB / 24564MiB |     36%      Default |
+| 41%   27C    P2    70W / 450W |   5062MiB / 24564MiB |      5%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   6  NVIDIA GeForce ...  Off  | 00000000:C1:00.0 Off |                  Off |
-| 42%   39C    P2   105W / 450W |   8374MiB / 24564MiB |     28%      Default |
+| 42%   28C    P2    62W / 450W |   5062MiB / 24564MiB |      6%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   7  NVIDIA GeForce ...  Off  | 00000000:E1:00.0 Off |                  Off |
-| 40%   32C    P2   113W / 450W |   8890MiB / 24564MiB |     44%      Default |
+| 40%   38C    P2   189W / 450W |   8894MiB / 24564MiB |     42%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -2553,27 +2550,24 @@ Sun Dec  1 09:50:16 2024
 |        ID   ID                                                   Usage      |
 |=============================================================================|
 |    0   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    0   N/A  N/A    956619      C   .../envs/slowfast/bin/python     5054MiB |
+|    0   N/A  N/A   1440877      C   .../envs/slowfast/bin/python     5054MiB |
 |    1   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    1   N/A  N/A    956620      C   .../envs/slowfast/bin/python     5054MiB |
+|    1   N/A  N/A   1440878      C   .../envs/slowfast/bin/python     5054MiB |
 |    2   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    2   N/A  N/A    956621      C   .../envs/slowfast/bin/python     5054MiB |
-|    2   N/A  N/A   1941948      C   ...onda3/envs/AD/bin/python3     4352MiB |
+|    2   N/A  N/A   1440879      C   .../envs/slowfast/bin/python     5054MiB |
 |    3   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    3   N/A  N/A    956622      C   .../envs/slowfast/bin/python     5054MiB |
+|    3   N/A  N/A   1440880      C   .../envs/slowfast/bin/python     5054MiB |
 |    4   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    4   N/A  N/A    956623      C   .../envs/slowfast/bin/python     5054MiB |
+|    4   N/A  N/A   1440882      C   .../envs/slowfast/bin/python     5054MiB |
 |    5   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    5   N/A  N/A    956624      C   .../envs/slowfast/bin/python     5054MiB |
-|    5   N/A  N/A   3289638      C   python                           3310MiB |
+|    5   N/A  N/A   1440883      C   .../envs/slowfast/bin/python     5054MiB |
 |    6   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    6   N/A  N/A    956627      C   .../envs/slowfast/bin/python     5054MiB |
-|    6   N/A  N/A   3225251      C   python                           3312MiB |
+|    6   N/A  N/A   1440885      C   .../envs/slowfast/bin/python     5054MiB |
 |    7   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    7   N/A  N/A    956630      C   .../envs/slowfast/bin/python     5054MiB |
-|    7   N/A  N/A   3210639      C   python                           3828MiB |
+|    7   N/A  N/A   1440887      C   .../envs/slowfast/bin/python     5054MiB |
+|    7   N/A  N/A   1731087      C   python                           3832MiB |
 +-----------------------------------------------------------------------------+
-[12/01 09:50:18][INFO] misc.py:  185: Model:
+[11/29 22:54:05][INFO] misc.py:  185: Model:
 DistributedDataParallel(
   (module): TemporalClipVideo(
     (model): WCLIP(
@@ -3198,10 +3192,10 @@ DistributedDataParallel(
     )
   )
 )
-[12/01 09:50:18][INFO] misc.py:  187: Params: 300,290,050
-[12/01 09:50:18][INFO] misc.py:  188: Mem: 1.6999154090881348 MB
-[12/01 09:50:18][INFO] misc.py:  197: nvidia-smi
-Sun Dec  1 09:50:19 2024       
+[11/29 22:54:05][INFO] misc.py:  187: Params: 300,290,050
+[11/29 22:54:05][INFO] misc.py:  188: Mem: 1.6999154090881348 MB
+[11/29 22:54:05][INFO] misc.py:  197: nvidia-smi
+Fri Nov 29 22:54:05 2024       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
@@ -3210,35 +3204,35 @@ Sun Dec  1 09:50:19 2024
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
 |   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0 Off |                  Off |
-| 42%   27C    P2    57W / 450W |   5062MiB / 24564MiB |      0%      Default |
+| 42%   26C    P2    68W / 450W |   5062MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   1  NVIDIA GeForce ...  Off  | 00000000:23:00.0 Off |                  Off |
-| 42%   28C    P2    56W / 450W |   5062MiB / 24564MiB |      0%      Default |
+| 41%   27C    P2    65W / 450W |   5062MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   2  NVIDIA GeForce ...  Off  | 00000000:41:00.0 Off |                  Off |
-| 41%   34C    P2    81W / 450W |   9414MiB / 24564MiB |     22%      Default |
+| 41%   29C    P2    70W / 450W |   5062MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   3  NVIDIA GeForce ...  Off  | 00000000:61:00.0 Off |                  Off |
-| 40%   28C    P2    57W / 450W |   5062MiB / 24564MiB |      0%      Default |
+| 40%   28C    P2    65W / 450W |   5062MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   4  NVIDIA GeForce ...  Off  | 00000000:81:00.0 Off |                  Off |
-| 42%   28C    P2    56W / 450W |   5062MiB / 24564MiB |      0%      Default |
+| 42%   28C    P2    64W / 450W |   5062MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   5  NVIDIA GeForce ...  Off  | 00000000:A1:00.0 Off |                  Off |
-| 41%   33C    P2    88W / 450W |   8372MiB / 24564MiB |     17%      Default |
+| 41%   27C    P2    67W / 450W |   5062MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   6  NVIDIA GeForce ...  Off  | 00000000:C1:00.0 Off |                  Off |
-| 42%   33C    P2    90W / 450W |   8374MiB / 24564MiB |      8%      Default |
+| 42%   27C    P2    60W / 450W |   5062MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   7  NVIDIA GeForce ...  Off  | 00000000:E1:00.0 Off |                  Off |
-| 40%   35C    P2    98W / 450W |   8890MiB / 24564MiB |     17%      Default |
+| 40%   36C    P2    83W / 450W |   8894MiB / 24564MiB |     14%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -3248,49 +3242,57 @@ Sun Dec  1 09:50:19 2024
 |        ID   ID                                                   Usage      |
 |=============================================================================|
 |    0   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    0   N/A  N/A    956619      C   .../envs/slowfast/bin/python     5054MiB |
+|    0   N/A  N/A   1440877      C   .../envs/slowfast/bin/python     5054MiB |
 |    1   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    1   N/A  N/A    956620      C   .../envs/slowfast/bin/python     5054MiB |
+|    1   N/A  N/A   1440878      C   .../envs/slowfast/bin/python     5054MiB |
 |    2   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    2   N/A  N/A    956621      C   .../envs/slowfast/bin/python     5054MiB |
-|    2   N/A  N/A   1941948      C   ...onda3/envs/AD/bin/python3     4352MiB |
+|    2   N/A  N/A   1440879      C   .../envs/slowfast/bin/python     5054MiB |
 |    3   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    3   N/A  N/A    956622      C   .../envs/slowfast/bin/python     5054MiB |
+|    3   N/A  N/A   1440880      C   .../envs/slowfast/bin/python     5054MiB |
 |    4   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    4   N/A  N/A    956623      C   .../envs/slowfast/bin/python     5054MiB |
+|    4   N/A  N/A   1440882      C   .../envs/slowfast/bin/python     5054MiB |
 |    5   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    5   N/A  N/A    956624      C   .../envs/slowfast/bin/python     5054MiB |
-|    5   N/A  N/A   3289638      C   python                           3310MiB |
+|    5   N/A  N/A   1440883      C   .../envs/slowfast/bin/python     5054MiB |
 |    6   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    6   N/A  N/A    956627      C   .../envs/slowfast/bin/python     5054MiB |
-|    6   N/A  N/A   3225251      C   python                           3312MiB |
+|    6   N/A  N/A   1440885      C   .../envs/slowfast/bin/python     5054MiB |
 |    7   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    7   N/A  N/A    956630      C   .../envs/slowfast/bin/python     5054MiB |
-|    7   N/A  N/A   3210639      C   python                           3828MiB |
+|    7   N/A  N/A   1440887      C   .../envs/slowfast/bin/python     5054MiB |
+|    7   N/A  N/A   1731087      C   python                           3832MiB |
 +-----------------------------------------------------------------------------+
-[12/01 09:50:19][INFO] kinetics.py:   94: Constructing Kinetics test...
+[11/29 22:54:06][INFO] kinetics.py:   94: Constructing Kinetics test...
 path: ---------------------------- /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/test.csv
-[12/01 09:50:19][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 2250 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/test.csv 
-[12/01 09:50:19][INFO] test_net.py:  434: Testing model for 10 iterations
-[12/01 09:51:17][INFO] logging.py:   99: json_stats: {"cur_iter": "1", "eta": "0:09:33", "split": "test_iter", "time_diff": 57.33001920}
-[12/01 09:51:56][INFO] logging.py:   99: json_stats: {"cur_iter": "2", "eta": "0:05:51", "split": "test_iter", "time_diff": 39.06102671}
-[12/01 09:51:57][INFO] logging.py:   99: json_stats: {"cur_iter": "3", "eta": "0:00:07", "split": "test_iter", "time_diff": 0.98178518}
-[12/01 09:51:58][INFO] logging.py:   99: json_stats: {"cur_iter": "4", "eta": "0:00:06", "split": "test_iter", "time_diff": 0.86221358}
-[12/01 09:51:59][INFO] logging.py:   99: json_stats: {"cur_iter": "5", "eta": "0:00:05", "split": "test_iter", "time_diff": 0.86761994}
-[12/01 09:52:00][INFO] logging.py:   99: json_stats: {"cur_iter": "6", "eta": "0:00:04", "split": "test_iter", "time_diff": 0.81558132}
-[12/01 09:52:01][INFO] logging.py:   99: json_stats: {"cur_iter": "7", "eta": "0:00:03", "split": "test_iter", "time_diff": 0.91693416}
-[12/01 09:52:02][INFO] logging.py:   99: json_stats: {"cur_iter": "8", "eta": "0:00:02", "split": "test_iter", "time_diff": 0.84107631}
-[12/01 09:52:02][INFO] logging.py:   99: json_stats: {"cur_iter": "9", "eta": "0:00:01", "split": "test_iter", "time_diff": 0.82017615}
-[12/01 09:52:03][INFO] logging.py:   99: json_stats: {"cur_iter": "10", "eta": "0:00:00", "split": "test_iter", "time_diff": 0.58998853}
-clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
-clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
-clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
-clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
-clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
-[12/01 09:52:05][WARNING] meters.py:  394: clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
-[12/01 09:52:05][INFO] logging.py:   99: json_stats: {"split": "test_final", "top1_acc": "8.53", "top5_acc": "20.27"}
-[12/01 09:52:05][INFO] test_net.py:  474: Finalized testing with 3 temporal clips and 1 spatial crops
-[12/01 09:52:05][INFO] test_net.py:  496: _p300.29_f10.00_3a8.53 Top5 Acc: 20.27 MEM: 7.18 f: 10.0000
-[12/01 09:52:05][INFO] test_net.py:  497: _p300.29_f10.00_3a8.53
-clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
-clip count Ids=tensor([[ 14,  53, 175, 519, 639, 669]]) = tensor([4, 4, 4, 4, 4, 4]) (should be 3)
+[11/29 22:54:06][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 2250 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/test.csv 
+[11/29 22:54:06][INFO] test_net.py:  405: Testing model for 10 iterations
+Traceback (most recent call last):
+  File "tools/run_net.py", line 56, in <module>
+    main()
+  File "tools/run_net.py", line 41, in main
+    launch_job(cfg=cfg, init_method=args.init_method, func=test)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/utils/misc.py", line 416, in launch_job
+    torch.multiprocessing.spawn(
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 240, in spawn
+    return start_processes(fn, args, nprocs, join, daemon, start_method='spawn')
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 198, in start_processes
+    while not context.join():
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 160, in join
+    raise ProcessRaisedException(msg, error_index, failed_process.pid)
+torch.multiprocessing.spawn.ProcessRaisedException: 
+
+-- Process 5 terminated with the following error:
+Traceback (most recent call last):
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 69, in _wrap
+    fn(i, *args)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/utils/multiprocessing.py", line 60, in run
+    ret = func(cfg)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/tools/test_net.py", line 437, in test
+    test_meter = perform_test(test_loader, model, test_meter, cfg, writer)
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/tools/test_net.py", line 155, in perform_test
+    preds, labels, video_idx = du.all_gather([preds, labels, video_idx])
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/utils/distributed.py", line 37, in all_gather
+    tensor_placeholder = [
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/utils/distributed.py", line 38, in <listcomp>
+    torch.ones_like(tensor) for _ in range(world_size)
+TypeError: ones_like(): argument 'input' (position 1) must be Tensor, not tuple
+

@@ -29,21 +29,56 @@ def all_gather(tensors):
         tensors (list): tensors to perform all gather across all processes in
         all machines.
     """
-
     gather_list = []
     output_tensor = []
     world_size = dist.get_world_size()
+    
     for tensor in tensors:
+        # 如果是列表，取第一个元素
+        if isinstance(tensor, list):
+            tensor = tensor[0] if tensor else torch.tensor([])
+        
+        # 如果是 None，用空张量替代
+        if tensor is None:
+            tensor = torch.tensor([])
+            
+        # 如果已经是 tensor，直接使用
+        if isinstance(tensor, torch.Tensor):
+            pass
+        # 如果不是 tensor，尝试转换
+        else:
+            try:
+                tensor = torch.tensor(tensor)
+            except:
+                tensor = torch.tensor([])
+        
+        # 确保张量至少是1维的
+        if tensor.dim() == 0:
+            tensor = tensor.unsqueeze(0)
+            
+        # 创建占位符并收集数据
         tensor_placeholder = [
             torch.ones_like(tensor) for _ in range(world_size)
         ]
-        dist.all_gather(tensor_placeholder, tensor, async_op=False)
+        
+        # 执行 all_gather 操作
+        try:
+            dist.all_gather(tensor_placeholder, tensor, async_op=False)
+        except:
+            # 如果 all_gather 失败，使用空张量
+            tensor_placeholder = [torch.tensor([])] * world_size
+            
         gather_list.append(tensor_placeholder)
+    
+    # 合并收集到的张量
     for gathered_tensor in gather_list:
-        output_tensor.append(torch.cat(gathered_tensor, dim=0))
+        try:
+            output_tensor.append(torch.cat(gathered_tensor, dim=0))
+        except:
+            # 如果拼接失败，返回空张量
+            output_tensor.append(torch.tensor([]))
+            
     return output_tensor
-
-
 def all_reduce(tensors, average=True):
     """
     All reduce the provided tensors from all processes across machines.

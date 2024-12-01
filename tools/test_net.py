@@ -140,12 +140,47 @@ def perform_test(test_loader, model, test_meter, cfg, writer=None):
 
             else:
                 preds = model(inputs)
+
+
+        # Ensure preds, labels, and video_idx are tensors
+        # if not isinstance(preds, torch.Tensor):
+        #     preds = torch.tensor(preds)
         # Gather all the predictions across all the devices to perform ensemble.
         if cfg.NUM_GPUS > 1:  #如果单卡训练是否能避免这个bug？  可能是因为pytorch版本、cuda版本不同引发的
 
             #这里报了个错误，expected tuple of Tensors, but got tuple of Tuples
             #在调用 all_gather 之前，打印 preds, labels, video_idx 的类型，确保它们都是张量。
-            print(f"type of preds: {type(preds)}, type of labels: {type(labels)}, type of video_idx: {type(video_idx)}")
+   
+            # print(f"type of preds: {type(preds)}, type of labels: {type(labels)}, type of video_idx: {type(video_idx)}")
+            # print("如果有任何一个是tuple，就说明发生了错误")
+            # print(f"preds = {preds}, labels = {labels}, video_idx = {video_idx}")
+            # exit(0) #测试完记得删掉
+
+            #试图手动修复这个bug
+            # 确保 preds 是一个 tensor 列表
+            if isinstance(preds, tuple):
+                # 提取第一个元素，并检查是否为 None
+                preds = [p if p is not None else torch.tensor([]) for p in preds[0]]
+
+            # 确保 labels 和 video_idx 也是 tensor
+            if labels is None:
+                labels = torch.tensor([])  # 用一个空的 tensor 替代 None
+
+            if video_idx is None:
+                video_idx = torch.tensor([])  # 用一个空的 tensor 替代 None
+
+            # 确保它们都是 tensor 类型
+            if not isinstance(labels, torch.Tensor):
+                labels = torch.tensor(labels)
+
+            if not isinstance(video_idx, torch.Tensor):
+                video_idx = torch.tensor(video_idx)
+
+            # # 在调用 all_gather 之前，打印三个传入变量
+            # print("调用 all_gather 之前")
+            # print([preds, labels, video_idx])
+
+            # 然后再调用 all_gather
             preds, labels, video_idx = du.all_gather([preds, labels, video_idx])
             """
             if cfg.MODEL.RECORD_ROUTING:

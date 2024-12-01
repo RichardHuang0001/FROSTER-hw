@@ -1,4 +1,3 @@
-
 import os
 from pathlib import Path
 import csv
@@ -19,18 +18,12 @@ check_train_csv.py
 
 def parse_train_csv(csv_path):
     """
-    解析 train_1.csv 文件，提取视频文件名和标签。
-
-    参数：
-        csv_path (Path): train_1.csv 文件的路径
-
-    返回：
-        list of tuples: [(视频文件名, 标签), ...]
+    解析 @test.csv 文件，提取视频文件名和标签。
     """
     video_files = []
     try:
         with open(csv_path, 'r', encoding='utf-8') as f:
-            reader = csv.reader(f, delimiter=' ')
+            reader = csv.reader(f)
             for row in reader:
                 if not row:
                     continue
@@ -43,21 +36,25 @@ def parse_train_csv(csv_path):
         print(f"解析 CSV 文件时出错: {e}")
     return video_files
 
+def get_all_video_files(data_root):
+    """
+    递归获取数据集目录下的所有视频文件。
+    """
+    video_files = []
+    for root, _, files in os.walk(data_root):
+        for file in files:
+            if file.endswith('.avi'):  # 假设视频文件是 .avi 格式
+                video_files.append(os.path.relpath(os.path.join(root, file), data_root))
+    return video_files
+
 def check_videos_exist(data_root, video_files):
     """
     检查视频文件是否存在于数据集中。
-
-    参数：
-        data_root (Path): 数据集根目录路径
-        video_files (list of tuples): [(视频文件名, 标签), ...]
-
-    返回：
-        list of tuples: 缺失的视频文件 [(视频文件名, 标签), ...]
     """
+    all_video_files = get_all_video_files(data_root)
     missing_files = []
     for filename, label in video_files:
-        video_path = data_root / filename
-        if not video_path.exists():
+        if filename not in all_video_files:
             missing_files.append((filename, label))
     return missing_files
 
@@ -101,7 +98,7 @@ def main():
     # 设置路径
     root = Path("/mnt/SSD8T/home/huangwei/projects/FROSTER")
     data_root = root / "data/hmdb51"
-    csv_path = root / "zs_label_db/B2N_hmdb/train.csv"
+    csv_path = root / "/mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train.csv"
     
     # 检查路径是否存在
     if not data_root.exists():
