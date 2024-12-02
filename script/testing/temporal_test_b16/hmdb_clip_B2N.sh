@@ -1,7 +1,7 @@
-ROOT=PATH_TO_FROSTER_WORKSPACE
-CKPT=PATH_TO_FROSTER_WORKSPACE/ckpt/basetraining/B2N_hmdb51_froster
+ROOT=/mnt/SSD8T/home/huangwei/projects/FROSTER
+CKPT=$ROOT/checkpoints/basetraining/B2N_hmdb51_froster
 OUT_DIR=$CKPT/testing
-LOAD_CKPT_FILE=$ROOT/basetraining/B2N_hmdb51_froster/wa_checkpoints/swa_2_22.pth
+LOAD_CKPT_FILE=$ROOT/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00012.pyth
 
 # TEST_FILE can be set as val.csv (base set) or test.csv (novel set).
 # rephrased_file can be set as train_rephrased.json (base set) or test_rephrased.json (novel set)
@@ -20,7 +20,7 @@ cd $ROOT
 TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \
     --cfg configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml \
     --opts DATA.PATH_TO_DATA_DIR $ROOT/zs_label_db/$B2N_hmdb_file \
-    DATA.PATH_PREFIX $ROOT/hmdb51_test \
+    DATA.PATH_PREFIX $ROOT/data/hmdb51 \
     TRAIN_FILE $TRAIN_FILE \
     VAL_FILE $VAL_FILE \
     TEST_FILE $TEST_FILE \
@@ -28,8 +28,8 @@ TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \
     DATA.INDEX_LABEL_MAPPING_FILE $ROOT/zs_label_db/B2N_hmdb/$rephrased_file \
     TRAIN.ENABLE False \
     OUTPUT_DIR $OUT_DIR \
-    TEST.BATCH_SIZE 480 \
-    NUM_GPUS 8 \
+    TEST.BATCH_SIZE 240 \
+    NUM_GPUS 4 \
     DATA.DECODING_BACKEND "pyav" \
     MODEL.NUM_CLASSES $NUM_CLASSES \
     TEST.CUSTOM_LOAD True \

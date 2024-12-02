@@ -958,7 +958,7 @@ _C.DETECTION = CfgNode()
 _C.DETECTION.ENABLE = False
 
 # Aligned version of RoI. More details can be found at slowfast/models/head_helper.py
-_C.DETECTION.ALIGNED = True
+_C.DETECTION.ALIGNED = False
 
 # Spatial scale factor.
 _C.DETECTION.SPATIAL_SCALE_FACTOR = 16

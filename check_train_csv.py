@@ -81,7 +81,7 @@ def remove_missing_from_csv(csv_path, video_files, missing_files):
         
         # 写入更新后的 CSV 文件
         with open(csv_path, 'w', encoding='utf-8', newline='') as f:
-            writer = csv.writer(f, delimiter=' ')
+            writer = csv.writer(f, delimiter=',')
             for filename, label in updated_video_files:
                 writer.writerow([filename, label])
         
@@ -98,7 +98,7 @@ def main():
     # 设置路径
     root = Path("/mnt/SSD8T/home/huangwei/projects/FROSTER")
     data_root = root / "data/hmdb51"
-    csv_path = root / "/mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/train.csv"
+    csv_path = root / "zs_label_db/B2N_hmdb/val.csv"
     
     # 检查路径是否存在
     if not data_root.exists():
