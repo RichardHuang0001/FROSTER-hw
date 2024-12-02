@@ -1,0 +1,29 @@
+nohup: ignoring input
+config files: ['configs/Kinetics/CLIP_vitb16_8x8_MIXUP.yaml']
+Traceback (most recent call last):
+  File "tools/run_net.py", line 56, in <module>
+    main()
+  File "tools/run_net.py", line 32, in main
+    launch_job(cfg=cfg, init_method=args.init_method, func=train)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/utils/misc.py", line 416, in launch_job
+    torch.multiprocessing.spawn(
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 240, in spawn
+    return start_processes(fn, args, nprocs, join, daemon, start_method='spawn')
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 198, in start_processes
+    while not context.join():
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 160, in join
+    raise ProcessRaisedException(msg, error_index, failed_process.pid)
+torch.multiprocessing.spawn.ProcessRaisedException: 
+
+-- Process 6 terminated with the following error:
+Traceback (most recent call last):
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 69, in _wrap
+    fn(i, *args)
+  File "/mnt/SSD8T/home/huangwei/projects/FROSTER/slowfast/utils/multiprocessing.py", line 59, in run
+    torch.cuda.set_device(local_rank)
+  File "/mnt/SSD8T/home/huangwei/anaconda3/envs/slowfast/lib/python3.8/site-packages/torch/cuda/__init__.py", line 313, in set_device
+    torch._C._cuda_setDevice(device)
+RuntimeError: CUDA error: invalid device ordinal
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+

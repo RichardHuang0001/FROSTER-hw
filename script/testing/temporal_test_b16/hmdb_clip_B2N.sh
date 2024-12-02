@@ -8,10 +8,10 @@ LOAD_CKPT_FILE=$ROOT/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/che
 # NUM_CLASSES can be set as 26 (base set) or 25 (novel set)
 B2N_hmdb_file=B2N_hmdb
 TRAIN_FILE=train.csv
-VAL_FILE=val.csv
-TEST_FILE=val.csv
-rephrased_file=train_rephrased.json
-NUM_CLASSES=26
+VAL_FILE=test.csv
+TEST_FILE=test.csv
+rephrased_file=test_rephrased.json  #改成了test.csv之后，变成Normal类，有25个类要改一下这里
+NUM_CLASSES=25
 
 cd $ROOT
 # DATA.INDEX_LABEL_MAPPING_FILE /root/paddlejob/workspace/env_run/zhouhao/ovclip/FROSTER/label_db/k400-index2cls.json \
@@ -28,7 +28,7 @@ TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \
     DATA.INDEX_LABEL_MAPPING_FILE $ROOT/zs_label_db/B2N_hmdb/$rephrased_file \
     TRAIN.ENABLE False \
     OUTPUT_DIR $OUT_DIR \
-    TEST.BATCH_SIZE 240 \
+    TEST.BATCH_SIZE 120 \
     NUM_GPUS 4 \
     DATA.DECODING_BACKEND "pyav" \
     MODEL.NUM_CLASSES $NUM_CLASSES \

@@ -98,7 +98,7 @@ def main():
     # 设置路径
     root = Path("/mnt/SSD8T/home/huangwei/projects/FROSTER")
     data_root = root / "data/hmdb51"
-    csv_path = root / "zs_label_db/B2N_hmdb/val.csv"
+    csv_path = root / "zs_label_db/B2N_hmdb/test.csv"
     
     # 检查路径是否存在
     if not data_root.exists():

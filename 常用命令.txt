@@ -6,7 +6,7 @@ bash script/training/temporal_b16/train_clip_B2N_hmdb.sh > temp_output.log 2>&1
 nohup bash script/training/temporal_b16/train_clip_B2N_hmdb.sh > temp_output.log 2>&1 &    
 
 #选择只使用部分GPU（这段话加在命令前面）
-CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5
 
 #不要忘记最后的 & 号
 
