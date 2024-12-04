@@ -60,8 +60,8 @@ class TemporalClipVideo(nn.Module):
         
         self.prompt_type_num = len(self.text_dict)
         self.cls_num = self.text_dict[0].shape[0]
-        self.tune_head = cfg.TUNE_HEAD
-        self.text_prompting = cfg.MODEL.TEXT_PROMPT
+        self.tune_head = cfg.TUNE_HEAD  #一般是False
+        self.text_prompting = cfg.MODEL.TEXT_PROMPT #默认也是False
         self.context_length = cfg.MODEL.CONTEXT_LENGTH
         self.record_routing = cfg.MODEL.RECORD_ROUTING
         self.keep_raw_model = cfg.MODEL.KEEP_RAW_MODEL
@@ -140,6 +140,9 @@ class TemporalClipVideo(nn.Module):
     def _construct_network(self, cfg):
 
         context_length = cfg.MODEL.CONTEXT_LENGTH
+
+        # 根据配置文件加载不同的ViT
+
         if cfg.MODEL.ARCH == 'vitb32':
             self.model, self.preprocess = load("ViT-B/32", jit=False, 
                     T=cfg.DATA.NUM_FRAMES, temporal_modeling_type=cfg.MODEL.TEMPORAL_MODELING_TYPE,
@@ -219,8 +222,10 @@ class TemporalClipVideo(nn.Module):
 
         bz, channel_dim, clip_len, h, w = x.shape
         x = x.permute(0, 2, 1, 3, 4)
-        x = x.reshape(bz*clip_len, channel_dim, h, w)
+        x = x.reshape(bz*clip_len, channel_dim, h, w) #同样地，把batch里多个视频的多个帧展平
         
+
+        #在这里输入x，形状是[bz*clip_len, channel_dim, h, w]，生成img_encode，形状是[bz*clip_len, feat_size]
         if self.record_routing:
             img_encode, routing_state = self.model.encode_image(x)
         else:
@@ -242,27 +247,30 @@ class TemporalClipVideo(nn.Module):
                 norm_head = self.head / self.head.norm(dim=-1, keepdim=True)
                 pred = self.model.logit_scale.exp() * img_encode @ norm_head.T
             elif self.text_prompting:
-                # encode head.
+                # encode head.  在这里生成text_embedding
                 text_embedding = torch.cat((self.token_prefix, 
                             self.prompt_embed.unsqueeze(0).expand(len(self.classnames), -1, -1), 
                             self.token_suffix
                             ), 1)
                 norm_head = self.model.prompt_encode_text(text_embedding, self.tokenized_prompts,)
                 norm_head /= norm_head.norm(dim=-1, keepdim=True)
-                pred = self.model.logit_scale.exp() * img_encode @ norm_head.T
+                #这里计算点积（余弦相似度），产生preds
+                pred = self.model.logit_scale.exp() * img_encode @ norm_head.T 
             else:
                 # csf_matrix = self.dynamic_classifier / self.dynamic_classifier.norm(dim=-1, keepdim=True)
                 text_dict = self.text_prompt(os.path.join(self.cfg.DATA.INDEX_LABEL_MAPPING_FILE))
                 dynamic_classifier_new = self.achieve_csf_matrix(text_dict, self.model, trainable=True)
                 pred = self.model.logit_scale.exp() * img_encode @ dynamic_classifier_new.T
+            #preds形状： (bz * clip_len, num_classes)
+            # 通过reshape变回(bz, clip_len, num_classes)，然后平均池化
+            pred = pred.reshape(bz, clip_len, -1).mean(1) #这里有个平均池化meanpooling
+            #执行完上一行，在clip_len维度上取平均，得到最终的preds形状(bz, num_classes)
 
-            pred = pred.reshape(bz, clip_len, -1).mean(1)
-            
-            # add distillation here
+            # add distillation here（if training是上一级的if，这里也包含在training模式的代码块里）
             if self.keep_raw_model and (self.ensemble_pred or self.distillation):
                 # pass
                 with torch.no_grad():
-                    raw_img_encode = self.raw_model.encode_image(x)
+                    raw_img_encode = self.raw_model.encode_image(x)#这里获取原始模型的img_encode
                     if isinstance(raw_img_encode, list):
                         raw_img_encode = raw_img_encode[0]
                     raw_img_encode /= raw_img_encode.norm(dim=-1, keepdim=True)
@@ -475,7 +483,7 @@ class WCLIP(CLIP):
 
         self.vision_width = vision_width
         vision_heads = vision_width // 64
-        self.visual = TemporalVisionTransformer(
+        self.visual = TemporalVisionTransformer(#视觉处理模块，用TemporalVisionTransformer类
             input_resolution=image_resolution,
             patch_size=vision_patch_size,
             width=vision_width,
@@ -521,6 +529,8 @@ class WCLIP(CLIP):
             mask = maeout[1]
         else:
             maskf, mask = None, None
+            # 调用了TemporalVisionTransformer类的forward方法
+            # 这里的image的形状是[bz*clip_len, channel_dim, h, w]，是展平后的
         return self.visual([image.type(self.dtype), [maskf, mask]])
 
     def encode_text(self, text):

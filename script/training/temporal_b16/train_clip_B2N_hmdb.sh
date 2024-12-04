@@ -8,15 +8,17 @@ TRAIN_FILE=train_all.csv
 VAL_FILE=val.csv
 TEST_FILE=test.csv
 
+#如果训练其他模型记得改一下checkpoints路径
+
 cd $ROOT
 
 TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \
-  --cfg configs/Kinetics/CLIP_vitb16_8x8_MIXUP.yaml\
+  --cfg configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml\
   --opts DATA.PATH_TO_DATA_DIR $ROOT/zs_label_db/B2N_hmdb \
   DATA.PATH_PREFIX $ROOT/data/hmdb51 \
   TRAIN_FILE $TRAIN_FILE \
-  VAL_FILE val.csv \
-  TEST_FILE test.csv \
+  VAL_FILE $VAL_FILE \
+  TEST_FILE $TEST_FILE \
   DATA.PATH_LABEL_SEPARATOR , \
   DATA.INDEX_LABEL_MAPPING_FILE $ROOT/zs_label_db/B2N_hmdb/train_rephrased.json \
   TRAIN.ENABLE True \

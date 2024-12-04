@@ -726,13 +726,15 @@ class TemporalVisionTransformer(nn.Module):
         self.record_routing = record_routing
         self.routing_type = routing_type
 
+        # 用于将输入图像分块并映射到特征空间
         self.conv1 = nn.Conv2d(in_channels=3, out_channels=width, kernel_size=patch_size, stride=patch_size, bias=False)
 
         scale = width ** -0.5
         self.class_embedding = nn.Parameter(scale * torch.randn(width))
         self.positional_embedding = nn.Parameter(scale * torch.randn((input_resolution // patch_size) ** 2 + 1, width))
-        self.ln_pre = LayerNorm(width)
+        self.ln_pre = LayerNorm(width) # 用于规范化输入特征
 
+        # TSTransformer 是一个支持时序建模的变压器模块,这里又用了另一个类
         self.transformer = TSTransformer(width, layers, heads, use_checkpoint=self.use_checkpoint, T=self.T, temporal_modeling_type=self.temporal_modeling_type, num_experts=num_experts, expert_insert_layers=expert_insert_layers, record_routing=record_routing, routing_type=routing_type)
 
         self.ln_post = LayerNorm(width)
@@ -753,6 +755,7 @@ class TemporalVisionTransformer(nn.Module):
 
         x = x.permute(1, 0, 2)  # NLD -> LND
         
+        # 调用TSTransformer类，因为self.transformer是TSTransformer类的实例
         if self.record_routing:
             x, routing_state = self.transformer(x)
         else:

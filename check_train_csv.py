@@ -3,6 +3,11 @@ from pathlib import Path
 import csv
 import argparse
 
+# 全局路径配置
+ROOT = Path("/mnt/SSD8T/home/huangwei/projects/FROSTER")
+DATA_ROOT = ROOT / "data/ucf101/videos"
+CSV_PATH = ROOT / "zs_label_db/B2N_ucf101/train.csv"
+
 '''
 check_train_csv.py
 
@@ -95,27 +100,22 @@ def main():
     parser.add_argument('--remove', action='store_true', help="如果指定，将删除 CSV 文件中不存在的视频条目。")
     args = parser.parse_args()
     
-    # 设置路径
-    root = Path("/mnt/SSD8T/home/huangwei/projects/FROSTER")
-    data_root = root / "data/hmdb51"
-    csv_path = root / "zs_label_db/B2N_hmdb/test.csv"
-    
     # 检查路径是否存在
-    if not data_root.exists():
-        print(f"数据集目录不存在: {data_root}")
+    if not DATA_ROOT.exists():
+        print(f"数据集目录不存在: {DATA_ROOT}")
         return
-    if not csv_path.exists():
-        print(f"标签文件不存在: {csv_path}")
+    if not CSV_PATH.exists():
+        print(f"标签文件不存在: {CSV_PATH}")
         return
     
     # 解析 CSV 文件
     print("正在解析 CSV 文件...")
-    video_files = parse_train_csv(csv_path)
+    video_files = parse_train_csv(CSV_PATH)
     print(f"在 CSV 文件中找到 {len(video_files)} 个视频条目。")
     
     # 检查视频文件是否存在
     print("正在检查视频文件是否存在...")
-    missing_files = check_videos_exist(data_root, video_files)
+    missing_files = check_videos_exist(DATA_ROOT, video_files)
     
     # 打印检查结果
     if not missing_files:
@@ -128,7 +128,7 @@ def main():
         # 根据参数选择是否删除缺失的条目
         if args.remove:
             print("正在从 CSV 文件中移除缺失的条目...")
-            remove_missing_from_csv(csv_path, video_files, missing_files)
+            remove_missing_from_csv(CSV_PATH, video_files, missing_files)
         else:
             print("如果需要删除缺失的条目，请使用 --remove 参数。")
 

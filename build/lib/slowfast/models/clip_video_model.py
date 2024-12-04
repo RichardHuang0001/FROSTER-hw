@@ -79,9 +79,9 @@ class BasicClipVideo(nn.Module):
         bz, channel_dim, clip_len, h, w = x.shape
          # 1. 重排帧序列
         x = x.permute(0, 2, 1, 3, 4)
-        x = x.reshape(bz*clip_len, channel_dim, h, w)
+        x = x.reshape(bz*clip_len, channel_dim, h, w) # 将多帧图像展平成一个序列
         
-        # 2. 使用CLIP处理每一帧
+        # 2. 使用CLIP处理每一帧，输入的x是[bz*clip_len, channel_dim, h, w]，相当于CLIP处理了多帧图像（大batchsize）
         img_encode = self.model.encode_image(x)        
         
         if self.training:
@@ -118,6 +118,8 @@ class BasicClipVideo(nn.Module):
             # pred = pred.reshape(bz, clip_len, -1).mean(1)
             return pred 
     
+
+    #为CLIP模型生成文本端的输入然后编码，通过多种提示模板来增强模型的理解能力。每个类别都会有多个不同的描述方式
     def text_prompt(self, data_file):
         
         actionclip_text_aug = [f"a photo of action {{}}", f"a picture of action {{}}", f"Human action of {{}}", f"{{}}, an action",

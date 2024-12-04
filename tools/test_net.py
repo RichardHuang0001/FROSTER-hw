@@ -190,13 +190,13 @@ def perform_test(test_loader, model, test_meter, cfg, writer=None):
             """
             # if cfg.MODEL.RECORD_ROUTING and cur_iter >= 10:
             #     break
-
+        # 数据转移回CPU
         if cfg.NUM_GPUS:
             preds = preds.cpu()
             labels = labels.cpu()
             video_idx = video_idx.cpu()
 
-        test_meter.iter_toc()
+        test_meter.iter_toc() #结束当前迭代的计时
 
         if not cfg.VIS_MASK.ENABLE:
             # Update and log stats.
@@ -204,7 +204,7 @@ def perform_test(test_loader, model, test_meter, cfg, writer=None):
                 preds.detach(), labels.detach(), video_idx.detach()
             )
         test_meter.log_iter_stats(cur_iter) 
-        test_meter.iter_tic()
+        test_meter.iter_tic()  # 准备下一轮迭代的计时
     
     # routing record verify
     """
