@@ -655,14 +655,10 @@ class TSTransformer(nn.Module):
         # 根据不同的时序建模类型，初始化不同的注意力块
         if self.temporal_modeling_type == None: #无时序建模，使用标准的 ResidualAttentionBlock
             self.resblocks = nn.Sequential(*[ResidualAttentionBlock(width, heads, attn_mask, num_experts, record_routing, routing_type) if layer_id in expert_insert_layers else ResidualAttentionBlock(width, heads, attn_mask, record_routing=record_routing, routing_type=routing_type) for layer_id in range(layers)])
-        # - 使用TimesAttentionBlock处理时序信息
-        # - 将时序维度展开，使注意力机制能够跨帧交互
-        # - 允许模型学习帧间的长期依赖关系
+
         elif self.temporal_modeling_type == 'expand_temporal_view' or self.temporal_modeling_type == 'expand_temporal_view_step2' or self.temporal_modeling_type == 'expand_temporal_view_step3':
             self.resblocks = nn.Sequential(*[TimesAttentionBlock(width, heads, attn_mask, T=T, temporal_modeling_type=self.temporal_modeling_type) for _ in range(layers)])
-            # TimesAttentionBlock
-            # - 通过特征通道的位移来实现帧间信息交换
-            # - 计算效率较高，参数量较少
+
         elif self.temporal_modeling_type == 'channel_shift':
             self.resblocks = nn.Sequential(*[ChannelShiftAttentionBlock(width, heads, attn_mask, T=T) for _ in range(layers)])
             # ChannelShiftAttentionBlock

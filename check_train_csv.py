@@ -5,8 +5,11 @@ import argparse
 
 # 全局路径配置
 ROOT = Path("/mnt/SSD8T/home/huangwei/projects/FROSTER")
-DATA_ROOT = ROOT / "data/ucf101/videos"
-CSV_PATH = ROOT / "zs_label_db/B2N_ucf101/train.csv"
+DATA_ROOT = ROOT / "data/ssv2/videos"
+CSV_PATH = ROOT / "zs_label_db/B2N_ssv2/val.csv"
+
+# 视频文件后缀
+VIDEO_EXTENSION = '.webm'
 
 '''
 check_train_csv.py
@@ -48,7 +51,7 @@ def get_all_video_files(data_root):
     video_files = []
     for root, _, files in os.walk(data_root):
         for file in files:
-            if file.endswith('.avi'):  # 假设视频文件是 .avi 格式
+            if file.endswith(VIDEO_EXTENSION):  # 使用定义的后缀
                 video_files.append(os.path.relpath(os.path.join(root, file), data_root))
     return video_files
 
@@ -82,7 +85,7 @@ def remove_missing_from_csv(csv_path, video_files, missing_files):
         # 备份原始 CSV 文件
         backup_path = csv_path.with_suffix('.csv.bak')
         os.rename(csv_path, backup_path)
-        print(f"已备份原始 CSV 文件到 {backup_path}")
+        print(f"已备份原始 CSV 文件{backup_path}")
         
         # 写入更新后的 CSV 文件
         with open(csv_path, 'w', encoding='utf-8', newline='') as f:
@@ -124,6 +127,7 @@ def main():
         print(f"共有 {len(missing_files)} 个视频文件在数据集中缺失：")
         for filename, label in missing_files:
             print(f"- {filename} : 标签 {label}")
+        print(f"共有 {len(missing_files)} 个视频文件在数据集中缺失：")
         
         # 根据参数选择是否删除缺失的条目
         if args.remove:

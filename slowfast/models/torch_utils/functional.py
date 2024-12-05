@@ -573,9 +573,10 @@ def _scaled_dot_product_attention(
         k = out_k.view(B, Nt, E)
         v = out_v.view(B, Nt, E)
     
+    #FROSTER实际使用的类型
     elif temporal_shift == 'expand_temporal_view':
         # hard coding
-        n_segment = T
+        n_segment = T # T 是时间维度的长度，表示每个视频片段的帧数。
         n_div = 8
         
         if num_heads == None:
