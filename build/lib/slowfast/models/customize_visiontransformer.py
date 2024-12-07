@@ -9,7 +9,7 @@ from .clip.model import LayerNorm, QuickGELU
 from .torch_utils import activation
 
 
-# TYPE 1: expand temporal attention view  默认的配置文件中使用这个
+# TYPE 1: expand temporal attention view
 class TimesAttentionBlock(nn.Module):
     def __init__(self, d_model: int, n_head: int, attn_mask: torch.Tensor = None, T=0, temporal_modeling_type='expand_temporal_view'):
         super().__init__()
@@ -639,6 +639,7 @@ class Transformer(nn.Module):
         return self.resblocks(x)
 
 # TYPE
+# 支持时序建模的Transformer模块
 class TSTransformer(nn.Module):
     def __init__(self, width: int, layers: int, heads: int, attn_mask: torch.Tensor = None, use_checkpoint=False, T=8, temporal_modeling_type=None, num_experts=0, expert_insert_layers=[], record_routing=False, routing_type='patch-level'):
         super().__init__()
@@ -652,16 +653,12 @@ class TSTransformer(nn.Module):
         self.routing_type = routing_type
 
         # 根据不同的时序建模类型，初始化不同的注意力块
-        if self.temporal_modeling_type == None:
+        if self.temporal_modeling_type == None: #无时序建模，使用标准的 ResidualAttentionBlock
             self.resblocks = nn.Sequential(*[ResidualAttentionBlock(width, heads, attn_mask, num_experts, record_routing, routing_type) if layer_id in expert_insert_layers else ResidualAttentionBlock(width, heads, attn_mask, record_routing=record_routing, routing_type=routing_type) for layer_id in range(layers)])
-        # - 使用TimesAttentionBlock处理时序信息
-        # - 将时序维度展开，使注意力机制能够跨帧交互
-        # - 允许模型学习帧间的长期依赖关系
+
         elif self.temporal_modeling_type == 'expand_temporal_view' or self.temporal_modeling_type == 'expand_temporal_view_step2' or self.temporal_modeling_type == 'expand_temporal_view_step3':
             self.resblocks = nn.Sequential(*[TimesAttentionBlock(width, heads, attn_mask, T=T, temporal_modeling_type=self.temporal_modeling_type) for _ in range(layers)])
-            # TimesAttentionBlock
-            # - 通过特征通道的位移来实现帧间信息交换
-            # - 计算效率较高，参数量较少
+
         elif self.temporal_modeling_type == 'channel_shift':
             self.resblocks = nn.Sequential(*[ChannelShiftAttentionBlock(width, heads, attn_mask, T=T) for _ in range(layers)])
             # ChannelShiftAttentionBlock
@@ -726,23 +723,22 @@ class TemporalVisionTransformer(nn.Module):
         self.record_routing = record_routing
         self.routing_type = routing_type
 
-        # 用于将输入图像分块并映射到特征空间
         self.conv1 = nn.Conv2d(in_channels=3, out_channels=width, kernel_size=patch_size, stride=patch_size, bias=False)
 
         scale = width ** -0.5
         self.class_embedding = nn.Parameter(scale * torch.randn(width))
         self.positional_embedding = nn.Parameter(scale * torch.randn((input_resolution // patch_size) ** 2 + 1, width))
-        self.ln_pre = LayerNorm(width) # 用于规范化输入特征
+        self.ln_pre = LayerNorm(width)
 
-        # TSTransformer 是一个支持时序建模的变压器模块,这里又用了另一个类
         self.transformer = TSTransformer(width, layers, heads, use_checkpoint=self.use_checkpoint, T=self.T, temporal_modeling_type=self.temporal_modeling_type, num_experts=num_experts, expert_insert_layers=expert_insert_layers, record_routing=record_routing, routing_type=routing_type)
 
         self.ln_post = LayerNorm(width)
         self.proj = nn.Parameter(scale * torch.randn(width, output_dim))
 
+    # x的形状是[bz*clip_len, channel_dim, h, w]，是展平后的
     def forward(self, x):
         x, [maskf, mask] = x
-        x = self.conv1(x)  # shape = [*, width, grid, grid]
+        x = self.conv1(x)  # shape = [*, width, grid, grid] 形状变化: 从 [bz * clip_len, channel_dim, h, w] 变为 [bz * clip_len, width, grid, grid]，其中 grid 是图像分块后的大小。
         x = x.reshape(x.shape[0], x.shape[1], -1)  # shape = [*, width, grid ** 2]
         x = x.permute(0, 2, 1).contiguous()  # shape = [*, grid ** 2, width] # (bxt) l c
         B, l, c = x.shape
@@ -756,12 +752,13 @@ class TemporalVisionTransformer(nn.Module):
         x = x.permute(1, 0, 2)  # NLD -> LND
         
         # 调用TSTransformer类，因为self.transformer是TSTransformer类的实例
+        # 输入transformer的形状是[bz * clip_len, grid ** 2 + 1, width]
         if self.record_routing:
             x, routing_state = self.transformer(x)
         else:
             x = self.transformer(x)
         
-        feature = x.permute(1, 0, 2)  # LND -> NLD
+        feature = x.permute(1, 0, 2)  # LND -> NLD 这行代码对张量 x 进行维度重排。
 
         x = self.ln_post(feature[:, 0, :])
 

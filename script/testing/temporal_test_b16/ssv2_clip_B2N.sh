@@ -9,7 +9,7 @@ LOAD_CKPT_FILE=$ROOT/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/che
 B2N_ssv2_file=B2N_ssv2
 TRAIN_FILE=train.csv
 VAL_FILE=val.csv
-TEST_FILE=val.csv
+TEST_FILE=test.csv
 rephrased_file=train_rephrased.json
 NUM_CLASSES=87
 
@@ -26,8 +26,8 @@ python -W ignore -u tools/run_net.py \
     DATA.INDEX_LABEL_MAPPING_FILE $ROOT/zs_label_db/B2N_ssv2/$rephrased_file \
     TRAIN.ENABLE False \
     OUTPUT_DIR $OUT_DIR \
-    TEST.BATCH_SIZE 30 \
-    NUM_GPUS 1 \
+    TEST.BATCH_SIZE 120 \
+    NUM_GPUS 4 \
     DATA.DECODING_BACKEND "pyav" \
     MODEL.NUM_CLASSES $NUM_CLASSES \
     TEST.CUSTOM_LOAD True \
