@@ -11,7 +11,7 @@ CUDA_VISIBLE_DEVICES=1,2,3,4
 #不要忘记最后的 & 号
 
 运行测试：
-nohup script/testing/temporal_test_b16/ucf_clip.sh > test_ucf_cross.log 2>&1 &   
+nohup script/testing/temporal_test_b16/hmdb_clip.sh > test_hmdb_cross.log 2>&1 &   
 
 CUDA_VISIBLE_DEVICES=1,2,3,4 nohup bash script/testing/temporal_test_b16/ssv2_clip_B2N.sh > test_ssv2.log 2>&1 &   
 
