@@ -2,7 +2,7 @@ ROOT=/mnt/SSD8T/home/huangwei/projects/FROSTER
 CKPT=$ROOT/checkpoints
 
 B2N_ssv2_file=B2N_ssv2
-TRAIN_FILE=train.csv
+TRAIN_FILE=train_2.csv
 VAL_FILE=val.csv
 TEST_FILE=test.csv
 
@@ -19,11 +19,11 @@ TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \
   DATA.INDEX_LABEL_MAPPING_FILE $ROOT/zs_label_db/B2N_ssv2/train_rephrased.json \
   TRAIN.ENABLE True \
   OUTPUT_DIR $CKPT/basetraining/B2N_ssv2_froster \
-  TRAIN.BATCH_SIZE 28 \
-  TEST.BATCH_SIZE 210 \
+  TRAIN.BATCH_SIZE 16 \
+  TEST.BATCH_SIZE 24 \
   TEST.NUM_ENSEMBLE_VIEWS 3 \
   TEST.NUM_SPATIAL_CROPS 1 \
-  NUM_GPUS 7 \
+  NUM_GPUS 4 \
   SOLVER.MAX_EPOCH 12 \
   SOLVER.WARMUP_EPOCHS 2.0 \
   SOLVER.BASE_LR 3.33e-6 \

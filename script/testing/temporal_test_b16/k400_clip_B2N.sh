@@ -1,8 +1,8 @@
-ROOT=PATH_TO_FROSTER_WORKSPACE
-CKPT=PATH_TO_FROSTER_WORKSPACE/basetraining/B2N_k400_froster
+ROOT=/mnt/SSD8T/home/huangwei/projects/FROSTER
+CKPT=$ROOT/checkpoints/basetraining/B2N_k400_froster
 
 OUT_DIR=$CKPT/testing
-OAD_CKPT_FILE=$ROOT/basetraining/B2N_k400_froster/wa_checkpoints/swa_2_22.pth
+LOAD_CKPT_FILE=/mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_k400_froster/froster_k400_clip_b16.pth
 
 # TRAIN_FILE can be set as train_1.csv or train_2.csv or train_3.csv;
 # TEST_FILE can be set as val.csv (base set) or test.csv (novel set).

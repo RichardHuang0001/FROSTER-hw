@@ -1,14 +1,17 @@
 import torch
 import os
 
-raw_clip = '/root/.cache/clip/ViT-B-16.pt'
+# ROOT=/mnt/SSD8T/home/huangwei/projects/FROSTER
+# CKPT=$ROOT/checkpoints
+
+raw_clip = os.path.expanduser('~/.cache/clip/ViT-B-16.pt')
 # source_dir = '/DDN_ROOT/ytcheng/code/patching_checkpoint/basetraining/temporalclip_vitb16_8x16_interpolation_bugfix_0.5ratio_rand0.0_0.6sample_seed2/checkpoints'
 # output_dir = '/DDN_ROOT/ytcheng/code/patching_checkpoint/basetraining/temporalclip_vitb16_8x16_interpolation_bugfix_0.5ratio_rand0.0_0.6sample_seed2/wa_checkpoints'
-source_dir = '$ROOT/basetraining/B2N_k400_froster/checkpoints'
-output_dir = '$ROOT/basetraining/B2N_k400_froster/wa_checkpoints'
+source_dir = '/mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_ssv2_froster/checkpoints'
+output_dir = '/mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_ssv2_froster/checkpoints/wa_checkpoints'
 
 wa_start = 2
-wa_end = 22
+wa_end = 12
 
 def average_checkpoint(checkpoint_list):
     ckpt_list = []
@@ -67,9 +70,30 @@ def average_checkpoint(checkpoint_list):
 
 os.makedirs(output_dir, exist_ok=True)
 checkpoint_list = os.listdir(source_dir)
-    
-checkpoint_list = [(os.path.join(source_dir, i), int(i.split('.')[0].split('_')[-1])) for i in checkpoint_list]
-checkpoint_list = sorted(checkpoint_list, key=lambda d: d[1])
+
+# 修改文件过滤和解析逻辑
+filtered_checkpoint_list = []
+for filename in checkpoint_list:
+    try:
+        # 只处理.pyth文件
+        if not filename.endswith('.pyth'):
+            continue
+            
+        # 解析类似 checkpoint_epoch_00003.pyth 格式
+        epoch_str = filename.split('_')[-1].split('.')[0]  # 获取 00003
+        epoch_num = int(epoch_str)  # 转换为数字
+        
+        filtered_checkpoint_list.append((os.path.join(source_dir, filename), epoch_num))
+    except ValueError:
+        print(f"Skipping file {filename} as it doesn't match the expected format")
+
+if not filtered_checkpoint_list:
+    raise ValueError(f"No valid checkpoint files found in {source_dir}")
+
+# 按epoch数字排序
+checkpoint_list = sorted(filtered_checkpoint_list, key=lambda d: d[1])
+
+print("Found checkpoints:", [f"{os.path.basename(c[0])} (epoch {c[1]})" for c in checkpoint_list])
 
 swa_state_dict = average_checkpoint(checkpoint_list)
 torch.save({'model_state': swa_state_dict}, os.path.join(output_dir, 'swa_%d_%d.pth'%(wa_start, wa_end)))

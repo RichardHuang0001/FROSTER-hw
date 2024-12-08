@@ -1,7 +1,7 @@
 nohup: ignoring input
 config files: ['configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_SSV2.yaml']
-[12/06 10:19:38][INFO] test_net.py:  319: Test with config:
-[12/06 10:19:38][INFO] test_net.py:  320: AUG:
+[12/08 15:31:37][INFO] test_net.py:  319: Test with config:
+[12/08 15:31:37][INFO] test_net.py:  320: AUG:
   AA_TYPE: rand-m7-n4-mstd0.5-inc1
   COLOR_JITTER: 0.4
   ENABLE: False
@@ -362,17 +362,17 @@ TENSORBOARD:
     SUBSET_PATH: 
     TAG: Incorrectly classified videos.
 TEST:
-  BATCH_SIZE: 30
+  BATCH_SIZE: 60
   CHECKPOINT_FILE_PATH: 
   CHECKPOINT_TYPE: pytorch
   CLIP_ORI_PATH: /mnt/SSD8T/home/huangwei/.cache/clip/ViT-B-16.pt
   CUSTOM_LOAD: True
-  CUSTOM_LOAD_FILE: /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00012.pyth
+  CUSTOM_LOAD_FILE: /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_ssv2_froster/checkpoints/wa_checkpoints/swa_2_12.pth
   DATASET: kinetics
   ENABLE: True
-  NUM_ENSEMBLE_VIEWS: 1
+  NUM_ENSEMBLE_VIEWS: 3
   NUM_SPATIAL_CROPS: 1
-  NUM_TEMPORAL_CLIPS: [1]
+  NUM_TEMPORAL_CLIPS: [3]
   OPENSET: False
   PATCHING_MODEL: False
   PATCHING_RATIO: 0.5
@@ -428,613 +428,9 @@ X3D:
   DIM_C5: 2048
   SCALE_RES2: False
   WIDTH_FACTOR: 1.0
-[12/06 10:19:42][INFO] temporalclip_video_model.py:  614: load pretrained CLIP:<All keys matched successfully>
-[12/06 10:19:45][INFO] test_net.py:  333: Loading custom network weights from /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00012.pyth.
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.positional_embedding
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.text_projection
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.logit_scale
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.class_embedding
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.positional_embedding
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.proj
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.conv1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.ln_pre.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.ln_pre.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.0.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.0.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.0.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.0.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.0.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.0.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.0.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.0.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.0.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.0.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.0.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.0.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.1.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.1.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.1.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.1.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.1.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.1.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.1.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.1.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.1.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.1.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.1.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.1.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.2.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.2.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.2.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.2.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.2.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.2.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.2.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.2.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.2.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.2.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.2.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.2.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.3.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.3.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.3.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.3.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.3.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.3.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.3.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.3.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.3.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.3.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.3.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.3.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.4.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.4.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.4.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.4.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.4.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.4.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.4.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.4.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.4.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.4.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.4.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.4.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.5.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.5.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.5.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.5.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.5.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.5.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.5.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.5.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.5.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.5.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.5.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.5.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.6.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.6.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.6.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.6.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.6.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.6.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.6.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.6.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.6.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.6.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.6.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.6.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.7.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.7.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.7.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.7.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.7.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.7.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.7.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.7.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.7.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.7.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.7.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.7.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.8.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.8.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.8.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.8.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.8.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.8.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.8.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.8.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.8.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.8.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.8.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.8.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.9.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.9.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.9.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.9.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.9.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.9.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.9.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.9.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.9.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.9.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.9.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.9.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.10.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.10.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.10.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.10.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.10.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.10.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.10.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.10.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.10.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.10.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.10.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.10.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.11.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.11.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.11.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.11.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.11.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.11.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.11.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.11.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.11.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.11.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.11.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.transformer.resblocks.11.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.ln_post.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.visual.ln_post.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.0.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.0.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.0.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.0.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.0.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.0.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.0.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.0.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.0.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.0.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.0.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.0.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.1.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.1.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.1.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.1.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.1.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.1.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.1.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.1.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.1.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.1.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.1.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.1.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.2.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.2.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.2.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.2.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.2.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.2.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.2.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.2.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.2.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.2.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.2.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.2.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.3.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.3.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.3.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.3.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.3.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.3.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.3.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.3.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.3.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.3.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.3.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.3.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.4.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.4.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.4.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.4.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.4.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.4.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.4.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.4.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.4.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.4.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.4.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.4.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.5.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.5.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.5.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.5.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.5.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.5.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.5.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.5.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.5.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.5.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.5.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.5.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.6.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.6.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.6.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.6.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.6.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.6.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.6.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.6.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.6.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.6.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.6.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.6.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.7.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.7.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.7.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.7.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.7.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.7.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.7.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.7.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.7.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.7.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.7.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.7.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.8.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.8.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.8.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.8.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.8.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.8.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.8.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.8.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.8.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.8.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.8.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.8.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.9.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.9.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.9.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.9.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.9.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.9.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.9.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.9.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.9.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.9.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.9.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.9.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.10.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.10.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.10.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.10.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.10.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.10.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.10.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.10.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.10.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.10.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.10.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.10.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.11.attn.in_proj_weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.11.attn.in_proj_bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.11.attn.out_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.11.attn.out_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.11.ln_1.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.11.ln_1.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.11.mlp.c_fc.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.11.mlp.c_fc.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.11.mlp.c_proj.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.11.mlp.c_proj.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.11.ln_2.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.transformer.resblocks.11.ln_2.bias
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.token_embedding.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.ln_final.weight
-[12/06 10:19:46][INFO] test_net.py:  404: missing parameters
-[12/06 10:19:46][INFO] test_net.py:  405: raw_model.ln_final.bias
-[12/06 10:19:46][INFO] misc.py:  185: Model:
+[12/08 15:31:40][INFO] temporalclip_video_model.py:  618: load pretrained CLIP:<All keys matched successfully>
+[12/08 15:31:44][INFO] test_net.py:  333: Loading custom network weights from /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_ssv2_froster/checkpoints/wa_checkpoints/swa_2_12.pth.
+[12/08 15:31:44][INFO] misc.py:  185: Model:
 TemporalClipVideo(
   (model): WCLIP(
     (visual): TemporalVisionTransformer(
@@ -1352,10 +748,10 @@ TemporalClipVideo(
     (2): Linear(in_features=512, out_features=512, bias=False)
   )
 )
-[12/06 10:19:46][INFO] misc.py:  187: Params: 150,669,313
-[12/06 10:19:46][INFO] misc.py:  188: Mem: 0.7674283981323242 MB
-[12/06 10:19:46][INFO] misc.py:  197: nvidia-smi
-Fri Dec  6 10:19:46 2024       
+[12/08 15:31:44][INFO] misc.py:  187: Params: 150,669,313
+[12/08 15:31:44][INFO] misc.py:  188: Mem: 0.7674283981323242 MB
+[12/08 15:31:44][INFO] misc.py:  197: nvidia-smi
+Sun Dec  8 15:31:44 2024       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
@@ -1364,35 +760,35 @@ Fri Dec  6 10:19:46 2024
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
 |   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0 Off |                  Off |
-| 42%   21C    P8    29W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 42%   24C    P2    66W / 450W |   2920MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   1  NVIDIA GeForce ...  Off  | 00000000:23:00.0 Off |                  Off |
-| 41%   23C    P2    52W / 450W |   2918MiB / 24564MiB |     14%      Default |
+| 41%   23C    P8    19W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   2  NVIDIA GeForce ...  Off  | 00000000:41:00.0 Off |                  Off |
-| 41%   22C    P8    22W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 41%   23C    P8    23W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   3  NVIDIA GeForce ...  Off  | 00000000:61:00.0 Off |                  Off |
-| 40%   21C    P8    27W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 40%   23C    P8    25W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   4  NVIDIA GeForce ...  Off  | 00000000:81:00.0 Off |                  Off |
-| 42%   21C    P8    24W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 42%   24C    P8    23W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   5  NVIDIA GeForce ...  Off  | 00000000:A1:00.0 Off |                  Off |
-| 41%   21C    P8    22W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 41%   22C    P8    22W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   6  NVIDIA GeForce ...  Off  | 00000000:C1:00.0 Off |                  Off |
-| 42%   22C    P8    14W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 42%   57C    P2   234W / 450W |  19744MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   7  NVIDIA GeForce ...  Off  | 00000000:E1:00.0 Off |                  Off |
-| 39%   21C    P8    17W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 40%   22C    P8    18W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -1402,16 +798,17 @@ Fri Dec  6 10:19:46 2024
 |        ID   ID                                                   Usage      |
 |=============================================================================|
 |    0   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
+|    0   N/A  N/A    439573      C   python                           2910MiB |
 |    1   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    1   N/A  N/A   3095579      C   python                           2910MiB |
 |    2   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
 |    3   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
 |    4   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
 |    5   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
 |    6   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
+|    6   N/A  N/A    393385      C   ...nda3/envs/py39/bin/python    19736MiB |
 |    7   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
 +-----------------------------------------------------------------------------+
-[12/06 10:19:47][INFO] misc.py:  185: Model:
+[12/08 15:31:45][INFO] misc.py:  185: Model:
 TemporalClipVideo(
   (model): WCLIP(
     (visual): TemporalVisionTransformer(
@@ -1729,10 +1126,10 @@ TemporalClipVideo(
     (2): Linear(in_features=512, out_features=512, bias=False)
   )
 )
-[12/06 10:19:47][INFO] misc.py:  187: Params: 150,669,313
-[12/06 10:19:47][INFO] misc.py:  188: Mem: 0.7674283981323242 MB
-[12/06 10:19:47][INFO] misc.py:  197: nvidia-smi
-Fri Dec  6 10:19:47 2024       
+[12/08 15:31:45][INFO] misc.py:  187: Params: 150,669,313
+[12/08 15:31:45][INFO] misc.py:  188: Mem: 0.7674283981323242 MB
+[12/08 15:31:45][INFO] misc.py:  197: nvidia-smi
+Sun Dec  8 15:31:45 2024       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
@@ -1741,35 +1138,35 @@ Fri Dec  6 10:19:47 2024
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
 |   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0 Off |                  Off |
-| 42%   21C    P8    29W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 42%   24C    P2    57W / 450W |   2920MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   1  NVIDIA GeForce ...  Off  | 00000000:23:00.0 Off |                  Off |
-| 41%   23C    P2    53W / 450W |   2918MiB / 24564MiB |      0%      Default |
+| 41%   23C    P8    19W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   2  NVIDIA GeForce ...  Off  | 00000000:41:00.0 Off |                  Off |
-| 41%   22C    P8    22W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 41%   23C    P8    23W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   3  NVIDIA GeForce ...  Off  | 00000000:61:00.0 Off |                  Off |
-| 40%   22C    P8    27W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 40%   23C    P8    26W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   4  NVIDIA GeForce ...  Off  | 00000000:81:00.0 Off |                  Off |
-| 42%   21C    P8    24W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 42%   24C    P8    23W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   5  NVIDIA GeForce ...  Off  | 00000000:A1:00.0 Off |                  Off |
-| 41%   21C    P8    22W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 41%   22C    P8    22W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   6  NVIDIA GeForce ...  Off  | 00000000:C1:00.0 Off |                  Off |
-| 42%   22C    P8    14W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 42%   59C    P2   255W / 450W |  19744MiB / 24564MiB |     27%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   7  NVIDIA GeForce ...  Off  | 00000000:E1:00.0 Off |                  Off |
-| 40%   21C    P8    17W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 39%   22C    P8    18W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -1779,262 +1176,744 @@ Fri Dec  6 10:19:47 2024
 |        ID   ID                                                   Usage      |
 |=============================================================================|
 |    0   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
+|    0   N/A  N/A    439573      C   python                           2910MiB |
 |    1   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
-|    1   N/A  N/A   3095579      C   python                           2910MiB |
 |    2   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
 |    3   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
 |    4   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
 |    5   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
 |    6   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
+|    6   N/A  N/A    393385      C   ...nda3/envs/py39/bin/python    19736MiB |
 |    7   N/A  N/A      2891      G   /usr/lib/xorg/Xorg                  4MiB |
 +-----------------------------------------------------------------------------+
-[12/06 10:19:48][INFO] kinetics.py:   94: Constructing Kinetics test...
+[12/08 15:31:46][INFO] kinetics.py:   94: Constructing Kinetics test...
 path: ---------------------------- /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_ssv2/test.csv
-[12/06 10:19:48][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 7215 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_ssv2/test.csv 
-[12/06 10:19:48][INFO] test_net.py:  434: Testing model for 241 iterations
-[12/06 10:19:59][INFO] logging.py:   99: json_stats: {"cur_iter": "1", "eta": "0:36:59", "split": "test_iter", "time_diff": 9.21052815}
-[12/06 10:20:00][INFO] logging.py:   99: json_stats: {"cur_iter": "2", "eta": "0:03:35", "split": "test_iter", "time_diff": 0.89630967}
-[12/06 10:20:01][INFO] logging.py:   99: json_stats: {"cur_iter": "3", "eta": "0:03:32", "split": "test_iter", "time_diff": 0.88909384}
-[12/06 10:20:02][INFO] logging.py:   99: json_stats: {"cur_iter": "4", "eta": "0:03:37", "split": "test_iter", "time_diff": 0.91550231}
-[12/06 10:20:04][INFO] logging.py:   99: json_stats: {"cur_iter": "5", "eta": "0:06:06", "split": "test_iter", "time_diff": 1.54802924}
-[12/06 10:20:05][INFO] logging.py:   99: json_stats: {"cur_iter": "6", "eta": "0:05:25", "split": "test_iter", "time_diff": 1.37847643}
-[12/06 10:20:06][INFO] logging.py:   99: json_stats: {"cur_iter": "7", "eta": "0:03:35", "split": "test_iter", "time_diff": 0.91635683}
-[12/06 10:20:07][INFO] logging.py:   99: json_stats: {"cur_iter": "8", "eta": "0:03:32", "split": "test_iter", "time_diff": 0.91023506}
-[12/06 10:20:08][INFO] logging.py:   99: json_stats: {"cur_iter": "9", "eta": "0:04:23", "split": "test_iter", "time_diff": 1.13225323}
-[12/06 10:20:10][INFO] logging.py:   99: json_stats: {"cur_iter": "10", "eta": "0:07:51", "split": "test_iter", "time_diff": 2.03167442}
-[12/06 10:20:11][INFO] logging.py:   99: json_stats: {"cur_iter": "11", "eta": "0:03:32", "split": "test_iter", "time_diff": 0.92089570}
-[12/06 10:20:12][INFO] logging.py:   99: json_stats: {"cur_iter": "12", "eta": "0:03:38", "split": "test_iter", "time_diff": 0.94817617}
-[12/06 10:20:13][INFO] logging.py:   99: json_stats: {"cur_iter": "13", "eta": "0:03:24", "split": "test_iter", "time_diff": 0.89483214}
-[12/06 10:20:15][INFO] logging.py:   99: json_stats: {"cur_iter": "14", "eta": "0:07:41", "split": "test_iter", "time_diff": 2.02588861}
-[12/06 10:20:16][INFO] logging.py:   99: json_stats: {"cur_iter": "15", "eta": "0:03:39", "split": "test_iter", "time_diff": 0.96526012}
-[12/06 10:20:17][INFO] logging.py:   99: json_stats: {"cur_iter": "16", "eta": "0:03:26", "split": "test_iter", "time_diff": 0.91322739}
-[12/06 10:20:18][INFO] logging.py:   99: json_stats: {"cur_iter": "17", "eta": "0:03:35", "split": "test_iter", "time_diff": 0.95560939}
-[12/06 10:20:20][INFO] logging.py:   99: json_stats: {"cur_iter": "18", "eta": "0:09:20", "split": "test_iter", "time_diff": 2.50155669}
-[12/06 10:20:21][INFO] logging.py:   99: json_stats: {"cur_iter": "19", "eta": "0:03:20", "split": "test_iter", "time_diff": 0.89856958}
-[12/06 10:20:22][INFO] logging.py:   99: json_stats: {"cur_iter": "20", "eta": "0:03:22", "split": "test_iter", "time_diff": 0.91165082}
-[12/06 10:20:23][INFO] logging.py:   99: json_stats: {"cur_iter": "21", "eta": "0:03:22", "split": "test_iter", "time_diff": 0.91588434}
-[12/06 10:20:25][INFO] logging.py:   99: json_stats: {"cur_iter": "22", "eta": "0:09:13", "split": "test_iter", "time_diff": 2.51684083}
-[12/06 10:20:26][INFO] logging.py:   99: json_stats: {"cur_iter": "23", "eta": "0:03:18", "split": "test_iter", "time_diff": 0.90724910}
-[12/06 10:20:27][INFO] logging.py:   99: json_stats: {"cur_iter": "24", "eta": "0:03:17", "split": "test_iter", "time_diff": 0.90481596}
-[12/06 10:20:28][INFO] logging.py:   99: json_stats: {"cur_iter": "25", "eta": "0:03:14", "split": "test_iter", "time_diff": 0.89554504}
-[12/06 10:20:30][INFO] logging.py:   99: json_stats: {"cur_iter": "26", "eta": "0:08:11", "split": "test_iter", "time_diff": 2.27446169}
-[12/06 10:20:31][INFO] logging.py:   99: json_stats: {"cur_iter": "27", "eta": "0:03:12", "split": "test_iter", "time_diff": 0.89356691}
-[12/06 10:20:32][INFO] logging.py:   99: json_stats: {"cur_iter": "28", "eta": "0:03:21", "split": "test_iter", "time_diff": 0.94173447}
-[12/06 10:20:33][INFO] logging.py:   99: json_stats: {"cur_iter": "29", "eta": "0:03:10", "split": "test_iter", "time_diff": 0.89442888}
-[12/06 10:20:35][INFO] logging.py:   99: json_stats: {"cur_iter": "30", "eta": "0:08:26", "split": "test_iter", "time_diff": 2.38994036}
-[12/06 10:20:36][INFO] logging.py:   99: json_stats: {"cur_iter": "31", "eta": "0:03:09", "split": "test_iter", "time_diff": 0.89645700}
-[12/06 10:20:37][INFO] logging.py:   99: json_stats: {"cur_iter": "32", "eta": "0:03:15", "split": "test_iter", "time_diff": 0.93140747}
-[12/06 10:20:38][INFO] logging.py:   99: json_stats: {"cur_iter": "33", "eta": "0:03:12", "split": "test_iter", "time_diff": 0.91956091}
-[12/06 10:20:41][INFO] logging.py:   99: json_stats: {"cur_iter": "34", "eta": "0:08:21", "split": "test_iter", "time_diff": 2.40977743}
-[12/06 10:20:42][INFO] logging.py:   99: json_stats: {"cur_iter": "35", "eta": "0:03:08", "split": "test_iter", "time_diff": 0.91041635}
-[12/06 10:20:42][INFO] logging.py:   99: json_stats: {"cur_iter": "36", "eta": "0:03:10", "split": "test_iter", "time_diff": 0.92519746}
-[12/06 10:20:43][INFO] logging.py:   99: json_stats: {"cur_iter": "37", "eta": "0:03:07", "split": "test_iter", "time_diff": 0.91450023}
-[12/06 10:20:46][INFO] logging.py:   99: json_stats: {"cur_iter": "38", "eta": "0:09:57", "split": "test_iter", "time_diff": 2.92832618}
-[12/06 10:20:47][INFO] logging.py:   99: json_stats: {"cur_iter": "39", "eta": "0:03:16", "split": "test_iter", "time_diff": 0.96620696}
-[12/06 10:20:48][INFO] logging.py:   99: json_stats: {"cur_iter": "40", "eta": "0:03:05", "split": "test_iter", "time_diff": 0.91890356}
-[12/06 10:20:49][INFO] logging.py:   99: json_stats: {"cur_iter": "41", "eta": "0:03:09", "split": "test_iter", "time_diff": 0.94487343}
-[12/06 10:20:51][INFO] logging.py:   99: json_stats: {"cur_iter": "42", "eta": "0:06:15", "split": "test_iter", "time_diff": 1.87510536}
-[12/06 10:20:52][INFO] logging.py:   99: json_stats: {"cur_iter": "43", "eta": "0:03:08", "split": "test_iter", "time_diff": 0.94672105}
-[12/06 10:20:53][INFO] logging.py:   99: json_stats: {"cur_iter": "44", "eta": "0:02:59", "split": "test_iter", "time_diff": 0.90727640}
-[12/06 10:20:54][INFO] logging.py:   99: json_stats: {"cur_iter": "45", "eta": "0:02:59", "split": "test_iter", "time_diff": 0.90966487}
-[12/06 10:20:56][INFO] logging.py:   99: json_stats: {"cur_iter": "46", "eta": "0:06:26", "split": "test_iter", "time_diff": 1.97176631}
-[12/06 10:20:57][INFO] logging.py:   99: json_stats: {"cur_iter": "47", "eta": "0:02:54", "split": "test_iter", "time_diff": 0.89257698}
-[12/06 10:20:58][INFO] logging.py:   99: json_stats: {"cur_iter": "48", "eta": "0:03:07", "split": "test_iter", "time_diff": 0.96733911}
-[12/06 10:20:59][INFO] logging.py:   99: json_stats: {"cur_iter": "49", "eta": "0:02:56", "split": "test_iter", "time_diff": 0.91434549}
-[12/06 10:21:01][INFO] logging.py:   99: json_stats: {"cur_iter": "50", "eta": "0:06:46", "split": "test_iter", "time_diff": 2.11460778}
-[12/06 10:21:02][INFO] logging.py:   99: json_stats: {"cur_iter": "51", "eta": "0:02:51", "split": "test_iter", "time_diff": 0.89639184}
-[12/06 10:21:02][INFO] logging.py:   99: json_stats: {"cur_iter": "52", "eta": "0:02:54", "split": "test_iter", "time_diff": 0.91931123}
-[12/06 10:21:03][INFO] logging.py:   99: json_stats: {"cur_iter": "53", "eta": "0:02:49", "split": "test_iter", "time_diff": 0.89631813}
-[12/06 10:21:06][INFO] logging.py:   99: json_stats: {"cur_iter": "54", "eta": "0:06:46", "split": "test_iter", "time_diff": 2.16050469}
-[12/06 10:21:06][INFO] logging.py:   99: json_stats: {"cur_iter": "55", "eta": "0:02:47", "split": "test_iter", "time_diff": 0.89652437}
-[12/06 10:21:07][INFO] logging.py:   99: json_stats: {"cur_iter": "56", "eta": "0:02:52", "split": "test_iter", "time_diff": 0.92613187}
-[12/06 10:21:08][INFO] logging.py:   99: json_stats: {"cur_iter": "57", "eta": "0:02:46", "split": "test_iter", "time_diff": 0.89947405}
-[12/06 10:21:11][INFO] logging.py:   99: json_stats: {"cur_iter": "58", "eta": "0:08:12", "split": "test_iter", "time_diff": 2.67496502}
-[12/06 10:21:12][INFO] logging.py:   99: json_stats: {"cur_iter": "59", "eta": "0:02:50", "split": "test_iter", "time_diff": 0.93418545}
-[12/06 10:21:13][INFO] logging.py:   99: json_stats: {"cur_iter": "60", "eta": "0:02:46", "split": "test_iter", "time_diff": 0.91654378}
-[12/06 10:21:14][INFO] logging.py:   99: json_stats: {"cur_iter": "61", "eta": "0:02:50", "split": "test_iter", "time_diff": 0.94159851}
-[12/06 10:21:15][INFO] logging.py:   99: json_stats: {"cur_iter": "62", "eta": "0:05:02", "split": "test_iter", "time_diff": 1.67964027}
-[12/06 10:21:16][INFO] logging.py:   99: json_stats: {"cur_iter": "63", "eta": "0:02:43", "split": "test_iter", "time_diff": 0.91131058}
-[12/06 10:21:17][INFO] logging.py:   99: json_stats: {"cur_iter": "64", "eta": "0:02:43", "split": "test_iter", "time_diff": 0.92100567}
-[12/06 10:21:18][INFO] logging.py:   99: json_stats: {"cur_iter": "65", "eta": "0:02:53", "split": "test_iter", "time_diff": 0.97749085}
-[12/06 10:21:21][INFO] logging.py:   99: json_stats: {"cur_iter": "66", "eta": "0:06:38", "split": "test_iter", "time_diff": 2.26272813}
-[12/06 10:21:21][INFO] logging.py:   99: json_stats: {"cur_iter": "67", "eta": "0:02:39", "split": "test_iter", "time_diff": 0.91235791}
-[12/06 10:21:22][INFO] logging.py:   99: json_stats: {"cur_iter": "68", "eta": "0:02:44", "split": "test_iter", "time_diff": 0.94557447}
-[12/06 10:21:23][INFO] logging.py:   99: json_stats: {"cur_iter": "69", "eta": "0:02:36", "split": "test_iter", "time_diff": 0.90546003}
-[12/06 10:21:25][INFO] logging.py:   99: json_stats: {"cur_iter": "70", "eta": "0:05:41", "split": "test_iter", "time_diff": 1.98549038}
-[12/06 10:21:26][INFO] logging.py:   99: json_stats: {"cur_iter": "71", "eta": "0:02:34", "split": "test_iter", "time_diff": 0.90266270}
-[12/06 10:21:27][INFO] logging.py:   99: json_stats: {"cur_iter": "72", "eta": "0:02:40", "split": "test_iter", "time_diff": 0.94351904}
-[12/06 10:21:28][INFO] logging.py:   99: json_stats: {"cur_iter": "73", "eta": "0:02:35", "split": "test_iter", "time_diff": 0.91853440}
-[12/06 10:21:30][INFO] logging.py:   99: json_stats: {"cur_iter": "74", "eta": "0:05:26", "split": "test_iter", "time_diff": 1.94333091}
-[12/06 10:21:31][INFO] logging.py:   99: json_stats: {"cur_iter": "75", "eta": "0:02:32", "split": "test_iter", "time_diff": 0.91371980}
-[12/06 10:21:32][INFO] logging.py:   99: json_stats: {"cur_iter": "76", "eta": "0:02:31", "split": "test_iter", "time_diff": 0.91461171}
-[12/06 10:21:33][INFO] logging.py:   99: json_stats: {"cur_iter": "77", "eta": "0:02:28", "split": "test_iter", "time_diff": 0.89869703}
-[12/06 10:21:35][INFO] logging.py:   99: json_stats: {"cur_iter": "78", "eta": "0:07:11", "split": "test_iter", "time_diff": 2.63004920}
-[12/06 10:21:36][INFO] logging.py:   99: json_stats: {"cur_iter": "79", "eta": "0:02:26", "split": "test_iter", "time_diff": 0.89689085}
-[12/06 10:21:37][INFO] logging.py:   99: json_stats: {"cur_iter": "80", "eta": "0:02:30", "split": "test_iter", "time_diff": 0.92680374}
-[12/06 10:21:38][INFO] logging.py:   99: json_stats: {"cur_iter": "81", "eta": "0:02:25", "split": "test_iter", "time_diff": 0.90233961}
-[12/06 10:21:40][INFO] logging.py:   99: json_stats: {"cur_iter": "82", "eta": "0:05:35", "split": "test_iter", "time_diff": 2.09383852}
-[12/06 10:21:41][INFO] logging.py:   99: json_stats: {"cur_iter": "83", "eta": "0:02:26", "split": "test_iter", "time_diff": 0.91983004}
-[12/06 10:21:42][INFO] logging.py:   99: json_stats: {"cur_iter": "84", "eta": "0:02:29", "split": "test_iter", "time_diff": 0.94593120}
-[12/06 10:21:43][INFO] logging.py:   99: json_stats: {"cur_iter": "85", "eta": "0:02:24", "split": "test_iter", "time_diff": 0.92260196}
-[12/06 10:21:45][INFO] logging.py:   99: json_stats: {"cur_iter": "86", "eta": "0:06:21", "split": "test_iter", "time_diff": 2.44725542}
-[12/06 10:21:46][INFO] logging.py:   99: json_stats: {"cur_iter": "87", "eta": "0:02:24", "split": "test_iter", "time_diff": 0.93383401}
-[12/06 10:21:47][INFO] logging.py:   99: json_stats: {"cur_iter": "88", "eta": "0:02:21", "split": "test_iter", "time_diff": 0.91673244}
-[12/06 10:21:48][INFO] logging.py:   99: json_stats: {"cur_iter": "89", "eta": "0:02:20", "split": "test_iter", "time_diff": 0.91802740}
-[12/06 10:21:50][INFO] logging.py:   99: json_stats: {"cur_iter": "90", "eta": "0:05:18", "split": "test_iter", "time_diff": 2.09710995}
-[12/06 10:21:51][INFO] logging.py:   99: json_stats: {"cur_iter": "91", "eta": "0:02:19", "split": "test_iter", "time_diff": 0.92663027}
-[12/06 10:21:52][INFO] logging.py:   99: json_stats: {"cur_iter": "92", "eta": "0:02:26", "split": "test_iter", "time_diff": 0.97521619}
-[12/06 10:21:53][INFO] logging.py:   99: json_stats: {"cur_iter": "93", "eta": "0:02:18", "split": "test_iter", "time_diff": 0.92678970}
-[12/06 10:21:55][INFO] logging.py:   99: json_stats: {"cur_iter": "94", "eta": "0:05:19", "split": "test_iter", "time_diff": 2.15970238}
-[12/06 10:21:56][INFO] logging.py:   99: json_stats: {"cur_iter": "95", "eta": "0:02:15", "split": "test_iter", "time_diff": 0.92405580}
-[12/06 10:21:57][INFO] logging.py:   99: json_stats: {"cur_iter": "96", "eta": "0:02:20", "split": "test_iter", "time_diff": 0.96056606}
-[12/06 10:21:58][INFO] logging.py:   99: json_stats: {"cur_iter": "97", "eta": "0:02:13", "split": "test_iter", "time_diff": 0.91749764}
-[12/06 10:22:01][INFO] logging.py:   99: json_stats: {"cur_iter": "98", "eta": "0:06:27", "split": "test_iter", "time_diff": 2.69286553}
-[12/06 10:22:02][INFO] logging.py:   99: json_stats: {"cur_iter": "99", "eta": "0:02:08", "split": "test_iter", "time_diff": 0.89974029}
-[12/06 10:22:03][INFO] logging.py:   99: json_stats: {"cur_iter": "100", "eta": "0:02:07", "split": "test_iter", "time_diff": 0.90136137}
-[12/06 10:22:03][INFO] logging.py:   99: json_stats: {"cur_iter": "101", "eta": "0:02:06", "split": "test_iter", "time_diff": 0.89567115}
-[12/06 10:22:06][INFO] logging.py:   99: json_stats: {"cur_iter": "102", "eta": "0:06:02", "split": "test_iter", "time_diff": 2.59106313}
-[12/06 10:22:07][INFO] logging.py:   99: json_stats: {"cur_iter": "103", "eta": "0:02:08", "split": "test_iter", "time_diff": 0.92745075}
-[12/06 10:22:08][INFO] logging.py:   99: json_stats: {"cur_iter": "104", "eta": "0:02:04", "split": "test_iter", "time_diff": 0.90178945}
-[12/06 10:22:09][INFO] logging.py:   99: json_stats: {"cur_iter": "105", "eta": "0:02:03", "split": "test_iter", "time_diff": 0.90298125}
-[12/06 10:22:11][INFO] logging.py:   99: json_stats: {"cur_iter": "106", "eta": "0:05:09", "split": "test_iter", "time_diff": 2.27846362}
-[12/06 10:22:12][INFO] logging.py:   99: json_stats: {"cur_iter": "107", "eta": "0:02:03", "split": "test_iter", "time_diff": 0.91825300}
-[12/06 10:22:13][INFO] logging.py:   99: json_stats: {"cur_iter": "108", "eta": "0:02:00", "split": "test_iter", "time_diff": 0.89801709}
-[12/06 10:22:14][INFO] logging.py:   99: json_stats: {"cur_iter": "109", "eta": "0:02:06", "split": "test_iter", "time_diff": 0.95299357}
-[12/06 10:22:16][INFO] logging.py:   99: json_stats: {"cur_iter": "110", "eta": "0:03:38", "split": "test_iter", "time_diff": 1.65490923}
-[12/06 10:22:16][INFO] logging.py:   99: json_stats: {"cur_iter": "111", "eta": "0:02:02", "split": "test_iter", "time_diff": 0.93866591}
-[12/06 10:22:17][INFO] logging.py:   99: json_stats: {"cur_iter": "112", "eta": "0:02:00", "split": "test_iter", "time_diff": 0.92768691}
-[12/06 10:22:18][INFO] logging.py:   99: json_stats: {"cur_iter": "113", "eta": "0:01:57", "split": "test_iter", "time_diff": 0.91260266}
-[12/06 10:22:20][INFO] logging.py:   99: json_stats: {"cur_iter": "114", "eta": "0:04:35", "split": "test_iter", "time_diff": 2.15560167}
-[12/06 10:22:21][INFO] logging.py:   99: json_stats: {"cur_iter": "115", "eta": "0:01:57", "split": "test_iter", "time_diff": 0.92744172}
-[12/06 10:22:22][INFO] logging.py:   99: json_stats: {"cur_iter": "116", "eta": "0:01:57", "split": "test_iter", "time_diff": 0.93432666}
-[12/06 10:22:23][INFO] logging.py:   99: json_stats: {"cur_iter": "117", "eta": "0:01:52", "split": "test_iter", "time_diff": 0.90241357}
-[12/06 10:22:26][INFO] logging.py:   99: json_stats: {"cur_iter": "118", "eta": "0:04:48", "split": "test_iter", "time_diff": 2.32459911}
-[12/06 10:22:26][INFO] logging.py:   99: json_stats: {"cur_iter": "119", "eta": "0:01:56", "split": "test_iter", "time_diff": 0.94624016}
-[12/06 10:22:27][INFO] logging.py:   99: json_stats: {"cur_iter": "120", "eta": "0:01:51", "split": "test_iter", "time_diff": 0.91594167}
-[12/06 10:22:28][INFO] logging.py:   99: json_stats: {"cur_iter": "121", "eta": "0:01:51", "split": "test_iter", "time_diff": 0.92221185}
-[12/06 10:22:30][INFO] logging.py:   99: json_stats: {"cur_iter": "122", "eta": "0:03:34", "split": "test_iter", "time_diff": 1.78768479}
-[12/06 10:22:31][INFO] logging.py:   99: json_stats: {"cur_iter": "123", "eta": "0:01:49", "split": "test_iter", "time_diff": 0.92082899}
-[12/06 10:22:32][INFO] logging.py:   99: json_stats: {"cur_iter": "124", "eta": "0:01:46", "split": "test_iter", "time_diff": 0.90236463}
-[12/06 10:22:33][INFO] logging.py:   99: json_stats: {"cur_iter": "125", "eta": "0:01:45", "split": "test_iter", "time_diff": 0.90036904}
-[12/06 10:22:35][INFO] logging.py:   99: json_stats: {"cur_iter": "126", "eta": "0:04:10", "split": "test_iter", "time_diff": 2.15715056}
-[12/06 10:22:36][INFO] logging.py:   99: json_stats: {"cur_iter": "127", "eta": "0:01:44", "split": "test_iter", "time_diff": 0.91296395}
-[12/06 10:22:37][INFO] logging.py:   99: json_stats: {"cur_iter": "128", "eta": "0:01:42", "split": "test_iter", "time_diff": 0.90239100}
-[12/06 10:22:38][INFO] logging.py:   99: json_stats: {"cur_iter": "129", "eta": "0:01:41", "split": "test_iter", "time_diff": 0.90131720}
-[12/06 10:22:40][INFO] logging.py:   99: json_stats: {"cur_iter": "130", "eta": "0:04:07", "split": "test_iter", "time_diff": 2.21048701}
-[12/06 10:22:41][INFO] logging.py:   99: json_stats: {"cur_iter": "131", "eta": "0:01:45", "split": "test_iter", "time_diff": 0.94640903}
-[12/06 10:22:42][INFO] logging.py:   99: json_stats: {"cur_iter": "132", "eta": "0:01:40", "split": "test_iter", "time_diff": 0.91792761}
-[12/06 10:22:43][INFO] logging.py:   99: json_stats: {"cur_iter": "133", "eta": "0:01:37", "split": "test_iter", "time_diff": 0.89855563}
-[12/06 10:22:45][INFO] logging.py:   99: json_stats: {"cur_iter": "134", "eta": "0:04:48", "split": "test_iter", "time_diff": 2.67568444}
-[12/06 10:22:46][INFO] logging.py:   99: json_stats: {"cur_iter": "135", "eta": "0:01:41", "split": "test_iter", "time_diff": 0.95296178}
-[12/06 10:22:47][INFO] logging.py:   99: json_stats: {"cur_iter": "136", "eta": "0:01:37", "split": "test_iter", "time_diff": 0.91742553}
-[12/06 10:22:48][INFO] logging.py:   99: json_stats: {"cur_iter": "137", "eta": "0:01:37", "split": "test_iter", "time_diff": 0.92565027}
-[12/06 10:22:50][INFO] logging.py:   99: json_stats: {"cur_iter": "138", "eta": "0:03:40", "split": "test_iter", "time_diff": 2.12209166}
-[12/06 10:22:51][INFO] logging.py:   99: json_stats: {"cur_iter": "139", "eta": "0:01:40", "split": "test_iter", "time_diff": 0.97318599}
-[12/06 10:22:52][INFO] logging.py:   99: json_stats: {"cur_iter": "140", "eta": "0:01:33", "split": "test_iter", "time_diff": 0.91298023}
-[12/06 10:22:53][INFO] logging.py:   99: json_stats: {"cur_iter": "141", "eta": "0:01:32", "split": "test_iter", "time_diff": 0.92006152}
-[12/06 10:22:55][INFO] logging.py:   99: json_stats: {"cur_iter": "142", "eta": "0:03:17", "split": "test_iter", "time_diff": 1.97761892}
-[12/06 10:22:56][INFO] logging.py:   99: json_stats: {"cur_iter": "143", "eta": "0:01:50", "split": "test_iter", "time_diff": 1.11278831}
-[12/06 10:22:57][INFO] logging.py:   99: json_stats: {"cur_iter": "144", "eta": "0:01:30", "split": "test_iter", "time_diff": 0.92526454}
-[12/06 10:22:58][INFO] logging.py:   99: json_stats: {"cur_iter": "145", "eta": "0:01:28", "split": "test_iter", "time_diff": 0.91712862}
-[12/06 10:23:00][INFO] logging.py:   99: json_stats: {"cur_iter": "146", "eta": "0:03:16", "split": "test_iter", "time_diff": 2.05159911}
-[12/06 10:23:01][INFO] logging.py:   99: json_stats: {"cur_iter": "147", "eta": "0:01:49", "split": "test_iter", "time_diff": 1.15540253}
-[12/06 10:23:02][INFO] logging.py:   99: json_stats: {"cur_iter": "148", "eta": "0:01:24", "split": "test_iter", "time_diff": 0.89915473}
-[12/06 10:23:03][INFO] logging.py:   99: json_stats: {"cur_iter": "149", "eta": "0:01:23", "split": "test_iter", "time_diff": 0.89829105}
-[12/06 10:23:05][INFO] logging.py:   99: json_stats: {"cur_iter": "150", "eta": "0:02:40", "split": "test_iter", "time_diff": 1.74602781}
-[12/06 10:23:06][INFO] logging.py:   99: json_stats: {"cur_iter": "151", "eta": "0:02:29", "split": "test_iter", "time_diff": 1.64824640}
-[12/06 10:23:07][INFO] logging.py:   99: json_stats: {"cur_iter": "152", "eta": "0:01:21", "split": "test_iter", "time_diff": 0.90114656}
-[12/06 10:23:08][INFO] logging.py:   99: json_stats: {"cur_iter": "153", "eta": "0:01:20", "split": "test_iter", "time_diff": 0.90181127}
-[12/06 10:23:10][INFO] logging.py:   99: json_stats: {"cur_iter": "154", "eta": "0:02:25", "split": "test_iter", "time_diff": 1.65644620}
-[12/06 10:23:11][INFO] logging.py:   99: json_stats: {"cur_iter": "155", "eta": "0:01:49", "split": "test_iter", "time_diff": 1.26154984}
-[12/06 10:23:12][INFO] logging.py:   99: json_stats: {"cur_iter": "156", "eta": "0:01:18", "split": "test_iter", "time_diff": 0.91821661}
-[12/06 10:23:13][INFO] logging.py:   99: json_stats: {"cur_iter": "157", "eta": "0:01:17", "split": "test_iter", "time_diff": 0.91300151}
-[12/06 10:23:16][INFO] logging.py:   99: json_stats: {"cur_iter": "158", "eta": "0:03:36", "split": "test_iter", "time_diff": 2.57498423}
-[12/06 10:23:16][INFO] logging.py:   99: json_stats: {"cur_iter": "159", "eta": "0:01:15", "split": "test_iter", "time_diff": 0.90724775}
-[12/06 10:23:17][INFO] logging.py:   99: json_stats: {"cur_iter": "160", "eta": "0:01:15", "split": "test_iter", "time_diff": 0.91998425}
-[12/06 10:23:18][INFO] logging.py:   99: json_stats: {"cur_iter": "161", "eta": "0:01:12", "split": "test_iter", "time_diff": 0.90001853}
-[12/06 10:23:21][INFO] logging.py:   99: json_stats: {"cur_iter": "162", "eta": "0:03:06", "split": "test_iter", "time_diff": 2.32664030}
-[12/06 10:23:22][INFO] logging.py:   99: json_stats: {"cur_iter": "163", "eta": "0:01:13", "split": "test_iter", "time_diff": 0.92424390}
-[12/06 10:23:22][INFO] logging.py:   99: json_stats: {"cur_iter": "164", "eta": "0:01:11", "split": "test_iter", "time_diff": 0.91326351}
-[12/06 10:23:23][INFO] logging.py:   99: json_stats: {"cur_iter": "165", "eta": "0:01:10", "split": "test_iter", "time_diff": 0.91539234}
-[12/06 10:23:26][INFO] logging.py:   99: json_stats: {"cur_iter": "166", "eta": "0:03:01", "split": "test_iter", "time_diff": 2.38232051}
-[12/06 10:23:27][INFO] logging.py:   99: json_stats: {"cur_iter": "167", "eta": "0:01:08", "split": "test_iter", "time_diff": 0.91740705}
-[12/06 10:23:28][INFO] logging.py:   99: json_stats: {"cur_iter": "168", "eta": "0:01:07", "split": "test_iter", "time_diff": 0.91875813}
-[12/06 10:23:29][INFO] logging.py:   99: json_stats: {"cur_iter": "169", "eta": "0:01:06", "split": "test_iter", "time_diff": 0.91599706}
-[12/06 10:23:31][INFO] logging.py:   99: json_stats: {"cur_iter": "170", "eta": "0:02:25", "split": "test_iter", "time_diff": 2.02533145}
-[12/06 10:23:32][INFO] logging.py:   99: json_stats: {"cur_iter": "171", "eta": "0:01:07", "split": "test_iter", "time_diff": 0.94920637}
-[12/06 10:23:32][INFO] logging.py:   99: json_stats: {"cur_iter": "172", "eta": "0:01:04", "split": "test_iter", "time_diff": 0.91724181}
-[12/06 10:23:33][INFO] logging.py:   99: json_stats: {"cur_iter": "173", "eta": "0:01:02", "split": "test_iter", "time_diff": 0.89949330}
-[12/06 10:23:36][INFO] logging.py:   99: json_stats: {"cur_iter": "174", "eta": "0:02:38", "split": "test_iter", "time_diff": 2.32464340}
-[12/06 10:23:37][INFO] logging.py:   99: json_stats: {"cur_iter": "175", "eta": "0:01:00", "split": "test_iter", "time_diff": 0.89841014}
-[12/06 10:23:37][INFO] logging.py:   99: json_stats: {"cur_iter": "176", "eta": "0:00:59", "split": "test_iter", "time_diff": 0.90448214}
-[12/06 10:23:38][INFO] logging.py:   99: json_stats: {"cur_iter": "177", "eta": "0:00:58", "split": "test_iter", "time_diff": 0.90098964}
-[12/06 10:23:40][INFO] logging.py:   99: json_stats: {"cur_iter": "178", "eta": "0:01:55", "split": "test_iter", "time_diff": 1.79892986}
-[12/06 10:23:42][INFO] logging.py:   99: json_stats: {"cur_iter": "179", "eta": "0:01:32", "split": "test_iter", "time_diff": 1.47436649}
-[12/06 10:23:43][INFO] logging.py:   99: json_stats: {"cur_iter": "180", "eta": "0:00:56", "split": "test_iter", "time_diff": 0.91089190}
-[12/06 10:23:43][INFO] logging.py:   99: json_stats: {"cur_iter": "181", "eta": "0:00:56", "split": "test_iter", "time_diff": 0.92256051}
-[12/06 10:23:45][INFO] logging.py:   99: json_stats: {"cur_iter": "182", "eta": "0:01:50", "split": "test_iter", "time_diff": 1.84287892}
-[12/06 10:23:47][INFO] logging.py:   99: json_stats: {"cur_iter": "183", "eta": "0:01:24", "split": "test_iter", "time_diff": 1.42447814}
-[12/06 10:23:48][INFO] logging.py:   99: json_stats: {"cur_iter": "184", "eta": "0:00:53", "split": "test_iter", "time_diff": 0.91500443}
-[12/06 10:23:49][INFO] logging.py:   99: json_stats: {"cur_iter": "185", "eta": "0:00:52", "split": "test_iter", "time_diff": 0.92477581}
-[12/06 10:23:51][INFO] logging.py:   99: json_stats: {"cur_iter": "186", "eta": "0:01:53", "split": "test_iter", "time_diff": 2.02717348}
-[12/06 10:23:52][INFO] logging.py:   99: json_stats: {"cur_iter": "187", "eta": "0:00:55", "split": "test_iter", "time_diff": 1.01278065}
-[12/06 10:23:53][INFO] logging.py:   99: json_stats: {"cur_iter": "188", "eta": "0:00:48", "split": "test_iter", "time_diff": 0.90729780}
-[12/06 10:23:53][INFO] logging.py:   99: json_stats: {"cur_iter": "189", "eta": "0:00:48", "split": "test_iter", "time_diff": 0.92384955}
-[12/06 10:23:55][INFO] logging.py:   99: json_stats: {"cur_iter": "190", "eta": "0:01:44", "split": "test_iter", "time_diff": 2.01518339}
-[12/06 10:23:57][INFO] logging.py:   99: json_stats: {"cur_iter": "191", "eta": "0:01:16", "split": "test_iter", "time_diff": 1.49441755}
-[12/06 10:23:58][INFO] logging.py:   99: json_stats: {"cur_iter": "192", "eta": "0:00:45", "split": "test_iter", "time_diff": 0.91590130}
-[12/06 10:23:59][INFO] logging.py:   99: json_stats: {"cur_iter": "193", "eta": "0:00:45", "split": "test_iter", "time_diff": 0.92641168}
-[12/06 10:24:01][INFO] logging.py:   99: json_stats: {"cur_iter": "194", "eta": "0:01:23", "split": "test_iter", "time_diff": 1.72981032}
-[12/06 10:24:02][INFO] logging.py:   99: json_stats: {"cur_iter": "195", "eta": "0:00:56", "split": "test_iter", "time_diff": 1.19975412}
-[12/06 10:24:03][INFO] logging.py:   99: json_stats: {"cur_iter": "196", "eta": "0:00:41", "split": "test_iter", "time_diff": 0.89971860}
-[12/06 10:24:04][INFO] logging.py:   99: json_stats: {"cur_iter": "197", "eta": "0:00:40", "split": "test_iter", "time_diff": 0.90106561}
-[12/06 10:24:06][INFO] logging.py:   99: json_stats: {"cur_iter": "198", "eta": "0:01:31", "split": "test_iter", "time_diff": 2.07688320}
-[12/06 10:24:07][INFO] logging.py:   99: json_stats: {"cur_iter": "199", "eta": "0:01:10", "split": "test_iter", "time_diff": 1.63656721}
-[12/06 10:24:08][INFO] logging.py:   99: json_stats: {"cur_iter": "200", "eta": "0:00:37", "split": "test_iter", "time_diff": 0.89872499}
-[12/06 10:24:09][INFO] logging.py:   99: json_stats: {"cur_iter": "201", "eta": "0:00:37", "split": "test_iter", "time_diff": 0.90527770}
-[12/06 10:24:10][INFO] logging.py:   99: json_stats: {"cur_iter": "202", "eta": "0:00:52", "split": "test_iter", "time_diff": 1.31735306}
-[12/06 10:24:12][INFO] logging.py:   99: json_stats: {"cur_iter": "203", "eta": "0:00:58", "split": "test_iter", "time_diff": 1.50177999}
-[12/06 10:24:13][INFO] logging.py:   99: json_stats: {"cur_iter": "204", "eta": "0:00:34", "split": "test_iter", "time_diff": 0.91644058}
-[12/06 10:24:14][INFO] logging.py:   99: json_stats: {"cur_iter": "205", "eta": "0:00:34", "split": "test_iter", "time_diff": 0.92440050}
-[12/06 10:24:15][INFO] logging.py:   99: json_stats: {"cur_iter": "206", "eta": "0:00:57", "split": "test_iter", "time_diff": 1.61009877}
-[12/06 10:24:17][INFO] logging.py:   99: json_stats: {"cur_iter": "207", "eta": "0:00:47", "split": "test_iter", "time_diff": 1.35197360}
-[12/06 10:24:18][INFO] logging.py:   99: json_stats: {"cur_iter": "208", "eta": "0:00:31", "split": "test_iter", "time_diff": 0.92109722}
-[12/06 10:24:19][INFO] logging.py:   99: json_stats: {"cur_iter": "209", "eta": "0:00:29", "split": "test_iter", "time_diff": 0.90202905}
-[12/06 10:24:20][INFO] logging.py:   99: json_stats: {"cur_iter": "210", "eta": "0:01:02", "split": "test_iter", "time_diff": 1.96054578}
-[12/06 10:24:22][INFO] logging.py:   99: json_stats: {"cur_iter": "211", "eta": "0:00:40", "split": "test_iter", "time_diff": 1.29189794}
-[12/06 10:24:23][INFO] logging.py:   99: json_stats: {"cur_iter": "212", "eta": "0:00:27", "split": "test_iter", "time_diff": 0.90849652}
-[12/06 10:24:24][INFO] logging.py:   99: json_stats: {"cur_iter": "213", "eta": "0:00:26", "split": "test_iter", "time_diff": 0.91627602}
-[12/06 10:24:25][INFO] logging.py:   99: json_stats: {"cur_iter": "214", "eta": "0:00:52", "split": "test_iter", "time_diff": 1.86825659}
-[12/06 10:24:27][INFO] logging.py:   99: json_stats: {"cur_iter": "215", "eta": "0:00:38", "split": "test_iter", "time_diff": 1.41560258}
-[12/06 10:24:28][INFO] logging.py:   99: json_stats: {"cur_iter": "216", "eta": "0:00:23", "split": "test_iter", "time_diff": 0.91174405}
-[12/06 10:24:29][INFO] logging.py:   99: json_stats: {"cur_iter": "217", "eta": "0:00:23", "split": "test_iter", "time_diff": 0.92141338}
-[12/06 10:24:31][INFO] logging.py:   99: json_stats: {"cur_iter": "218", "eta": "0:00:48", "split": "test_iter", "time_diff": 2.01670503}
-[12/06 10:24:32][INFO] logging.py:   99: json_stats: {"cur_iter": "219", "eta": "0:00:24", "split": "test_iter", "time_diff": 1.04533352}
-[12/06 10:24:33][INFO] logging.py:   99: json_stats: {"cur_iter": "220", "eta": "0:00:19", "split": "test_iter", "time_diff": 0.90128403}
-[12/06 10:24:34][INFO] logging.py:   99: json_stats: {"cur_iter": "221", "eta": "0:00:18", "split": "test_iter", "time_diff": 0.90080578}
-[12/06 10:24:36][INFO] logging.py:   99: json_stats: {"cur_iter": "222", "eta": "0:00:42", "split": "test_iter", "time_diff": 2.10017312}
-[12/06 10:24:37][INFO] logging.py:   99: json_stats: {"cur_iter": "223", "eta": "0:00:28", "split": "test_iter", "time_diff": 1.50302995}
-[12/06 10:24:38][INFO] logging.py:   99: json_stats: {"cur_iter": "224", "eta": "0:00:16", "split": "test_iter", "time_diff": 0.89979052}
-[12/06 10:24:39][INFO] logging.py:   99: json_stats: {"cur_iter": "225", "eta": "0:00:15", "split": "test_iter", "time_diff": 0.90248685}
-[12/06 10:24:40][INFO] logging.py:   99: json_stats: {"cur_iter": "226", "eta": "0:00:21", "split": "test_iter", "time_diff": 1.31716834}
-[12/06 10:24:42][INFO] logging.py:   99: json_stats: {"cur_iter": "227", "eta": "0:00:28", "split": "test_iter", "time_diff": 1.88755473}
-[12/06 10:24:43][INFO] logging.py:   99: json_stats: {"cur_iter": "228", "eta": "0:00:12", "split": "test_iter", "time_diff": 0.92186767}
-[12/06 10:24:44][INFO] logging.py:   99: json_stats: {"cur_iter": "229", "eta": "0:00:12", "split": "test_iter", "time_diff": 0.95239661}
-[12/06 10:24:45][INFO] logging.py:   99: json_stats: {"cur_iter": "230", "eta": "0:00:11", "split": "test_iter", "time_diff": 0.96085661}
-[12/06 10:24:49][INFO] logging.py:   99: json_stats: {"cur_iter": "231", "eta": "0:00:38", "split": "test_iter", "time_diff": 3.46442439}
-[12/06 10:24:49][INFO] logging.py:   99: json_stats: {"cur_iter": "232", "eta": "0:00:09", "split": "test_iter", "time_diff": 0.97406863}
-[12/06 10:24:50][INFO] logging.py:   99: json_stats: {"cur_iter": "233", "eta": "0:00:08", "split": "test_iter", "time_diff": 0.95382839}
-[12/06 10:24:51][INFO] logging.py:   99: json_stats: {"cur_iter": "234", "eta": "0:00:07", "split": "test_iter", "time_diff": 0.97578623}
-[12/06 10:24:54][INFO] logging.py:   99: json_stats: {"cur_iter": "235", "eta": "0:00:19", "split": "test_iter", "time_diff": 2.72854405}
-[12/06 10:24:55][INFO] logging.py:   99: json_stats: {"cur_iter": "236", "eta": "0:00:05", "split": "test_iter", "time_diff": 0.95209924}
-[12/06 10:24:56][INFO] logging.py:   99: json_stats: {"cur_iter": "237", "eta": "0:00:04", "split": "test_iter", "time_diff": 0.90536181}
-[12/06 10:24:57][INFO] logging.py:   99: json_stats: {"cur_iter": "238", "eta": "0:00:03", "split": "test_iter", "time_diff": 0.91740497}
-[12/06 10:24:58][INFO] logging.py:   99: json_stats: {"cur_iter": "239", "eta": "0:00:02", "split": "test_iter", "time_diff": 0.91297359}
-[12/06 10:24:59][INFO] logging.py:   99: json_stats: {"cur_iter": "240", "eta": "0:00:01", "split": "test_iter", "time_diff": 0.91795544}
-[12/06 10:25:00][INFO] logging.py:   99: json_stats: {"cur_iter": "241", "eta": "0:00:00", "split": "test_iter", "time_diff": 0.91324527}
-[12/06 10:25:02][INFO] test_net.py:  234: Successfully saved prediction results to /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_ssv2_froster/testing/temp.pyth
-[12/06 10:25:02][INFO] logging.py:   99: json_stats: {"split": "test_final", "top1_acc": "1.21", "top5_acc": "5.78"}
-[12/06 10:25:02][INFO] test_net.py:  474: Finalized testing with 1 temporal clips and 1 spatial crops
-[12/06 10:25:02][INFO] test_net.py:  496: _p150.67_f10.00_1a1.21 Top5 Acc: 5.78 MEM: 6.04 f: 10.0000
-[12/06 10:25:02][INFO] test_net.py:  497: _p150.67_f10.00_1a1.21
+[12/08 15:31:46][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 21645 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_ssv2/test.csv 
+[12/08 15:31:46][INFO] test_net.py:  434: Testing model for 361 iterations
+ meanpooling in test
+[12/08 15:32:05][INFO] logging.py:   99: json_stats: {"cur_iter": "1", "eta": "1:36:38", "split": "test_iter", "time_diff": 16.06182843}
+ meanpooling in test
+[12/08 15:32:06][INFO] logging.py:   99: json_stats: {"cur_iter": "2", "eta": "0:07:43", "split": "test_iter", "time_diff": 1.28678252}
+ meanpooling in test
+[12/08 15:32:07][INFO] logging.py:   99: json_stats: {"cur_iter": "3", "eta": "0:07:38", "split": "test_iter", "time_diff": 1.27664317}
+ meanpooling in test
+[12/08 15:32:09][INFO] logging.py:   99: json_stats: {"cur_iter": "4", "eta": "0:07:45", "split": "test_iter", "time_diff": 1.29944783}
+ meanpooling in test
+[12/08 15:32:15][INFO] logging.py:   99: json_stats: {"cur_iter": "5", "eta": "0:37:11", "split": "test_iter", "time_diff": 6.25118271}
+ meanpooling in test
+[12/08 15:32:16][INFO] logging.py:   99: json_stats: {"cur_iter": "6", "eta": "0:07:40", "split": "test_iter", "time_diff": 1.29269474}
+ meanpooling in test
+[12/08 15:32:18][INFO] logging.py:   99: json_stats: {"cur_iter": "7", "eta": "0:07:42", "split": "test_iter", "time_diff": 1.30230414}
+ meanpooling in test
+[12/08 15:32:19][INFO] logging.py:   99: json_stats: {"cur_iter": "8", "eta": "0:07:32", "split": "test_iter", "time_diff": 1.27735183}
+ meanpooling in test
+[12/08 15:32:26][INFO] logging.py:   99: json_stats: {"cur_iter": "9", "eta": "0:39:41", "split": "test_iter", "time_diff": 6.74734290}
+ meanpooling in test
+[12/08 15:32:27][INFO] logging.py:   99: json_stats: {"cur_iter": "10", "eta": "0:07:30", "split": "test_iter", "time_diff": 1.27890932}
+ meanpooling in test
+[12/08 15:32:28][INFO] logging.py:   99: json_stats: {"cur_iter": "11", "eta": "0:07:38", "split": "test_iter", "time_diff": 1.30709282}
+ meanpooling in test
+[12/08 15:32:30][INFO] logging.py:   99: json_stats: {"cur_iter": "12", "eta": "0:07:27", "split": "test_iter", "time_diff": 1.27864079}
+ meanpooling in test
+[12/08 15:32:36][INFO] logging.py:   99: json_stats: {"cur_iter": "13", "eta": "0:37:08", "split": "test_iter", "time_diff": 6.38456373}
+ meanpooling in test
+[12/08 15:32:37][INFO] logging.py:   99: json_stats: {"cur_iter": "14", "eta": "0:07:32", "split": "test_iter", "time_diff": 1.30009131}
+ meanpooling in test
+[12/08 15:32:39][INFO] logging.py:   99: json_stats: {"cur_iter": "15", "eta": "0:07:33", "split": "test_iter", "time_diff": 1.30750260}
+ meanpooling in test
+[12/08 15:32:40][INFO] logging.py:   99: json_stats: {"cur_iter": "16", "eta": "0:07:22", "split": "test_iter", "time_diff": 1.27850804}
+ meanpooling in test
+[12/08 15:32:46][INFO] logging.py:   99: json_stats: {"cur_iter": "17", "eta": "0:33:13", "split": "test_iter", "time_diff": 5.77756700}
+ meanpooling in test
+[12/08 15:32:47][INFO] logging.py:   99: json_stats: {"cur_iter": "18", "eta": "0:07:25", "split": "test_iter", "time_diff": 1.29523262}
+ meanpooling in test
+[12/08 15:32:48][INFO] logging.py:   99: json_stats: {"cur_iter": "19", "eta": "0:07:26", "split": "test_iter", "time_diff": 1.30087361}
+ meanpooling in test
+[12/08 15:32:49][INFO] logging.py:   99: json_stats: {"cur_iter": "20", "eta": "0:07:17", "split": "test_iter", "time_diff": 1.27854806}
+ meanpooling in test
+[12/08 15:32:55][INFO] logging.py:   99: json_stats: {"cur_iter": "21", "eta": "0:34:06", "split": "test_iter", "time_diff": 6.00064435}
+ meanpooling in test
+[12/08 15:32:57][INFO] logging.py:   99: json_stats: {"cur_iter": "22", "eta": "0:07:16", "split": "test_iter", "time_diff": 1.28479593}
+ meanpooling in test
+[12/08 15:32:58][INFO] logging.py:   99: json_stats: {"cur_iter": "23", "eta": "0:07:13", "split": "test_iter", "time_diff": 1.27854645}
+ meanpooling in test
+[12/08 15:32:59][INFO] logging.py:   99: json_stats: {"cur_iter": "24", "eta": "0:07:20", "split": "test_iter", "time_diff": 1.30208237}
+ meanpooling in test
+[12/08 15:33:05][INFO] logging.py:   99: json_stats: {"cur_iter": "25", "eta": "0:30:42", "split": "test_iter", "time_diff": 5.46814850}
+ meanpooling in test
+[12/08 15:33:06][INFO] logging.py:   99: json_stats: {"cur_iter": "26", "eta": "0:07:15", "split": "test_iter", "time_diff": 1.29483165}
+ meanpooling in test
+[12/08 15:33:07][INFO] logging.py:   99: json_stats: {"cur_iter": "27", "eta": "0:07:08", "split": "test_iter", "time_diff": 1.27865592}
+ meanpooling in test
+[12/08 15:33:09][INFO] logging.py:   99: json_stats: {"cur_iter": "28", "eta": "0:07:13", "split": "test_iter", "time_diff": 1.29679012}
+ meanpooling in test
+[12/08 15:33:15][INFO] logging.py:   99: json_stats: {"cur_iter": "29", "eta": "0:34:16", "split": "test_iter", "time_diff": 6.17610010}
+ meanpooling in test
+[12/08 15:33:16][INFO] logging.py:   99: json_stats: {"cur_iter": "30", "eta": "0:07:09", "split": "test_iter", "time_diff": 1.29458148}
+ meanpooling in test
+[12/08 15:33:17][INFO] logging.py:   99: json_stats: {"cur_iter": "31", "eta": "0:07:11", "split": "test_iter", "time_diff": 1.30464622}
+ meanpooling in test
+[12/08 15:33:19][INFO] logging.py:   99: json_stats: {"cur_iter": "32", "eta": "0:07:10", "split": "test_iter", "time_diff": 1.30349190}
+ meanpooling in test
+[12/08 15:33:26][INFO] logging.py:   99: json_stats: {"cur_iter": "33", "eta": "0:37:53", "split": "test_iter", "time_diff": 6.90884691}
+ meanpooling in test
+[12/08 15:33:27][INFO] logging.py:   99: json_stats: {"cur_iter": "34", "eta": "0:07:07", "split": "test_iter", "time_diff": 1.30250362}
+ meanpooling in test
+[12/08 15:33:28][INFO] logging.py:   99: json_stats: {"cur_iter": "35", "eta": "0:06:58", "split": "test_iter", "time_diff": 1.27952068}
+ meanpooling in test
+[12/08 15:33:30][INFO] logging.py:   99: json_stats: {"cur_iter": "36", "eta": "0:07:00", "split": "test_iter", "time_diff": 1.28886666}
+ meanpooling in test
+[12/08 15:33:35][INFO] logging.py:   99: json_stats: {"cur_iter": "37", "eta": "0:27:20", "split": "test_iter", "time_diff": 5.04685578}
+ meanpooling in test
+[12/08 15:33:36][INFO] logging.py:   99: json_stats: {"cur_iter": "38", "eta": "0:07:01", "split": "test_iter", "time_diff": 1.30025647}
+ meanpooling in test
+[12/08 15:33:37][INFO] logging.py:   99: json_stats: {"cur_iter": "39", "eta": "0:07:02", "split": "test_iter", "time_diff": 1.30878655}
+ meanpooling in test
+[12/08 15:33:38][INFO] logging.py:   99: json_stats: {"cur_iter": "40", "eta": "0:06:52", "split": "test_iter", "time_diff": 1.28041563}
+ meanpooling in test
+[12/08 15:33:45][INFO] logging.py:   99: json_stats: {"cur_iter": "41", "eta": "0:33:21", "split": "test_iter", "time_diff": 6.23483495}
+ meanpooling in test
+[12/08 15:33:46][INFO] logging.py:   99: json_stats: {"cur_iter": "42", "eta": "0:06:49", "split": "test_iter", "time_diff": 1.28065685}
+ meanpooling in test
+[12/08 15:33:47][INFO] logging.py:   99: json_stats: {"cur_iter": "43", "eta": "0:06:56", "split": "test_iter", "time_diff": 1.30494319}
+ meanpooling in test
+[12/08 15:33:49][INFO] logging.py:   99: json_stats: {"cur_iter": "44", "eta": "0:06:47", "split": "test_iter", "time_diff": 1.28160564}
+ meanpooling in test
+[12/08 15:33:55][INFO] logging.py:   99: json_stats: {"cur_iter": "45", "eta": "0:34:34", "split": "test_iter", "time_diff": 6.54273695}
+ meanpooling in test
+[12/08 15:33:56][INFO] logging.py:   99: json_stats: {"cur_iter": "46", "eta": "0:06:45", "split": "test_iter", "time_diff": 1.28205719}
+ meanpooling in test
+[12/08 15:33:58][INFO] logging.py:   99: json_stats: {"cur_iter": "47", "eta": "0:06:50", "split": "test_iter", "time_diff": 1.30170796}
+ meanpooling in test
+[12/08 15:33:59][INFO] logging.py:   99: json_stats: {"cur_iter": "48", "eta": "0:06:42", "split": "test_iter", "time_diff": 1.28218798}
+ meanpooling in test
+[12/08 15:34:05][INFO] logging.py:   99: json_stats: {"cur_iter": "49", "eta": "0:32:29", "split": "test_iter", "time_diff": 6.22911156}
+ meanpooling in test
+[12/08 15:34:07][INFO] logging.py:   99: json_stats: {"cur_iter": "50", "eta": "0:06:38", "split": "test_iter", "time_diff": 1.27804968}
+ meanpooling in test
+[12/08 15:34:08][INFO] logging.py:   99: json_stats: {"cur_iter": "51", "eta": "0:06:41", "split": "test_iter", "time_diff": 1.29031024}
+ meanpooling in test
+[12/08 15:34:09][INFO] logging.py:   99: json_stats: {"cur_iter": "52", "eta": "0:06:43", "split": "test_iter", "time_diff": 1.30016437}
+ meanpooling in test
+[12/08 15:34:15][INFO] logging.py:   99: json_stats: {"cur_iter": "53", "eta": "0:30:45", "split": "test_iter", "time_diff": 5.97097672}
+ meanpooling in test
+[12/08 15:34:16][INFO] logging.py:   99: json_stats: {"cur_iter": "54", "eta": "0:06:34", "split": "test_iter", "time_diff": 1.27991857}
+ meanpooling in test
+[12/08 15:34:18][INFO] logging.py:   99: json_stats: {"cur_iter": "55", "eta": "0:06:32", "split": "test_iter", "time_diff": 1.28009349}
+ meanpooling in test
+[12/08 15:34:19][INFO] logging.py:   99: json_stats: {"cur_iter": "56", "eta": "0:06:42", "split": "test_iter", "time_diff": 1.31654155}
+ meanpooling in test
+[12/08 15:34:24][INFO] logging.py:   99: json_stats: {"cur_iter": "57", "eta": "0:25:51", "split": "test_iter", "time_diff": 5.08730745}
+ meanpooling in test
+[12/08 15:34:25][INFO] logging.py:   99: json_stats: {"cur_iter": "58", "eta": "0:06:29", "split": "test_iter", "time_diff": 1.28090935}
+ meanpooling in test
+[12/08 15:34:27][INFO] logging.py:   99: json_stats: {"cur_iter": "59", "eta": "0:06:28", "split": "test_iter", "time_diff": 1.28107740}
+ meanpooling in test
+[12/08 15:34:28][INFO] logging.py:   99: json_stats: {"cur_iter": "60", "eta": "0:06:27", "split": "test_iter", "time_diff": 1.28194275}
+ meanpooling in test
+[12/08 15:34:34][INFO] logging.py:   99: json_stats: {"cur_iter": "61", "eta": "0:30:21", "split": "test_iter", "time_diff": 6.05137586}
+ meanpooling in test
+[12/08 15:34:35][INFO] logging.py:   99: json_stats: {"cur_iter": "62", "eta": "0:06:26", "split": "test_iter", "time_diff": 1.28707500}
+ meanpooling in test
+[12/08 15:34:37][INFO] logging.py:   99: json_stats: {"cur_iter": "63", "eta": "0:06:32", "split": "test_iter", "time_diff": 1.31124609}
+ meanpooling in test
+[12/08 15:34:38][INFO] logging.py:   99: json_stats: {"cur_iter": "64", "eta": "0:06:22", "split": "test_iter", "time_diff": 1.28306087}
+ meanpooling in test
+[12/08 15:34:44][INFO] logging.py:   99: json_stats: {"cur_iter": "65", "eta": "0:30:39", "split": "test_iter", "time_diff": 6.19427957}
+ meanpooling in test
+[12/08 15:34:45][INFO] logging.py:   99: json_stats: {"cur_iter": "66", "eta": "0:06:23", "split": "test_iter", "time_diff": 1.29421271}
+ meanpooling in test
+[12/08 15:34:47][INFO] logging.py:   99: json_stats: {"cur_iter": "67", "eta": "0:06:17", "split": "test_iter", "time_diff": 1.28072624}
+ meanpooling in test
+[12/08 15:34:48][INFO] logging.py:   99: json_stats: {"cur_iter": "68", "eta": "0:06:23", "split": "test_iter", "time_diff": 1.30468992}
+ meanpooling in test
+[12/08 15:34:54][INFO] logging.py:   99: json_stats: {"cur_iter": "69", "eta": "0:27:27", "split": "test_iter", "time_diff": 5.62330772}
+ meanpooling in test
+[12/08 15:34:55][INFO] logging.py:   99: json_stats: {"cur_iter": "70", "eta": "0:06:15", "split": "test_iter", "time_diff": 1.28521384}
+ meanpooling in test
+[12/08 15:34:56][INFO] logging.py:   99: json_stats: {"cur_iter": "71", "eta": "0:06:12", "split": "test_iter", "time_diff": 1.28109732}
+ meanpooling in test
+[12/08 15:34:57][INFO] logging.py:   99: json_stats: {"cur_iter": "72", "eta": "0:06:12", "split": "test_iter", "time_diff": 1.28467948}
+ meanpooling in test
+[12/08 15:35:04][INFO] logging.py:   99: json_stats: {"cur_iter": "73", "eta": "0:32:21", "split": "test_iter", "time_diff": 6.71830529}
+ meanpooling in test
+[12/08 15:35:05][INFO] logging.py:   99: json_stats: {"cur_iter": "74", "eta": "0:06:15", "split": "test_iter", "time_diff": 1.30255264}
+ meanpooling in test
+[12/08 15:35:07][INFO] logging.py:   99: json_stats: {"cur_iter": "75", "eta": "0:06:07", "split": "test_iter", "time_diff": 1.27990582}
+ meanpooling in test
+[12/08 15:35:08][INFO] logging.py:   99: json_stats: {"cur_iter": "76", "eta": "0:06:08", "split": "test_iter", "time_diff": 1.28987977}
+ meanpooling in test
+[12/08 15:35:14][INFO] logging.py:   99: json_stats: {"cur_iter": "77", "eta": "0:26:57", "split": "test_iter", "time_diff": 5.67480733}
+ meanpooling in test
+[12/08 15:35:15][INFO] logging.py:   99: json_stats: {"cur_iter": "78", "eta": "0:06:09", "split": "test_iter", "time_diff": 1.30050099}
+ meanpooling in test
+[12/08 15:35:16][INFO] logging.py:   99: json_stats: {"cur_iter": "79", "eta": "0:06:07", "split": "test_iter", "time_diff": 1.29832844}
+ meanpooling in test
+[12/08 15:35:18][INFO] logging.py:   99: json_stats: {"cur_iter": "80", "eta": "0:06:01", "split": "test_iter", "time_diff": 1.28179382}
+ meanpooling in test
+[12/08 15:35:24][INFO] logging.py:   99: json_stats: {"cur_iter": "81", "eta": "0:29:08", "split": "test_iter", "time_diff": 6.22178616}
+ meanpooling in test
+[12/08 15:35:25][INFO] logging.py:   99: json_stats: {"cur_iter": "82", "eta": "0:06:00", "split": "test_iter", "time_diff": 1.28576790}
+ meanpooling in test
+[12/08 15:35:26][INFO] logging.py:   99: json_stats: {"cur_iter": "83", "eta": "0:05:57", "split": "test_iter", "time_diff": 1.28078126}
+ meanpooling in test
+[12/08 15:35:28][INFO] logging.py:   99: json_stats: {"cur_iter": "84", "eta": "0:05:57", "split": "test_iter", "time_diff": 1.28473841}
+ meanpooling in test
+[12/08 15:35:34][INFO] logging.py:   99: json_stats: {"cur_iter": "85", "eta": "0:29:13", "split": "test_iter", "time_diff": 6.33018268}
+ meanpooling in test
+[12/08 15:35:35][INFO] logging.py:   99: json_stats: {"cur_iter": "86", "eta": "0:05:53", "split": "test_iter", "time_diff": 1.28211019}
+ meanpooling in test
+[12/08 15:35:37][INFO] logging.py:   99: json_stats: {"cur_iter": "87", "eta": "0:05:58", "split": "test_iter", "time_diff": 1.30352711}
+ meanpooling in test
+[12/08 15:35:38][INFO] logging.py:   99: json_stats: {"cur_iter": "88", "eta": "0:05:54", "split": "test_iter", "time_diff": 1.29390028}
+ meanpooling in test
+[12/08 15:35:44][INFO] logging.py:   99: json_stats: {"cur_iter": "89", "eta": "0:29:33", "split": "test_iter", "time_diff": 6.49572664}
+ meanpooling in test
+[12/08 15:35:46][INFO] logging.py:   99: json_stats: {"cur_iter": "90", "eta": "0:05:48", "split": "test_iter", "time_diff": 1.28149751}
+ meanpooling in test
+[12/08 15:35:47][INFO] logging.py:   99: json_stats: {"cur_iter": "91", "eta": "0:05:52", "split": "test_iter", "time_diff": 1.30071395}
+ meanpooling in test
+[12/08 15:35:48][INFO] logging.py:   99: json_stats: {"cur_iter": "92", "eta": "0:05:50", "split": "test_iter", "time_diff": 1.29907319}
+ meanpooling in test
+[12/08 15:35:54][INFO] logging.py:   99: json_stats: {"cur_iter": "93", "eta": "0:26:12", "split": "test_iter", "time_diff": 5.84505551}
+ meanpooling in test
+[12/08 15:35:55][INFO] logging.py:   99: json_stats: {"cur_iter": "94", "eta": "0:05:50", "split": "test_iter", "time_diff": 1.30698236}
+ meanpooling in test
+[12/08 15:35:57][INFO] logging.py:   99: json_stats: {"cur_iter": "95", "eta": "0:05:44", "split": "test_iter", "time_diff": 1.28888522}
+ meanpooling in test
+[12/08 15:35:58][INFO] logging.py:   99: json_stats: {"cur_iter": "96", "eta": "0:05:40", "split": "test_iter", "time_diff": 1.28130227}
+ meanpooling in test
+[12/08 15:36:04][INFO] logging.py:   99: json_stats: {"cur_iter": "97", "eta": "0:26:43", "split": "test_iter", "time_diff": 6.05099912}
+ meanpooling in test
+[12/08 15:36:05][INFO] logging.py:   99: json_stats: {"cur_iter": "98", "eta": "0:05:38", "split": "test_iter", "time_diff": 1.28148488}
+ meanpooling in test
+[12/08 15:36:07][INFO] logging.py:   99: json_stats: {"cur_iter": "99", "eta": "0:05:41", "split": "test_iter", "time_diff": 1.29769592}
+ meanpooling in test
+[12/08 15:36:08][INFO] logging.py:   99: json_stats: {"cur_iter": "100", "eta": "0:05:37", "split": "test_iter", "time_diff": 1.28730611}
+ meanpooling in test
+[12/08 15:36:14][INFO] logging.py:   99: json_stats: {"cur_iter": "101", "eta": "0:28:11", "split": "test_iter", "time_diff": 6.48208502}
+ meanpooling in test
+[12/08 15:36:16][INFO] logging.py:   99: json_stats: {"cur_iter": "102", "eta": "0:05:33", "split": "test_iter", "time_diff": 1.28194978}
+ meanpooling in test
+[12/08 15:36:17][INFO] logging.py:   99: json_stats: {"cur_iter": "103", "eta": "0:05:31", "split": "test_iter", "time_diff": 1.28097804}
+ meanpooling in test
+[12/08 15:36:18][INFO] logging.py:   99: json_stats: {"cur_iter": "104", "eta": "0:05:36", "split": "test_iter", "time_diff": 1.30299961}
+ meanpooling in test
+[12/08 15:36:24][INFO] logging.py:   99: json_stats: {"cur_iter": "105", "eta": "0:23:20", "split": "test_iter", "time_diff": 5.45041097}
+ meanpooling in test
+[12/08 15:36:25][INFO] logging.py:   99: json_stats: {"cur_iter": "106", "eta": "0:05:28", "split": "test_iter", "time_diff": 1.28161019}
+ meanpooling in test
+[12/08 15:36:26][INFO] logging.py:   99: json_stats: {"cur_iter": "107", "eta": "0:05:26", "split": "test_iter", "time_diff": 1.28038671}
+ meanpooling in test
+[12/08 15:36:28][INFO] logging.py:   99: json_stats: {"cur_iter": "108", "eta": "0:05:27", "split": "test_iter", "time_diff": 1.29016686}
+ meanpooling in test
+[12/08 15:36:33][INFO] logging.py:   99: json_stats: {"cur_iter": "109", "eta": "0:22:07", "split": "test_iter", "time_diff": 5.24626362}
+ meanpooling in test
+[12/08 15:36:34][INFO] logging.py:   99: json_stats: {"cur_iter": "110", "eta": "0:05:23", "split": "test_iter", "time_diff": 1.28286304}
+ meanpooling in test
+[12/08 15:36:35][INFO] logging.py:   99: json_stats: {"cur_iter": "111", "eta": "0:05:29", "split": "test_iter", "time_diff": 1.31123606}
+ meanpooling in test
+[12/08 15:36:37][INFO] logging.py:   99: json_stats: {"cur_iter": "112", "eta": "0:05:20", "split": "test_iter", "time_diff": 1.28138207}
+ meanpooling in test
+[12/08 15:36:42][INFO] logging.py:   99: json_stats: {"cur_iter": "113", "eta": "0:20:37", "split": "test_iter", "time_diff": 4.96949347}
+ meanpooling in test
+[12/08 15:36:43][INFO] logging.py:   99: json_stats: {"cur_iter": "114", "eta": "0:06:30", "split": "test_iter", "time_diff": 1.57430644}
+ meanpooling in test
+[12/08 15:36:45][INFO] logging.py:   99: json_stats: {"cur_iter": "115", "eta": "0:05:24", "split": "test_iter", "time_diff": 1.31348723}
+ meanpooling in test
+[12/08 15:36:46][INFO] logging.py:   99: json_stats: {"cur_iter": "116", "eta": "0:05:15", "split": "test_iter", "time_diff": 1.28216552}
+ meanpooling in test
+[12/08 15:36:52][INFO] logging.py:   99: json_stats: {"cur_iter": "117", "eta": "0:24:53", "split": "test_iter", "time_diff": 6.09673983}
+ meanpooling in test
+[12/08 15:36:54][INFO] logging.py:   99: json_stats: {"cur_iter": "118", "eta": "0:07:42", "split": "test_iter", "time_diff": 1.89491614}
+ meanpooling in test
+[12/08 15:36:55][INFO] logging.py:   99: json_stats: {"cur_iter": "119", "eta": "0:05:16", "split": "test_iter", "time_diff": 1.30367961}
+ meanpooling in test
+[12/08 15:36:57][INFO] logging.py:   99: json_stats: {"cur_iter": "120", "eta": "0:05:16", "split": "test_iter", "time_diff": 1.30707232}
+ meanpooling in test
+[12/08 15:37:02][INFO] logging.py:   99: json_stats: {"cur_iter": "121", "eta": "0:23:03", "split": "test_iter", "time_diff": 5.74222388}
+ meanpooling in test
+[12/08 15:37:04][INFO] logging.py:   99: json_stats: {"cur_iter": "122", "eta": "0:05:08", "split": "test_iter", "time_diff": 1.28582670}
+ meanpooling in test
+[12/08 15:37:05][INFO] logging.py:   99: json_stats: {"cur_iter": "123", "eta": "0:05:07", "split": "test_iter", "time_diff": 1.28557504}
+ meanpooling in test
+[12/08 15:37:06][INFO] logging.py:   99: json_stats: {"cur_iter": "124", "eta": "0:05:06", "split": "test_iter", "time_diff": 1.28618287}
+ meanpooling in test
+[12/08 15:37:11][INFO] logging.py:   99: json_stats: {"cur_iter": "125", "eta": "0:20:55", "split": "test_iter", "time_diff": 5.29919324}
+ meanpooling in test
+[12/08 15:37:14][INFO] logging.py:   99: json_stats: {"cur_iter": "126", "eta": "0:08:28", "split": "test_iter", "time_diff": 2.15617697}
+ meanpooling in test
+[12/08 15:37:15][INFO] logging.py:   99: json_stats: {"cur_iter": "127", "eta": "0:05:00", "split": "test_iter", "time_diff": 1.28077554}
+ meanpooling in test
+[12/08 15:37:16][INFO] logging.py:   99: json_stats: {"cur_iter": "128", "eta": "0:05:04", "split": "test_iter", "time_diff": 1.30099381}
+ meanpooling in test
+[12/08 15:37:22][INFO] logging.py:   99: json_stats: {"cur_iter": "129", "eta": "0:21:20", "split": "test_iter", "time_diff": 5.49538149}
+ meanpooling in test
+[12/08 15:37:23][INFO] logging.py:   99: json_stats: {"cur_iter": "130", "eta": "0:04:57", "split": "test_iter", "time_diff": 1.28056032}
+ meanpooling in test
+[12/08 15:37:24][INFO] logging.py:   99: json_stats: {"cur_iter": "131", "eta": "0:05:01", "split": "test_iter", "time_diff": 1.30439617}
+ meanpooling in test
+[12/08 15:37:26][INFO] logging.py:   99: json_stats: {"cur_iter": "132", "eta": "0:04:59", "split": "test_iter", "time_diff": 1.30171180}
+ meanpooling in test
+[12/08 15:37:31][INFO] logging.py:   99: json_stats: {"cur_iter": "133", "eta": "0:20:50", "split": "test_iter", "time_diff": 5.45985803}
+ meanpooling in test
+[12/08 15:37:33][INFO] logging.py:   99: json_stats: {"cur_iter": "134", "eta": "0:07:35", "split": "test_iter", "time_diff": 1.99879578}
+ meanpooling in test
+[12/08 15:37:34][INFO] logging.py:   99: json_stats: {"cur_iter": "135", "eta": "0:04:54", "split": "test_iter", "time_diff": 1.29582120}
+ meanpooling in test
+[12/08 15:37:36][INFO] logging.py:   99: json_stats: {"cur_iter": "136", "eta": "0:04:49", "split": "test_iter", "time_diff": 1.28088486}
+ meanpooling in test
+[12/08 15:37:41][INFO] logging.py:   99: json_stats: {"cur_iter": "137", "eta": "0:19:56", "split": "test_iter", "time_diff": 5.31905745}
+ meanpooling in test
+[12/08 15:37:43][INFO] logging.py:   99: json_stats: {"cur_iter": "138", "eta": "0:08:16", "split": "test_iter", "time_diff": 2.21667176}
+ meanpooling in test
+[12/08 15:37:44][INFO] logging.py:   99: json_stats: {"cur_iter": "139", "eta": "0:04:50", "split": "test_iter", "time_diff": 1.30055945}
+ meanpooling in test
+[12/08 15:37:46][INFO] logging.py:   99: json_stats: {"cur_iter": "140", "eta": "0:04:44", "split": "test_iter", "time_diff": 1.28142083}
+ meanpooling in test
+[12/08 15:37:51][INFO] logging.py:   99: json_stats: {"cur_iter": "141", "eta": "0:19:50", "split": "test_iter", "time_diff": 5.38535097}
+ meanpooling in test
+[12/08 15:37:53][INFO] logging.py:   99: json_stats: {"cur_iter": "142", "eta": "0:06:51", "split": "test_iter", "time_diff": 1.87036791}
+ meanpooling in test
+[12/08 15:37:54][INFO] logging.py:   99: json_stats: {"cur_iter": "143", "eta": "0:04:46", "split": "test_iter", "time_diff": 1.30793370}
+ meanpooling in test
+[12/08 15:37:56][INFO] logging.py:   99: json_stats: {"cur_iter": "144", "eta": "0:04:43", "split": "test_iter", "time_diff": 1.29948591}
+ meanpooling in test
+[12/08 15:38:01][INFO] logging.py:   99: json_stats: {"cur_iter": "145", "eta": "0:18:43", "split": "test_iter", "time_diff": 5.17829998}
+ meanpooling in test
+[12/08 15:38:03][INFO] logging.py:   99: json_stats: {"cur_iter": "146", "eta": "0:09:05", "split": "test_iter", "time_diff": 2.52539363}
+ meanpooling in test
+[12/08 15:38:05][INFO] logging.py:   99: json_stats: {"cur_iter": "147", "eta": "0:04:40", "split": "test_iter", "time_diff": 1.30410475}
+ meanpooling in test
+[12/08 15:38:06][INFO] logging.py:   99: json_stats: {"cur_iter": "148", "eta": "0:04:39", "split": "test_iter", "time_diff": 1.30743202}
+ meanpooling in test
+[12/08 15:38:11][INFO] logging.py:   99: json_stats: {"cur_iter": "149", "eta": "0:17:32", "split": "test_iter", "time_diff": 4.94076434}
+ meanpooling in test
+[12/08 15:38:13][INFO] logging.py:   99: json_stats: {"cur_iter": "150", "eta": "0:07:53", "split": "test_iter", "time_diff": 2.23297895}
+ meanpooling in test
+[12/08 15:38:14][INFO] logging.py:   99: json_stats: {"cur_iter": "151", "eta": "0:04:30", "split": "test_iter", "time_diff": 1.28020990}
+ meanpooling in test
+[12/08 15:38:16][INFO] logging.py:   99: json_stats: {"cur_iter": "152", "eta": "0:04:29", "split": "test_iter", "time_diff": 1.28121775}
+ meanpooling in test
+[12/08 15:38:22][INFO] logging.py:   99: json_stats: {"cur_iter": "153", "eta": "0:20:14", "split": "test_iter", "time_diff": 5.80903821}
+ meanpooling in test
+[12/08 15:38:23][INFO] logging.py:   99: json_stats: {"cur_iter": "154", "eta": "0:05:08", "split": "test_iter", "time_diff": 1.48440156}
+ meanpooling in test
+[12/08 15:38:24][INFO] logging.py:   99: json_stats: {"cur_iter": "155", "eta": "0:04:27", "split": "test_iter", "time_diff": 1.29375814}
+ meanpooling in test
+[12/08 15:38:26][INFO] logging.py:   99: json_stats: {"cur_iter": "156", "eta": "0:04:23", "split": "test_iter", "time_diff": 1.28030516}
+ meanpooling in test
+[12/08 15:38:32][INFO] logging.py:   99: json_stats: {"cur_iter": "157", "eta": "0:21:14", "split": "test_iter", "time_diff": 6.21920291}
+ meanpooling in test
+[12/08 15:38:33][INFO] logging.py:   99: json_stats: {"cur_iter": "158", "eta": "0:04:21", "split": "test_iter", "time_diff": 1.28127403}
+ meanpooling in test
+[12/08 15:38:34][INFO] logging.py:   99: json_stats: {"cur_iter": "159", "eta": "0:04:22", "split": "test_iter", "time_diff": 1.29476803}
+ meanpooling in test
+[12/08 15:38:36][INFO] logging.py:   99: json_stats: {"cur_iter": "160", "eta": "0:04:22", "split": "test_iter", "time_diff": 1.29803446}
+ meanpooling in test
+[12/08 15:38:42][INFO] logging.py:   99: json_stats: {"cur_iter": "161", "eta": "0:21:11", "split": "test_iter", "time_diff": 6.32756770}
+ meanpooling in test
+[12/08 15:38:43][INFO] logging.py:   99: json_stats: {"cur_iter": "162", "eta": "0:04:16", "split": "test_iter", "time_diff": 1.28180137}
+ meanpooling in test
+[12/08 15:38:45][INFO] logging.py:   99: json_stats: {"cur_iter": "163", "eta": "0:04:14", "split": "test_iter", "time_diff": 1.27992729}
+ meanpooling in test
+[12/08 15:38:46][INFO] logging.py:   99: json_stats: {"cur_iter": "164", "eta": "0:04:13", "split": "test_iter", "time_diff": 1.28089709}
+ meanpooling in test
+[12/08 15:38:50][INFO] logging.py:   99: json_stats: {"cur_iter": "165", "eta": "0:15:09", "split": "test_iter", "time_diff": 4.61567114}
+ meanpooling in test
+[12/08 15:38:53][INFO] logging.py:   99: json_stats: {"cur_iter": "166", "eta": "0:07:28", "split": "test_iter", "time_diff": 2.28706282}
+ meanpooling in test
+[12/08 15:38:54][INFO] logging.py:   99: json_stats: {"cur_iter": "167", "eta": "0:04:15", "split": "test_iter", "time_diff": 1.30902853}
+ meanpooling in test
+[12/08 15:38:55][INFO] logging.py:   99: json_stats: {"cur_iter": "168", "eta": "0:04:12", "split": "test_iter", "time_diff": 1.30359718}
+ meanpooling in test
+[12/08 15:39:01][INFO] logging.py:   99: json_stats: {"cur_iter": "169", "eta": "0:18:32", "split": "test_iter", "time_diff": 5.76598961}
+ meanpooling in test
+[12/08 15:39:03][INFO] logging.py:   99: json_stats: {"cur_iter": "170", "eta": "0:05:05", "split": "test_iter", "time_diff": 1.59299719}
+ meanpooling in test
+[12/08 15:39:04][INFO] logging.py:   99: json_stats: {"cur_iter": "171", "eta": "0:04:07", "split": "test_iter", "time_diff": 1.29336990}
+ meanpooling in test
+[12/08 15:39:05][INFO] logging.py:   99: json_stats: {"cur_iter": "172", "eta": "0:04:03", "split": "test_iter", "time_diff": 1.28122696}
+ meanpooling in test
+[12/08 15:39:11][INFO] logging.py:   99: json_stats: {"cur_iter": "173", "eta": "0:17:38", "split": "test_iter", "time_diff": 5.60152138}
+ meanpooling in test
+[12/08 15:39:13][INFO] logging.py:   99: json_stats: {"cur_iter": "174", "eta": "0:06:03", "split": "test_iter", "time_diff": 1.93125489}
+ meanpooling in test
+[12/08 15:39:14][INFO] logging.py:   99: json_stats: {"cur_iter": "175", "eta": "0:04:01", "split": "test_iter", "time_diff": 1.29382019}
+ meanpooling in test
+[12/08 15:39:15][INFO] logging.py:   99: json_stats: {"cur_iter": "176", "eta": "0:03:58", "split": "test_iter", "time_diff": 1.28112161}
+ meanpooling in test
+[12/08 15:39:21][INFO] logging.py:   99: json_stats: {"cur_iter": "177", "eta": "0:16:11", "split": "test_iter", "time_diff": 5.25066456}
+ meanpooling in test
+[12/08 15:39:23][INFO] logging.py:   99: json_stats: {"cur_iter": "178", "eta": "0:07:19", "split": "test_iter", "time_diff": 2.39077297}
+ meanpooling in test
+[12/08 15:39:24][INFO] logging.py:   99: json_stats: {"cur_iter": "179", "eta": "0:03:54", "split": "test_iter", "time_diff": 1.28173330}
+ meanpooling in test
+[12/08 15:39:26][INFO] logging.py:   99: json_stats: {"cur_iter": "180", "eta": "0:03:53", "split": "test_iter", "time_diff": 1.28312865}
+ meanpooling in test
+[12/08 15:39:30][INFO] logging.py:   99: json_stats: {"cur_iter": "181", "eta": "0:12:39", "split": "test_iter", "time_diff": 4.19518381}
+ meanpooling in test
+[12/08 15:39:33][INFO] logging.py:   99: json_stats: {"cur_iter": "182", "eta": "0:10:39", "split": "test_iter", "time_diff": 3.55551326}
+ meanpooling in test
+[12/08 15:39:35][INFO] logging.py:   99: json_stats: {"cur_iter": "183", "eta": "0:03:52", "split": "test_iter", "time_diff": 1.29797884}
+ meanpooling in test
+[12/08 15:39:36][INFO] logging.py:   99: json_stats: {"cur_iter": "184", "eta": "0:03:51", "split": "test_iter", "time_diff": 1.30158881}
+ meanpooling in test
+[12/08 15:39:39][INFO] logging.py:   99: json_stats: {"cur_iter": "185", "eta": "0:09:27", "split": "test_iter", "time_diff": 3.20850457}
+ meanpooling in test
+[12/08 15:39:42][INFO] logging.py:   99: json_stats: {"cur_iter": "186", "eta": "0:07:52", "split": "test_iter", "time_diff": 2.68263693}
+ meanpooling in test
+[12/08 15:39:43][INFO] logging.py:   99: json_stats: {"cur_iter": "187", "eta": "0:03:44", "split": "test_iter", "time_diff": 1.28194320}
+ meanpooling in test
+[12/08 15:39:44][INFO] logging.py:   99: json_stats: {"cur_iter": "188", "eta": "0:03:42", "split": "test_iter", "time_diff": 1.28129862}
+ meanpooling in test
+[12/08 15:39:50][INFO] logging.py:   99: json_stats: {"cur_iter": "189", "eta": "0:14:57", "split": "test_iter", "time_diff": 5.18918687}
+ meanpooling in test
+[12/08 15:39:51][INFO] logging.py:   99: json_stats: {"cur_iter": "190", "eta": "0:04:48", "split": "test_iter", "time_diff": 1.67982784}
+ meanpooling in test
+[12/08 15:39:53][INFO] logging.py:   99: json_stats: {"cur_iter": "191", "eta": "0:03:40", "split": "test_iter", "time_diff": 1.29091521}
+ meanpooling in test
+[12/08 15:39:54][INFO] logging.py:   99: json_stats: {"cur_iter": "192", "eta": "0:03:37", "split": "test_iter", "time_diff": 1.28137413}
+ meanpooling in test
+[12/08 15:39:59][INFO] logging.py:   99: json_stats: {"cur_iter": "193", "eta": "0:15:09", "split": "test_iter", "time_diff": 5.37926166}
+ meanpooling in test
+[12/08 15:40:01][INFO] logging.py:   99: json_stats: {"cur_iter": "194", "eta": "0:03:46", "split": "test_iter", "time_diff": 1.34898363}
+ meanpooling in test
+[12/08 15:40:02][INFO] logging.py:   99: json_stats: {"cur_iter": "195", "eta": "0:03:33", "split": "test_iter", "time_diff": 1.28122014}
+ meanpooling in test
+[12/08 15:40:03][INFO] logging.py:   99: json_stats: {"cur_iter": "196", "eta": "0:03:32", "split": "test_iter", "time_diff": 1.28211986}
+ meanpooling in test
+[12/08 15:40:10][INFO] logging.py:   99: json_stats: {"cur_iter": "197", "eta": "0:17:49", "split": "test_iter", "time_diff": 6.48315357}
+ meanpooling in test
+[12/08 15:40:11][INFO] logging.py:   99: json_stats: {"cur_iter": "198", "eta": "0:03:30", "split": "test_iter", "time_diff": 1.28466680}
+ meanpooling in test
+[12/08 15:40:12][INFO] logging.py:   99: json_stats: {"cur_iter": "199", "eta": "0:03:46", "split": "test_iter", "time_diff": 1.39219479}
+ meanpooling in test
+[12/08 15:40:14][INFO] logging.py:   99: json_stats: {"cur_iter": "200", "eta": "0:03:31", "split": "test_iter", "time_diff": 1.30798982}
+ meanpooling in test
+[12/08 15:40:20][INFO] logging.py:   99: json_stats: {"cur_iter": "201", "eta": "0:17:28", "split": "test_iter", "time_diff": 6.51496974}
+ meanpooling in test
+[12/08 15:40:22][INFO] logging.py:   99: json_stats: {"cur_iter": "202", "eta": "0:03:26", "split": "test_iter", "time_diff": 1.29297554}
+ meanpooling in test
+[12/08 15:40:23][INFO] logging.py:   99: json_stats: {"cur_iter": "203", "eta": "0:03:23", "split": "test_iter", "time_diff": 1.28059741}
+ meanpooling in test
+[12/08 15:40:24][INFO] logging.py:   99: json_stats: {"cur_iter": "204", "eta": "0:03:27", "split": "test_iter", "time_diff": 1.31160380}
+ meanpooling in test
+[12/08 15:40:30][INFO] logging.py:   99: json_stats: {"cur_iter": "205", "eta": "0:14:54", "split": "test_iter", "time_diff": 5.69588491}
+ meanpooling in test
+[12/08 15:40:31][INFO] logging.py:   99: json_stats: {"cur_iter": "206", "eta": "0:03:22", "split": "test_iter", "time_diff": 1.29946704}
+ meanpooling in test
+[12/08 15:40:32][INFO] logging.py:   99: json_stats: {"cur_iter": "207", "eta": "0:03:22", "split": "test_iter", "time_diff": 1.30367942}
+ meanpooling in test
+[12/08 15:40:34][INFO] logging.py:   99: json_stats: {"cur_iter": "208", "eta": "0:03:17", "split": "test_iter", "time_diff": 1.28357915}
+ meanpooling in test
+[12/08 15:40:39][INFO] logging.py:   99: json_stats: {"cur_iter": "209", "eta": "0:13:44", "split": "test_iter", "time_diff": 5.38596344}
+ meanpooling in test
+[12/08 15:40:40][INFO] logging.py:   99: json_stats: {"cur_iter": "210", "eta": "0:03:18", "split": "test_iter", "time_diff": 1.30790083}
+ meanpooling in test
+[12/08 15:40:42][INFO] logging.py:   99: json_stats: {"cur_iter": "211", "eta": "0:03:14", "split": "test_iter", "time_diff": 1.28785741}
+ meanpooling in test
+[12/08 15:40:43][INFO] logging.py:   99: json_stats: {"cur_iter": "212", "eta": "0:03:12", "split": "test_iter", "time_diff": 1.28128174}
+ meanpooling in test
+[12/08 15:40:49][INFO] logging.py:   99: json_stats: {"cur_iter": "213", "eta": "0:15:05", "split": "test_iter", "time_diff": 6.07596801}
+ meanpooling in test
+[12/08 15:40:50][INFO] logging.py:   99: json_stats: {"cur_iter": "214", "eta": "0:03:10", "split": "test_iter", "time_diff": 1.28606940}
+ meanpooling in test
+[12/08 15:40:52][INFO] logging.py:   99: json_stats: {"cur_iter": "215", "eta": "0:03:13", "split": "test_iter", "time_diff": 1.31870677}
+ meanpooling in test
+[12/08 15:40:53][INFO] logging.py:   99: json_stats: {"cur_iter": "216", "eta": "0:03:06", "split": "test_iter", "time_diff": 1.28039976}
+ meanpooling in test
+[12/08 15:40:59][INFO] logging.py:   99: json_stats: {"cur_iter": "217", "eta": "0:14:41", "split": "test_iter", "time_diff": 6.08218611}
+ meanpooling in test
+[12/08 15:41:00][INFO] logging.py:   99: json_stats: {"cur_iter": "218", "eta": "0:03:07", "split": "test_iter", "time_diff": 1.30431565}
+ meanpooling in test
+[12/08 15:41:02][INFO] logging.py:   99: json_stats: {"cur_iter": "219", "eta": "0:03:11", "split": "test_iter", "time_diff": 1.33918980}
+ meanpooling in test
+[12/08 15:41:03][INFO] logging.py:   99: json_stats: {"cur_iter": "220", "eta": "0:03:05", "split": "test_iter", "time_diff": 1.30736712}
+ meanpooling in test
+[12/08 15:41:09][INFO] logging.py:   99: json_stats: {"cur_iter": "221", "eta": "0:13:54", "split": "test_iter", "time_diff": 5.91655572}
+ meanpooling in test
+[12/08 15:41:11][INFO] logging.py:   99: json_stats: {"cur_iter": "222", "eta": "0:04:10", "split": "test_iter", "time_diff": 1.78893460}
+ meanpooling in test
+[12/08 15:41:12][INFO] logging.py:   99: json_stats: {"cur_iter": "223", "eta": "0:03:05", "split": "test_iter", "time_diff": 1.33164127}
+ meanpooling in test
+[12/08 15:41:13][INFO] logging.py:   99: json_stats: {"cur_iter": "224", "eta": "0:02:56", "split": "test_iter", "time_diff": 1.28148946}
+ meanpooling in test
+[12/08 15:41:18][INFO] logging.py:   99: json_stats: {"cur_iter": "225", "eta": "0:11:04", "split": "test_iter", "time_diff": 4.85171857}
+ meanpooling in test
+[12/08 15:41:20][INFO] logging.py:   99: json_stats: {"cur_iter": "226", "eta": "0:04:32", "split": "test_iter", "time_diff": 2.00705165}
+ meanpooling in test
+[12/08 15:41:21][INFO] logging.py:   99: json_stats: {"cur_iter": "227", "eta": "0:02:52", "split": "test_iter", "time_diff": 1.28122461}
+ meanpooling in test
+[12/08 15:41:23][INFO] logging.py:   99: json_stats: {"cur_iter": "228", "eta": "0:02:51", "split": "test_iter", "time_diff": 1.28054791}
+ meanpooling in test
+[12/08 15:41:28][INFO] logging.py:   99: json_stats: {"cur_iter": "229", "eta": "0:11:04", "split": "test_iter", "time_diff": 4.99955681}
+ meanpooling in test
+[12/08 15:41:31][INFO] logging.py:   99: json_stats: {"cur_iter": "230", "eta": "0:06:26", "split": "test_iter", "time_diff": 2.92585307}
+ meanpooling in test
+[12/08 15:41:32][INFO] logging.py:   99: json_stats: {"cur_iter": "231", "eta": "0:02:47", "split": "test_iter", "time_diff": 1.28037319}
+ meanpooling in test
+[12/08 15:41:33][INFO] logging.py:   99: json_stats: {"cur_iter": "232", "eta": "0:02:47", "split": "test_iter", "time_diff": 1.28501085}
+ meanpooling in test
+[12/08 15:41:38][INFO] logging.py:   99: json_stats: {"cur_iter": "233", "eta": "0:09:39", "split": "test_iter", "time_diff": 4.49141821}
+ meanpooling in test
+[12/08 15:41:41][INFO] logging.py:   99: json_stats: {"cur_iter": "234", "eta": "0:07:11", "split": "test_iter", "time_diff": 3.36990917}
+ meanpooling in test
+[12/08 15:41:42][INFO] logging.py:   99: json_stats: {"cur_iter": "235", "eta": "0:02:42", "split": "test_iter", "time_diff": 1.28014268}
+ meanpooling in test
+[12/08 15:41:44][INFO] logging.py:   99: json_stats: {"cur_iter": "236", "eta": "0:02:41", "split": "test_iter", "time_diff": 1.28072864}
+ meanpooling in test
+[12/08 15:41:47][INFO] logging.py:   99: json_stats: {"cur_iter": "237", "eta": "0:07:23", "split": "test_iter", "time_diff": 3.55101690}
+ meanpooling in test
+[12/08 15:41:52][INFO] logging.py:   99: json_stats: {"cur_iter": "238", "eta": "0:09:34", "split": "test_iter", "time_diff": 4.63436564}
+ meanpooling in test
+[12/08 15:41:53][INFO] logging.py:   99: json_stats: {"cur_iter": "239", "eta": "0:02:37", "split": "test_iter", "time_diff": 1.28153835}
+ meanpooling in test
+[12/08 15:41:54][INFO] logging.py:   99: json_stats: {"cur_iter": "240", "eta": "0:02:37", "split": "test_iter", "time_diff": 1.29053523}
+ meanpooling in test
+[12/08 15:41:57][INFO] logging.py:   99: json_stats: {"cur_iter": "241", "eta": "0:04:53", "split": "test_iter", "time_diff": 2.42789392}
+ meanpooling in test
+[12/08 15:42:02][INFO] logging.py:   99: json_stats: {"cur_iter": "242", "eta": "0:09:34", "split": "test_iter", "time_diff": 4.78523672}
+ meanpooling in test
+[12/08 15:42:03][INFO] logging.py:   99: json_stats: {"cur_iter": "243", "eta": "0:02:34", "split": "test_iter", "time_diff": 1.29907184}
+ meanpooling in test
+[12/08 15:42:04][INFO] logging.py:   99: json_stats: {"cur_iter": "244", "eta": "0:02:31", "split": "test_iter", "time_diff": 1.28151737}
+ meanpooling in test
+[12/08 15:42:07][INFO] logging.py:   99: json_stats: {"cur_iter": "245", "eta": "0:05:55", "split": "test_iter", "time_diff": 3.03835054}
+ meanpooling in test
+[12/08 15:42:11][INFO] logging.py:   99: json_stats: {"cur_iter": "246", "eta": "0:07:38", "split": "test_iter", "time_diff": 3.95470196}
+ meanpooling in test
+[12/08 15:42:13][INFO] logging.py:   99: json_stats: {"cur_iter": "247", "eta": "0:02:27", "split": "test_iter", "time_diff": 1.28001535}
+ meanpooling in test
+[12/08 15:42:14][INFO] logging.py:   99: json_stats: {"cur_iter": "248", "eta": "0:02:26", "split": "test_iter", "time_diff": 1.28425377}
+ meanpooling in test
+[12/08 15:42:17][INFO] logging.py:   99: json_stats: {"cur_iter": "249", "eta": "0:05:29", "split": "test_iter", "time_diff": 2.91623478}
+ meanpooling in test
+[12/08 15:42:21][INFO] logging.py:   99: json_stats: {"cur_iter": "250", "eta": "0:07:16", "split": "test_iter", "time_diff": 3.89996576}
+ meanpooling in test
+[12/08 15:42:22][INFO] logging.py:   99: json_stats: {"cur_iter": "251", "eta": "0:02:24", "split": "test_iter", "time_diff": 1.30281078}
+ meanpooling in test
+[12/08 15:42:23][INFO] logging.py:   99: json_stats: {"cur_iter": "252", "eta": "0:02:20", "split": "test_iter", "time_diff": 1.28147442}
+ meanpooling in test
+[12/08 15:42:27][INFO] logging.py:   99: json_stats: {"cur_iter": "253", "eta": "0:06:34", "split": "test_iter", "time_diff": 3.62317414}
+ meanpooling in test
+[12/08 15:42:30][INFO] logging.py:   99: json_stats: {"cur_iter": "254", "eta": "0:05:46", "split": "test_iter", "time_diff": 3.21107213}
+ meanpooling in test
+[12/08 15:42:31][INFO] logging.py:   99: json_stats: {"cur_iter": "255", "eta": "0:02:17", "split": "test_iter", "time_diff": 1.28303225}
+ meanpooling in test
+[12/08 15:42:33][INFO] logging.py:   99: json_stats: {"cur_iter": "256", "eta": "0:02:17", "split": "test_iter", "time_diff": 1.29903880}
+ meanpooling in test
+[12/08 15:42:37][INFO] logging.py:   99: json_stats: {"cur_iter": "257", "eta": "0:07:50", "split": "test_iter", "time_diff": 4.48098206}
+ meanpooling in test
+[12/08 15:42:41][INFO] logging.py:   99: json_stats: {"cur_iter": "258", "eta": "0:05:47", "split": "test_iter", "time_diff": 3.33754021}
+ meanpooling in test
+[12/08 15:42:42][INFO] logging.py:   99: json_stats: {"cur_iter": "259", "eta": "0:02:14", "split": "test_iter", "time_diff": 1.30464272}
+ meanpooling in test
+[12/08 15:42:43][INFO] logging.py:   99: json_stats: {"cur_iter": "260", "eta": "0:02:10", "split": "test_iter", "time_diff": 1.28032536}
+ meanpooling in test
+[12/08 15:42:47][INFO] logging.py:   99: json_stats: {"cur_iter": "261", "eta": "0:06:24", "split": "test_iter", "time_diff": 3.80477126}
+ meanpooling in test
+[12/08 15:42:49][INFO] logging.py:   99: json_stats: {"cur_iter": "262", "eta": "0:04:15", "split": "test_iter", "time_diff": 2.55211713}
+ meanpooling in test
+[12/08 15:42:51][INFO] logging.py:   99: json_stats: {"cur_iter": "263", "eta": "0:02:06", "split": "test_iter", "time_diff": 1.28198003}
+ meanpooling in test
+[12/08 15:42:52][INFO] logging.py:   99: json_stats: {"cur_iter": "264", "eta": "0:02:05", "split": "test_iter", "time_diff": 1.28100058}
+ meanpooling in test
+[12/08 15:42:57][INFO] logging.py:   99: json_stats: {"cur_iter": "265", "eta": "0:07:21", "split": "test_iter", "time_diff": 4.55247396}
+ meanpooling in test
+[12/08 15:43:00][INFO] logging.py:   99: json_stats: {"cur_iter": "266", "eta": "0:05:14", "split": "test_iter", "time_diff": 3.27321801}
+ meanpooling in test
+[12/08 15:43:01][INFO] logging.py:   99: json_stats: {"cur_iter": "267", "eta": "0:02:01", "split": "test_iter", "time_diff": 1.28055971}
+ meanpooling in test
+[12/08 15:43:02][INFO] logging.py:   99: json_stats: {"cur_iter": "268", "eta": "0:02:03", "split": "test_iter", "time_diff": 1.30854887}
+ meanpooling in test
+[12/08 15:43:07][INFO] logging.py:   99: json_stats: {"cur_iter": "269", "eta": "0:07:03", "split": "test_iter", "time_diff": 4.55552834}
+ meanpooling in test
+[12/08 15:43:11][INFO] logging.py:   99: json_stats: {"cur_iter": "270", "eta": "0:05:46", "split": "test_iter", "time_diff": 3.76465769}
+ meanpooling in test
+[12/08 15:43:12][INFO] logging.py:   99: json_stats: {"cur_iter": "271", "eta": "0:01:57", "split": "test_iter", "time_diff": 1.29035475}
+ meanpooling in test
+[12/08 15:43:13][INFO] logging.py:   99: json_stats: {"cur_iter": "272", "eta": "0:01:57", "split": "test_iter", "time_diff": 1.30282530}
+ meanpooling in test
+[12/08 15:43:17][INFO] logging.py:   99: json_stats: {"cur_iter": "273", "eta": "0:05:36", "split": "test_iter", "time_diff": 3.78551278}
+ meanpooling in test
+[12/08 15:43:20][INFO] logging.py:   99: json_stats: {"cur_iter": "274", "eta": "0:04:09", "split": "test_iter", "time_diff": 2.83930763}
+ meanpooling in test
+[12/08 15:43:21][INFO] logging.py:   99: json_stats: {"cur_iter": "275", "eta": "0:01:53", "split": "test_iter", "time_diff": 1.30113363}
+ meanpooling in test
+[12/08 15:43:23][INFO] logging.py:   99: json_stats: {"cur_iter": "276", "eta": "0:01:50", "split": "test_iter", "time_diff": 1.28564425}
+ meanpooling in test
+[12/08 15:43:28][INFO] logging.py:   99: json_stats: {"cur_iter": "277", "eta": "0:07:09", "split": "test_iter", "time_diff": 5.05850598}
+ meanpooling in test
+[12/08 15:43:29][INFO] logging.py:   99: json_stats: {"cur_iter": "278", "eta": "0:01:47", "split": "test_iter", "time_diff": 1.28114221}
+ meanpooling in test
+[12/08 15:43:30][INFO] logging.py:   99: json_stats: {"cur_iter": "279", "eta": "0:01:48", "split": "test_iter", "time_diff": 1.30261110}
+ meanpooling in test
+[12/08 15:43:32][INFO] logging.py:   99: json_stats: {"cur_iter": "280", "eta": "0:01:46", "split": "test_iter", "time_diff": 1.29676740}
+ meanpooling in test
+[12/08 15:43:39][INFO] logging.py:   99: json_stats: {"cur_iter": "281", "eta": "0:09:31", "split": "test_iter", "time_diff": 7.05367123}
+ meanpooling in test
+[12/08 15:43:40][INFO] logging.py:   99: json_stats: {"cur_iter": "282", "eta": "0:01:42", "split": "test_iter", "time_diff": 1.28156327}
+ meanpooling in test
+[12/08 15:43:41][INFO] logging.py:   99: json_stats: {"cur_iter": "283", "eta": "0:01:41", "split": "test_iter", "time_diff": 1.28031920}
+ meanpooling in test
+[12/08 15:43:42][INFO] logging.py:   99: json_stats: {"cur_iter": "284", "eta": "0:01:41", "split": "test_iter", "time_diff": 1.30134481}
+ meanpooling in test
+[12/08 15:43:49][INFO] logging.py:   99: json_stats: {"cur_iter": "285", "eta": "0:08:21", "split": "test_iter", "time_diff": 6.51852880}
+ meanpooling in test
+[12/08 15:43:50][INFO] logging.py:   99: json_stats: {"cur_iter": "286", "eta": "0:01:38", "split": "test_iter", "time_diff": 1.29951228}
+ meanpooling in test
+[12/08 15:43:52][INFO] logging.py:   99: json_stats: {"cur_iter": "287", "eta": "0:01:35", "split": "test_iter", "time_diff": 1.27991137}
+ meanpooling in test
+[12/08 15:43:53][INFO] logging.py:   99: json_stats: {"cur_iter": "288", "eta": "0:01:34", "split": "test_iter", "time_diff": 1.28041737}
+ meanpooling in test
+[12/08 15:43:59][INFO] logging.py:   99: json_stats: {"cur_iter": "289", "eta": "0:06:58", "split": "test_iter", "time_diff": 5.73627369}
+ meanpooling in test
+[12/08 15:44:00][INFO] logging.py:   99: json_stats: {"cur_iter": "290", "eta": "0:01:32", "split": "test_iter", "time_diff": 1.28371888}
+ meanpooling in test
+[12/08 15:44:01][INFO] logging.py:   99: json_stats: {"cur_iter": "291", "eta": "0:01:31", "split": "test_iter", "time_diff": 1.28569578}
+ meanpooling in test
+[12/08 15:44:02][INFO] logging.py:   99: json_stats: {"cur_iter": "292", "eta": "0:01:29", "split": "test_iter", "time_diff": 1.28168461}
+ meanpooling in test
+[12/08 15:44:09][INFO] logging.py:   99: json_stats: {"cur_iter": "293", "eta": "0:07:28", "split": "test_iter", "time_diff": 6.49662425}
+ meanpooling in test
+[12/08 15:44:10][INFO] logging.py:   99: json_stats: {"cur_iter": "294", "eta": "0:01:27", "split": "test_iter", "time_diff": 1.28205094}
+ meanpooling in test
+[12/08 15:44:12][INFO] logging.py:   99: json_stats: {"cur_iter": "295", "eta": "0:01:25", "split": "test_iter", "time_diff": 1.28095791}
+ meanpooling in test
+[12/08 15:44:13][INFO] logging.py:   99: json_stats: {"cur_iter": "296", "eta": "0:01:25", "split": "test_iter", "time_diff": 1.29016354}
+ meanpooling in test
+[12/08 15:44:17][INFO] logging.py:   99: json_stats: {"cur_iter": "297", "eta": "0:04:49", "split": "test_iter", "time_diff": 4.45908946}
+ meanpooling in test
+[12/08 15:44:20][INFO] logging.py:   99: json_stats: {"cur_iter": "298", "eta": "0:02:41", "split": "test_iter", "time_diff": 2.52683590}
+ meanpooling in test
+[12/08 15:44:21][INFO] logging.py:   99: json_stats: {"cur_iter": "299", "eta": "0:01:24", "split": "test_iter", "time_diff": 1.33836339}
+ meanpooling in test
+[12/08 15:44:22][INFO] logging.py:   99: json_stats: {"cur_iter": "300", "eta": "0:01:20", "split": "test_iter", "time_diff": 1.29809401}
+ meanpooling in test
+[12/08 15:44:28][INFO] logging.py:   99: json_stats: {"cur_iter": "301", "eta": "0:05:43", "split": "test_iter", "time_diff": 5.63050063}
+ meanpooling in test
+[12/08 15:44:29][INFO] logging.py:   99: json_stats: {"cur_iter": "302", "eta": "0:01:18", "split": "test_iter", "time_diff": 1.31046371}
+ meanpooling in test
+[12/08 15:44:31][INFO] logging.py:   99: json_stats: {"cur_iter": "303", "eta": "0:01:16", "split": "test_iter", "time_diff": 1.29095739}
+ meanpooling in test
+[12/08 15:44:32][INFO] logging.py:   99: json_stats: {"cur_iter": "304", "eta": "0:01:14", "split": "test_iter", "time_diff": 1.28089066}
+ meanpooling in test
+[12/08 15:44:38][INFO] logging.py:   99: json_stats: {"cur_iter": "305", "eta": "0:05:35", "split": "test_iter", "time_diff": 5.88484269}
+ meanpooling in test
+[12/08 15:44:39][INFO] logging.py:   99: json_stats: {"cur_iter": "306", "eta": "0:01:11", "split": "test_iter", "time_diff": 1.28257078}
+ meanpooling in test
+[12/08 15:44:40][INFO] logging.py:   99: json_stats: {"cur_iter": "307", "eta": "0:01:10", "split": "test_iter", "time_diff": 1.28245231}
+ meanpooling in test
+[12/08 15:44:42][INFO] logging.py:   99: json_stats: {"cur_iter": "308", "eta": "0:01:09", "split": "test_iter", "time_diff": 1.28077100}
+ meanpooling in test
+[12/08 15:44:47][INFO] logging.py:   99: json_stats: {"cur_iter": "309", "eta": "0:04:44", "split": "test_iter", "time_diff": 5.37227956}
+ meanpooling in test
+[12/08 15:44:49][INFO] logging.py:   99: json_stats: {"cur_iter": "310", "eta": "0:01:54", "split": "test_iter", "time_diff": 2.20582748}
+ meanpooling in test
+[12/08 15:44:51][INFO] logging.py:   99: json_stats: {"cur_iter": "311", "eta": "0:01:05", "split": "test_iter", "time_diff": 1.28044928}
+ meanpooling in test
+[12/08 15:44:52][INFO] logging.py:   99: json_stats: {"cur_iter": "312", "eta": "0:01:05", "split": "test_iter", "time_diff": 1.30538535}
+ meanpooling in test
+[12/08 15:44:57][INFO] logging.py:   99: json_stats: {"cur_iter": "313", "eta": "0:04:33", "split": "test_iter", "time_diff": 5.57867649}
+ meanpooling in test
+[12/08 15:44:59][INFO] logging.py:   99: json_stats: {"cur_iter": "314", "eta": "0:01:02", "split": "test_iter", "time_diff": 1.29874126}
+ meanpooling in test
+[12/08 15:45:00][INFO] logging.py:   99: json_stats: {"cur_iter": "315", "eta": "0:01:00", "split": "test_iter", "time_diff": 1.29128865}
+ meanpooling in test
+[12/08 15:45:01][INFO] logging.py:   99: json_stats: {"cur_iter": "316", "eta": "0:00:58", "split": "test_iter", "time_diff": 1.28051257}
+ meanpooling in test
+[12/08 15:45:08][INFO] logging.py:   99: json_stats: {"cur_iter": "317", "eta": "0:04:37", "split": "test_iter", "time_diff": 6.15828296}
+ meanpooling in test
+[12/08 15:45:09][INFO] logging.py:   99: json_stats: {"cur_iter": "318", "eta": "0:00:57", "split": "test_iter", "time_diff": 1.30419527}
+ meanpooling in test
+[12/08 15:45:10][INFO] logging.py:   99: json_stats: {"cur_iter": "319", "eta": "0:00:55", "split": "test_iter", "time_diff": 1.27989332}
+ meanpooling in test
+[12/08 15:45:11][INFO] logging.py:   99: json_stats: {"cur_iter": "320", "eta": "0:00:53", "split": "test_iter", "time_diff": 1.28033855}
+ meanpooling in test
+[12/08 15:45:18][INFO] logging.py:   99: json_stats: {"cur_iter": "321", "eta": "0:04:16", "split": "test_iter", "time_diff": 6.24727641}
+ meanpooling in test
+[12/08 15:45:19][INFO] logging.py:   99: json_stats: {"cur_iter": "322", "eta": "0:00:51", "split": "test_iter", "time_diff": 1.28493608}
+ meanpooling in test
+[12/08 15:45:20][INFO] logging.py:   99: json_stats: {"cur_iter": "323", "eta": "0:00:50", "split": "test_iter", "time_diff": 1.28308925}
+ meanpooling in test
+[12/08 15:45:21][INFO] logging.py:   99: json_stats: {"cur_iter": "324", "eta": "0:00:48", "split": "test_iter", "time_diff": 1.28043127}
+ meanpooling in test
+[12/08 15:45:27][INFO] logging.py:   99: json_stats: {"cur_iter": "325", "eta": "0:03:29", "split": "test_iter", "time_diff": 5.67051645}
+ meanpooling in test
+[12/08 15:45:29][INFO] logging.py:   99: json_stats: {"cur_iter": "326", "eta": "0:00:56", "split": "test_iter", "time_diff": 1.56430324}
+ meanpooling in test
+[12/08 15:45:30][INFO] logging.py:   99: json_stats: {"cur_iter": "327", "eta": "0:00:44", "split": "test_iter", "time_diff": 1.28138855}
+ meanpooling in test
+[12/08 15:45:31][INFO] logging.py:   99: json_stats: {"cur_iter": "328", "eta": "0:00:43", "split": "test_iter", "time_diff": 1.28159008}
+ meanpooling in test
+[12/08 15:45:36][INFO] logging.py:   99: json_stats: {"cur_iter": "329", "eta": "0:02:34", "split": "test_iter", "time_diff": 4.67746645}
+ meanpooling in test
+[12/08 15:45:39][INFO] logging.py:   99: json_stats: {"cur_iter": "330", "eta": "0:01:26", "split": "test_iter", "time_diff": 2.69382028}
+ meanpooling in test
+[12/08 15:45:40][INFO] logging.py:   99: json_stats: {"cur_iter": "331", "eta": "0:00:40", "split": "test_iter", "time_diff": 1.29913636}
+ meanpooling in test
+[12/08 15:45:41][INFO] logging.py:   99: json_stats: {"cur_iter": "332", "eta": "0:00:38", "split": "test_iter", "time_diff": 1.29013768}
+ meanpooling in test
+[12/08 15:45:46][INFO] logging.py:   99: json_stats: {"cur_iter": "333", "eta": "0:02:09", "split": "test_iter", "time_diff": 4.46896820}
+ meanpooling in test
+[12/08 15:45:48][INFO] logging.py:   99: json_stats: {"cur_iter": "334", "eta": "0:01:14", "split": "test_iter", "time_diff": 2.64600910}
+ meanpooling in test
+[12/08 15:45:50][INFO] logging.py:   99: json_stats: {"cur_iter": "335", "eta": "0:00:34", "split": "test_iter", "time_diff": 1.28037575}
+ meanpooling in test
+[12/08 15:45:51][INFO] logging.py:   99: json_stats: {"cur_iter": "336", "eta": "0:00:33", "split": "test_iter", "time_diff": 1.28084190}
+ meanpooling in test
+[12/08 15:45:55][INFO] logging.py:   99: json_stats: {"cur_iter": "337", "eta": "0:01:39", "split": "test_iter", "time_diff": 3.97911636}
+ meanpooling in test
+[12/08 15:45:59][INFO] logging.py:   99: json_stats: {"cur_iter": "338", "eta": "0:01:30", "split": "test_iter", "time_diff": 3.76832584}
+ meanpooling in test
+[12/08 15:46:00][INFO] logging.py:   99: json_stats: {"cur_iter": "339", "eta": "0:00:29", "split": "test_iter", "time_diff": 1.28413244}
+ meanpooling in test
+[12/08 15:46:01][INFO] logging.py:   99: json_stats: {"cur_iter": "340", "eta": "0:00:28", "split": "test_iter", "time_diff": 1.27997268}
+ meanpooling in test
+[12/08 15:46:05][INFO] logging.py:   99: json_stats: {"cur_iter": "341", "eta": "0:01:11", "split": "test_iter", "time_diff": 3.38133662}
+ meanpooling in test
+[12/08 15:46:08][INFO] logging.py:   99: json_stats: {"cur_iter": "342", "eta": "0:01:15", "split": "test_iter", "time_diff": 3.75094422}
+ meanpooling in test
+[12/08 15:46:10][INFO] logging.py:   99: json_stats: {"cur_iter": "343", "eta": "0:00:25", "split": "test_iter", "time_diff": 1.34209629}
+ meanpooling in test
+[12/08 15:46:11][INFO] logging.py:   99: json_stats: {"cur_iter": "344", "eta": "0:00:23", "split": "test_iter", "time_diff": 1.29668177}
+ meanpooling in test
+[12/08 15:46:15][INFO] logging.py:   99: json_stats: {"cur_iter": "345", "eta": "0:00:59", "split": "test_iter", "time_diff": 3.47527355}
+ meanpooling in test
+[12/08 15:46:18][INFO] logging.py:   99: json_stats: {"cur_iter": "346", "eta": "0:00:55", "split": "test_iter", "time_diff": 3.49703986}
+ meanpooling in test
+[12/08 15:46:19][INFO] logging.py:   99: json_stats: {"cur_iter": "347", "eta": "0:00:19", "split": "test_iter", "time_diff": 1.32439374}
+ meanpooling in test
+[12/08 15:46:21][INFO] logging.py:   99: json_stats: {"cur_iter": "348", "eta": "0:00:17", "split": "test_iter", "time_diff": 1.28124377}
+ meanpooling in test
+[12/08 15:46:25][INFO] logging.py:   99: json_stats: {"cur_iter": "349", "eta": "0:01:02", "split": "test_iter", "time_diff": 4.78872519}
+ meanpooling in test
+[12/08 15:46:28][INFO] logging.py:   99: json_stats: {"cur_iter": "350", "eta": "0:00:26", "split": "test_iter", "time_diff": 2.17724154}
+ meanpooling in test
+[12/08 15:46:29][INFO] logging.py:   99: json_stats: {"cur_iter": "351", "eta": "0:00:14", "split": "test_iter", "time_diff": 1.34199090}
+ meanpooling in test
+[12/08 15:46:30][INFO] logging.py:   99: json_stats: {"cur_iter": "352", "eta": "0:00:12", "split": "test_iter", "time_diff": 1.28033953}
+ meanpooling in test
+[12/08 15:46:36][INFO] logging.py:   99: json_stats: {"cur_iter": "353", "eta": "0:00:50", "split": "test_iter", "time_diff": 5.63854373}
+ meanpooling in test
+[12/08 15:46:38][INFO] logging.py:   99: json_stats: {"cur_iter": "354", "eta": "0:00:14", "split": "test_iter", "time_diff": 1.78290040}
+ meanpooling in test
+[12/08 15:46:39][INFO] logging.py:   99: json_stats: {"cur_iter": "355", "eta": "0:00:08", "split": "test_iter", "time_diff": 1.28104024}
+ meanpooling in test
+[12/08 15:46:40][INFO] logging.py:   99: json_stats: {"cur_iter": "356", "eta": "0:00:07", "split": "test_iter", "time_diff": 1.28131395}
+ meanpooling in test
+[12/08 15:46:43][INFO] logging.py:   99: json_stats: {"cur_iter": "357", "eta": "0:00:14", "split": "test_iter", "time_diff": 2.99588407}
+ meanpooling in test
+[12/08 15:46:45][INFO] logging.py:   99: json_stats: {"cur_iter": "358", "eta": "0:00:05", "split": "test_iter", "time_diff": 1.31186103}
+ meanpooling in test
+[12/08 15:46:46][INFO] logging.py:   99: json_stats: {"cur_iter": "359", "eta": "0:00:03", "split": "test_iter", "time_diff": 1.30882932}
+ meanpooling in test
+[12/08 15:46:47][INFO] logging.py:   99: json_stats: {"cur_iter": "360", "eta": "0:00:02", "split": "test_iter", "time_diff": 1.30054755}
+ meanpooling in test
+[12/08 15:46:48][INFO] logging.py:   99: json_stats: {"cur_iter": "361", "eta": "0:00:01", "split": "test_iter", "time_diff": 1.10110408}
+[12/08 15:46:51][INFO] test_net.py:  234: Successfully saved prediction results to /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_ssv2_froster/testing/temp.pyth
+[12/08 15:46:51][INFO] logging.py:   99: json_stats: {"split": "test_final", "top1_acc": "0.90", "top5_acc": "4.85"}
+[12/08 15:46:51][INFO] test_net.py:  474: Finalized testing with 3 temporal clips and 1 spatial crops
+[12/08 15:46:51][INFO] test_net.py:  496: _p150.67_f10.00_3a0.90 Top5 Acc: 4.85 MEM: 11.52 f: 10.0000
+[12/08 15:46:51][INFO] test_net.py:  497: _p150.67_f10.00_3a0.90

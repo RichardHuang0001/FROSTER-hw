@@ -263,6 +263,7 @@ class TemporalClipVideo(nn.Module):
                 pred = self.model.logit_scale.exp() * img_encode @ dynamic_classifier_new.T
             #preds形状： (bz * clip_len, num_classes)
             # 通过reshape变回(bz, clip_len, num_classes)，然后平均池化
+            print(" meanpooling in train") #TODO 测试完记得删掉
             pred = pred.reshape(bz, clip_len, -1).mean(1) #这里有个平均池化meanpooling
             #执行完上一行，在clip_len维度上取平均，得到最终的preds形状(bz, num_classes)
 
@@ -315,8 +316,11 @@ class TemporalClipVideo(nn.Module):
                 text_dict = self.text_prompt(os.path.join(self.cfg.DATA.INDEX_LABEL_MAPPING_FILE))
                 dynamic_classifier_new = self.achieve_csf_matrix(text_dict, self.model, trainable=False)
                 pred = self.model.logit_scale.exp() * img_encode @ dynamic_classifier_new.T
-
-            pred = pred.reshape(bz, clip_len, -1).mean(1)
+            
+            print(" meanpooling in test") #TODO 测试完记得删掉
+            pred = pred.reshape(bz, clip_len, -1).mean(1) #TODO 测试完记得改回mean
+            # pred = pred.reshape(bz, clip_len, -1).min(1).values
+            # pred = pred.reshape(bz, clip_len, -1).max(1).values
             
             if self.keep_raw_model and (self.ensemble_pred or self.distillation):
                 pass
