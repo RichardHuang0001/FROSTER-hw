@@ -23,8 +23,8 @@ python -W ignore -u tools/run_net.py \
     DATA.INDEX_LABEL_MAPPING_FILE $ROOT/label_rephrase/hmdb_rephrased_classes.json  \
     TRAIN.ENABLE False \
     OUTPUT_DIR $OUT_DIR \
-    TEST.BATCH_SIZE 120 \
-    NUM_GPUS 4 \
+    TEST.BATCH_SIZE 60 \
+    NUM_GPUS 1 \
     DATA.DECODING_BACKEND "pyav" \
     MODEL.NUM_CLASSES 51 \
     TEST.CUSTOM_LOAD True \
