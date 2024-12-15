@@ -209,7 +209,7 @@ class TemporalClipVideo(nn.Module):
 
     def forward(self, x=None, update=False):
         # shape of x(input) is (bz, channel, clip_len, h, w)
-
+        # print("x shape:", x.shape) #TODO 这里打印了进入forward的x的形状
         assert len(x) == self.num_pathways
         x = x[0]
         if len(x.shape) == 4:
@@ -256,7 +256,7 @@ class TemporalClipVideo(nn.Module):
                 norm_head /= norm_head.norm(dim=-1, keepdim=True)
                 #这里计算点积（余弦相似度），产生preds
                 pred = self.model.logit_scale.exp() * img_encode @ norm_head.T 
-            else:
+            else: #默认配置是False，会执行这个块，而不是楼上的块的。
                 # csf_matrix = self.dynamic_classifier / self.dynamic_classifier.norm(dim=-1, keepdim=True)
                 text_dict = self.text_prompt(os.path.join(self.cfg.DATA.INDEX_LABEL_MAPPING_FILE))
                 dynamic_classifier_new = self.achieve_csf_matrix(text_dict, self.model, trainable=True)

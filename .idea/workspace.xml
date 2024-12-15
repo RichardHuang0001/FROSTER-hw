@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16da7362-c849-46cb-8d4a-742e0ccfae30" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/script/testing/temporal_test_b16/hmdb_clip.sh" beforeDir="false" afterPath="$PROJECT_DIR$/script/testing/temporal_test_b16/hmdb_clip.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/training/temporal_b16/train_clip_B2N_hmdb.sh" beforeDir="false" afterPath="$PROJECT_DIR$/script/training/temporal_b16/train_clip_B2N_hmdb.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/training/temporal_b16/train_clip_B2N_ssv2.sh" beforeDir="false" afterPath="$PROJECT_DIR$/script/training/temporal_b16/train_clip_B2N_ssv2.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slowfast/models/temporalclip_video_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/slowfast/models/temporalclip_video_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_hmdb_cross.log" beforeDir="false" afterPath="$PROJECT_DIR$/test_hmdb_cross.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/train_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/train_net.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_ssv2.log" beforeDir="false" afterPath="$PROJECT_DIR$/train_ssv2.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/常用命令.txt" beforeDir="false" afterPath="$PROJECT_DIR$/常用命令.txt" afterDir="false" />
-    </list>
+    <list default="true" id="16da7362-c849-46cb-8d4a-742e0ccfae30" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,9 +13,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2qD3Yv3iblJiNCqnBMITPxKg12M" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -37,7 +28,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/mnt/SSD8T/home/huangwei/projects/FROSTER",
+    "last_opened_file_path": "/Users/huangwei/Desktop/PythonProjects/FROSTER-hw-bak",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -84,8 +75,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.68" />
-        <option value="bundled-python-sdk-434b4e3f034a-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.68" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.22855.92" />
+        <option value="bundled-python-sdk-b068d85d1acf-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.22855.92" />
       </set>
     </attachedChunks>
   </component>
@@ -98,6 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1734183388004</updated>
       <workItem from="1734183389162" duration="2458000" />
+      <workItem from="1734254121104" duration="95000" />
     </task>
     <servers />
   </component>
