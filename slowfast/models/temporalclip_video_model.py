@@ -263,9 +263,9 @@ class TemporalClipVideo(nn.Module):
                 pred = self.model.logit_scale.exp() * img_encode @ dynamic_classifier_new.T
             #preds形状： (bz * clip_len, num_classes)
             # 通过reshape变回(bz, clip_len, num_classes)，然后平均池化
-            print(" meanpooling in train") #TODO 测试完记得删掉
+            print(f" meanpooling in train,pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}") #TODO 测试完记得删掉
             pred = pred.reshape(bz, clip_len, -1).mean(1) #这里有个平均池化meanpooling
-            #执行完上一行，在clip_len维度上取平均，得到最终的preds形状(bz, num_classes)
+            #执行完上一行，在clip_len维度上取平均，得到最终的preds形pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}状(bz, num_classes)
 
             # #指数移动平均
             # print("exponential temporal pooling in train")
@@ -296,7 +296,7 @@ class TemporalClipVideo(nn.Module):
             if self.record_routing:
                 return pred, routing_state
             return pred
-        else:
+        else: #测试模式
             # img_encode [bz, feat_size]
             # dynamic_clf shape [type_num * cls_num, feat_size]
             # pre_img_encode = img_encode
@@ -349,6 +349,20 @@ class TemporalClipVideo(nn.Module):
             #     return pred
     
     def text_prompt(self, data_file):
+        '''
+        假设数据文件（标注）为：
+        {
+        "0": "playing guitar",
+        "1": "cooking",
+        "2": "riding bike"
+        }
+        输出为：
+        text_dict = {
+            0: ["a photo of playing guitar", "a video of playing guitar", ...],
+            1: ["a photo of cooking", "a video of cooking", ...],
+            2: ["a photo of riding bike", "a video of riding bike", ...],
+        }
+        '''
         text_aug = [
                 f'a photo of {{}}.',
                 f'a photo of a person {{}}.',
@@ -415,6 +429,19 @@ class TemporalClipVideo(nn.Module):
         return text_dict
         
     def achieve_csf_matrix(self, text_dict, model, trainable=False):
+        '''
+        完整数据流的 Shape 变化总结
+        输入 text_dict：
+        每个模板下的文本输入形状：(num_classes, token_length)。
+        文本编码（encode_text）：
+        每个模板的输出形状：(num_classes, feat_size)。
+        堆叠所有模板（torch.stack）：
+        形状变为：(num_templates, num_classes, feat_size)。
+        求平均（mean(0)）：
+        形状变为：(num_classes, feat_size)。
+        归一化（L2归一化）：
+        最终输出形状：(num_classes, feat_size)。
+        '''
         if not trainable:
             with torch.no_grad():
                 csf_matrix_list = [model.encode_text(text_dict[i].cuda()).detach() for i in range(len(text_dict))]
