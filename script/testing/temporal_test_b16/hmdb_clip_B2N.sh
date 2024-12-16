@@ -1,14 +1,14 @@
 ROOT=/mnt/SSD8T/home/huangwei/projects/FROSTER
 CKPT=$ROOT/checkpoints/basetraining/B2N_hmdb51_froster
 OUT_DIR=$CKPT/testing
-LOAD_CKPT_FILE=$ROOT/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00012.pyth
+LOAD_CKPT_FILE=$ROOT/checkpoints/basetraining/B2N_hmdb51_froster_exp02/checkpoints/checkpoint_epoch_00012.pyth
 
 # TEST_FILE can be set as val.csv (base set) or test.csv (novel set).
 # rephrased_file can be set as train_rephrased.json (base set) or test_rephrased.json (novel set)
 # NUM_CLASSES can be set as 26 (base set) or 25 (novel set)
 B2N_hmdb_file=B2N_hmdb
 TRAIN_FILE=train.csv
-VAL_FILE=test.csv
+VAL_FILE=val.csv
 TEST_FILE=test.csv
 rephrased_file=test_rephrased.json  #改成了test.csv之后，变成Normal类，有25个类要改一下这里
 NUM_CLASSES=25
@@ -29,7 +29,7 @@ TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \
     TRAIN.ENABLE False \
     OUTPUT_DIR $OUT_DIR \
     TEST.BATCH_SIZE 120 \
-    NUM_GPUS 4 \
+    NUM_GPUS 2 \
     DATA.DECODING_BACKEND "pyav" \
     MODEL.NUM_CLASSES $NUM_CLASSES \
     TEST.CUSTOM_LOAD True \

@@ -1,7 +1,7 @@
 ROOT=/mnt/SSD8T/home/huangwei/projects/FROSTER
 CKPT=$ROOT/checkpoints/basetraining/B2N_ssv2_froster
 OUT_DIR=$CKPT/testing
-LOAD_CKPT_FILE=$ROOT/checkpoints/basetraining/B2N_ssv2_froster/checkpoints/wa_checkpoints/swa_2_12.pth
+LOAD_CKPT_FILE=$ROOT/checkpoints/basetraining/B2N_ssv2_froster/checkpoints/checkpoint_epoch_00012.pyth
 
 # TEST_FILE can be set as val.csv (base set) or test.csv (novel set).
 # rephrased_file can be set as train_rephrased.json (base set) or test_rephrased.json (novel set)
@@ -9,7 +9,7 @@ LOAD_CKPT_FILE=$ROOT/checkpoints/basetraining/B2N_ssv2_froster/checkpoints/wa_ch
 B2N_ssv2_file=B2N_ssv2
 TRAIN_FILE=train.csv
 VAL_FILE=val.csv
-TEST_FILE=test.csv
+TEST_FILE=val.csv  #先执行base to base测试
 rephrased_file=train_rephrased.json
 NUM_CLASSES=87
 
@@ -26,7 +26,7 @@ python -W ignore -u tools/run_net.py \
     DATA.INDEX_LABEL_MAPPING_FILE $ROOT/zs_label_db/B2N_ssv2/$rephrased_file \
     TRAIN.ENABLE False \
     OUTPUT_DIR $OUT_DIR \
-    TEST.BATCH_SIZE 60 \
+    TEST.BATCH_SIZE 90 \
     NUM_GPUS 1 \
     DATA.DECODING_BACKEND "pyav" \
     MODEL.NUM_CLASSES $NUM_CLASSES \

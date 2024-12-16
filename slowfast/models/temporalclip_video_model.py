@@ -263,14 +263,14 @@ class TemporalClipVideo(nn.Module):
                 pred = self.model.logit_scale.exp() * img_encode @ dynamic_classifier_new.T
             #preds形状： (bz * clip_len, num_classes)
             # 通过reshape变回(bz, clip_len, num_classes)，然后平均池化
-            print(f" meanpooling in train,pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}") #TODO 测试完记得删掉
-            pred = pred.reshape(bz, clip_len, -1).mean(1) #这里有个平均池化meanpooling
-            #执行完上一行，在clip_len维度上取平均，得到最终的preds形pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}状(bz, num_classes)
+            # print(f" meanpooling in train,pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}") #TODO 测试完记得删掉
+            # pred = pred.reshape(bz, clip_len, -1).mean(1) #这里有个平均池化meanpooling
+            # #执行完上一行，在clip_len维度上取平均，得到最终的preds形pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}状(bz, num_classes)
 
-            # #指数移动平均
-            # print("exponential temporal pooling in train")
-            # pred = pred.reshape(bz, clip_len, -1)
-            # pred = exponential_temporal_pooling(pred, alpha=0.5)
+            #指数移动平均
+            print("exponential temporal pooling in train")
+            pred = pred.reshape(bz, clip_len, -1)
+            pred = exponential_temporal_pooling(pred, alpha=0.2)
 
             # add distillation here（if training是上一级的if，这里也包含在training模式的代码块里）
             if self.keep_raw_model and (self.ensemble_pred or self.distillation):
@@ -322,16 +322,17 @@ class TemporalClipVideo(nn.Module):
                 dynamic_classifier_new = self.achieve_csf_matrix(text_dict, self.model, trainable=False)
                 pred = self.model.logit_scale.exp() * img_encode @ dynamic_classifier_new.T
             
-            print(f"meanpooling in test,pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}")#TODO 测试完记得删掉
-            pred = pred.reshape(bz, clip_len, -1).mean(1) #TODO 测试完记得改回mean
+            # print(f"meanpooling in test,pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}")#TODO 测试完记得删掉
+            # pred = pred.reshape(bz, clip_len, -1).mean(1) #TODO 测试完记得改回mean
             # pred = pred.reshape(bz, clip_len, -1).min(1).values
+            # print(f"maxpooling in test,pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}")
             # pred = pred.reshape(bz, clip_len, -1).max(1).values
             # pred = pred.reshape(bz, clip_len, -1)[:, 1, :] #取最后一帧
 
-            # #指数移动平均
-            # print("exponential temporal pooling in test")
-            # pred = pred.reshape(bz, clip_len, -1)
-            # pred = exponential_temporal_pooling(pred, alpha=0.5)
+            #指数移动平均
+            print("exponential temporal pooling in test")
+            pred = pred.reshape(bz, clip_len, -1)
+            pred = exponential_temporal_pooling(pred, alpha=0.2)
             
             if self.keep_raw_model and (self.ensemble_pred or self.distillation):
                 pass
@@ -713,6 +714,7 @@ def exponential_temporal_pooling(x, alpha=0.1):
     Returns:
         Tensor of shape (batch_size, num_classes)
     """
+    print(f"alpha:{alpha}")
     batch_size, num_frames, num_classes = x.shape
     weights = torch.exp(alpha * torch.arange(num_frames, device=x.device))
     weights = weights / weights.sum()  # normalize weights

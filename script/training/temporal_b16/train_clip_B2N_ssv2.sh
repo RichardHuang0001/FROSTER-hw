@@ -3,7 +3,7 @@ CKPT=$ROOT/checkpoints
 
 B2N_ssv2_file=B2N_ssv2
 TRAIN_FILE=train.csv
-VAL_FILE=val.csv
+VAL_FILE=test.csv
 TEST_FILE=test.csv
 
 cd $ROOT
@@ -18,9 +18,9 @@ TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \
   DATA.PATH_LABEL_SEPARATOR , \
   DATA.INDEX_LABEL_MAPPING_FILE $ROOT/zs_label_db/B2N_ssv2/train_rephrased.json \
   TRAIN.ENABLE True \
-  OUTPUT_DIR $CKPT/basetraining/B2N_ssv2_froster \
+  OUTPUT_DIR $CKPT/basetraining/B2N_ssv2_froster_exp02 \
   TRAIN.BATCH_SIZE 32 \
-  TEST.BATCH_SIZE 120 \
+  TEST.BATCH_SIZE 240 \
   TEST.NUM_ENSEMBLE_VIEWS 3 \
   TEST.NUM_SPATIAL_CROPS 1 \
   NUM_GPUS 8 \
