@@ -1,20 +1,14 @@
 import pickle
 import torch
-import argparse
 import os
-import matplotlib.pyplot as plt
+import pandas as pd
+from sklearn.metrics import confusion_matrix
 
-'''
-使用命令:
-- 显示图像:
-python eval_acc.py --file_path --file_path /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/testing/temp.pyth --show
+# 结果文件路径（在代码中直接定义）
+RESULT_FILE_PATH = "/mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/testing/temp.pyth"
 
-- 保存图像:
-python eval_acc.py --file_path /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/testing/temp.pyth  --saveimg ./
-
-- 同时显示和保存:
-python eval_acc.py --file_path /path/to/temp.pyth --show --saveimg /path/to/save
-'''
+# 混淆矩阵导出路径
+CONFUSION_MATRIX_CSV = "./hmdb_confusion_matrix.csv"
 
 # 定义函数: 评估 Top-k 准确率
 def eval_accuracy(preds, labels, topk=(1, 5)):
@@ -34,48 +28,32 @@ def eval_accuracy(preds, labels, topk=(1, 5)):
         results[f"Top-{k} Accuracy"] = acc_k.item()
     return results
 
-# 定义函数: 可视化预测结果并保存图像
-def visualize_predictions(preds, labels, save_path=None, num_samples=5, show=False):
+# 定义函数: 导出混淆矩阵为CSV
+def export_confusion_matrix(preds, labels, save_path):
     """
-    可视化置信度分布图并保存结果
+    生成并保存混淆矩阵为CSV格式。
     Args:
         preds: 模型预测结果，Tensor，shape = [N, num_classes]
         labels: 真实标签，Tensor，shape = [N]
-        save_path: 图像保存的路径 (str)
-        num_samples: 可视化的样本数量
-        show: 是否显示图像
+        save_path: CSV文件保存路径
     """
-    num_samples = min(num_samples, len(preds))
-    os.makedirs(save_path, exist_ok=True) if save_path else None  # 创建保存目录
+    # 获取 Top-1 预测结果
+    _, pred_classes = preds.topk(1, dim=1, largest=True, sorted=True)
+    pred_classes = pred_classes.squeeze(1)  # 去掉多余的维度
 
-    for i in range(num_samples):
-        plt.figure(figsize=(10, 6))
-        plt.bar(range(preds.size(1)), preds[i].tolist())
-        plt.title(f"Sample {i+1}: True Label = {labels[i].item()}")
-        plt.xlabel("Class Index")
-        plt.ylabel("Confidence")
-
-        # 保存图像
-        if save_path:
-            img_path = os.path.join(save_path, f"sample_{i+1}.png")
-            plt.savefig(img_path)
-            print(f"Saved visualization to: {img_path}")
-
-        if show:
-            plt.show()
-        plt.close()
+    # 计算混淆矩阵
+    cm = confusion_matrix(labels.cpu().numpy(), pred_classes.cpu().numpy())
+    
+    # 转换为 DataFrame 并保存为CSV
+    cm_df = pd.DataFrame(cm)
+    cm_df.to_csv(save_path, index=True, header=True)
+    print(f"Confusion matrix saved to: {save_path}")
 
 # 主代码
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Evaluate accuracy and optionally visualize predictions.")
-    parser.add_argument("--file_path", type=str, required=True, help="Path to the saved .pyth file.")
-    parser.add_argument("--show", action="store_true", help="Enable visualization of predictions.")
-    parser.add_argument("--saveimg", type=str, help="Path to save visualized prediction images.")
-    args = parser.parse_args()
-
     # 加载保存的文件
     try:
-        with open(args.file_path, "rb") as f:
+        with open(RESULT_FILE_PATH, "rb") as f:
             data = pickle.load(f)
     except Exception as e:
         print(f"Error loading file: {e}")
@@ -105,7 +83,6 @@ if __name__ == "__main__":
     for k, v in accuracy.items():
         print(f"{k}: {v:.2f}%")
 
-    # 可视化预测结果
-    if args.show or args.saveimg:
-        print("\nVisualizing sample predictions...")
-        visualize_predictions(all_preds, all_labels, save_path=args.saveimg, show=args.show, num_samples=5)
+    # 导出混淆矩阵为CSV
+    export_confusion_matrix(all_preds, all_labels, CONFUSION_MATRIX_CSV)
+
