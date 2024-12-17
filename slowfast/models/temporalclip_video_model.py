@@ -322,17 +322,17 @@ class TemporalClipVideo(nn.Module):
                 dynamic_classifier_new = self.achieve_csf_matrix(text_dict, self.model, trainable=False)
                 pred = self.model.logit_scale.exp() * img_encode @ dynamic_classifier_new.T
             
-            # print(f"meanpooling in test,pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}")#TODO 测试完记得删掉
-            # pred = pred.reshape(bz, clip_len, -1).mean(1) #TODO 测试完记得改回mean
+            print(f"meanpooling in test,pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}")#TODO 测试完记得删掉
+            pred = pred.reshape(bz, clip_len, -1).mean(1) #TODO 测试完记得改回mean
             # pred = pred.reshape(bz, clip_len, -1).min(1).values
             # print(f"maxpooling in test,pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}")
             # pred = pred.reshape(bz, clip_len, -1).max(1).values
             # pred = pred.reshape(bz, clip_len, -1)[:, 1, :] #取最后一帧
 
-            #指数移动平均
-            print("exponential temporal pooling in test")
-            pred = pred.reshape(bz, clip_len, -1)
-            pred = exponential_temporal_pooling(pred, alpha=0.2)
+            # #指数移动平均
+            # print("exponential temporal pooling in test")
+            # pred = pred.reshape(bz, clip_len, -1)
+            # pred = exponential_temporal_pooling(pred, alpha=0.2)
             
             if self.keep_raw_model and (self.ensemble_pred or self.distillation):
                 pass
