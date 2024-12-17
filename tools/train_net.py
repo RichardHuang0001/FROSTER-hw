@@ -764,14 +764,20 @@ def eval_epoch(
                     preds, rout_state = model(inputs)
                 elif cfg.MODEL.KEEP_RAW_MODEL and cfg.MODEL.RAW_MODEL_DISTILLATION:
                     outputs = model(inputs)
+                    # print(f"in train_net.py,outputs=model(inputs),output len:{len(outputs)}")
                     if len(outputs[0]) == 2:
+                        # print(f"in train_net.py,len(outputs[0]) == 2")
                         [preds, img_encode], [raw_pred, raw_img_encode] = outputs
                     elif len(outputs[0]) == 3:
+                        # print(f"in train_net.py,len(outputs[0]) == 3")
                         [preds, img_encode, text_encode], [raw_pred, raw_img_encode, raw_text_encode] = outputs
                 else:
+                    print(f"in train_net.py,cfg.MODEL.RECORD_ROUTING is False")
                     preds = model(inputs)
                     if isinstance(preds, list):
                         preds = preds[0]
+                    else:
+                        print(f"in train_net.py,preds is not a list")
 
                 # preds = model(inputs)
 

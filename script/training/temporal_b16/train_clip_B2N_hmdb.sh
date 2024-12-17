@@ -13,6 +13,7 @@ TEST_FILE=test.csv
 cd $ROOT
 
 # 保存路径改成了指数移动平均
+# 原始的batchsize是32，测试的batchsize是240，Num_GPUS是8
 
 TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \
   --cfg configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml\
@@ -24,12 +25,12 @@ TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \
   DATA.PATH_LABEL_SEPARATOR , \
   DATA.INDEX_LABEL_MAPPING_FILE $ROOT/zs_label_db/B2N_hmdb/train_rephrased.json \
   TRAIN.ENABLE True \
-  OUTPUT_DIR $CKPT/basetraining/B2N_hmdb51_froster_exp02 \
+  OUTPUT_DIR $CKPT/basetraining/B2N_hmdb51_froster_same2 \
   TRAIN.BATCH_SIZE 32 \
   TEST.BATCH_SIZE 240 \
   TEST.NUM_ENSEMBLE_VIEWS 3 \
   TEST.NUM_SPATIAL_CROPS 1 \
-  NUM_GPUS 8 \
+  NUM_GPUS 4 \
   SOLVER.MAX_EPOCH 12 \
   SOLVER.WARMUP_EPOCHS 2.0 \
   SOLVER.BASE_LR 3.33e-6 \

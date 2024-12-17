@@ -6,6 +6,8 @@ TRAIN_FILE=train.csv
 VAL_FILE=test.csv
 TEST_FILE=test.csv
 
+# 原始的batchsize是32，测试的batchsize是240，Num_GPUS是4
+
 cd $ROOT
 
 TORCH_DISTRIBUTED_DEBUG=INFO python -W ignore -u tools/run_net.py \

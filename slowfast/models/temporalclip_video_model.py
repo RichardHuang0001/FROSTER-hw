@@ -263,14 +263,14 @@ class TemporalClipVideo(nn.Module):
                 pred = self.model.logit_scale.exp() * img_encode @ dynamic_classifier_new.T
             #preds形状： (bz * clip_len, num_classes)
             # 通过reshape变回(bz, clip_len, num_classes)，然后平均池化
-            # print(f" meanpooling in train,pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}") #TODO 测试完记得删掉
-            # pred = pred.reshape(bz, clip_len, -1).mean(1) #这里有个平均池化meanpooling
+            print(f" meanpooling in train,pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}") #TODO 测试完记得删掉
+            pred = pred.reshape(bz, clip_len, -1).mean(1) #这里有个平均池化meanpooling
             # #执行完上一行，在clip_len维度上取平均，得到最终的preds形pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}状(bz, num_classes)
 
-            #指数移动平均
-            print("exponential temporal pooling in train")
-            pred = pred.reshape(bz, clip_len, -1)
-            pred = exponential_temporal_pooling(pred, alpha=0.2)
+            # #指数移动平均
+            # print("exponential temporal pooling in train")
+            # pred = pred.reshape(bz, clip_len, -1)
+            # pred = exponential_temporal_pooling(pred, alpha=0.2)
 
             # add distillation here（if training是上一级的if，这里也包含在training模式的代码块里）
             if self.keep_raw_model and (self.ensemble_pred or self.distillation):
@@ -290,6 +290,7 @@ class TemporalClipVideo(nn.Module):
                 
                 dynamic_classifier_new = dynamic_classifier_new + alpha * self.projector_t(dynamic_classifier_new)
 
+                print(f"in temporalclip_video_model.py,return [pred, img_encode, dynamic_classifier_new], [None, raw_img_encode, dynamic_classifier_raw]")
                 return [pred, img_encode, dynamic_classifier_new], [None, raw_img_encode, dynamic_classifier_raw]
                 # return [pred, dynamic_classifier_new], [None, dynamic_classifier_raw]
             
