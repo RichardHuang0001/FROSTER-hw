@@ -8,7 +8,7 @@ from sklearn.metrics import confusion_matrix
 RESULT_FILE_PATH = "/mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/testing/temp.pyth"
 
 # 混淆矩阵导出路径
-CONFUSION_MATRIX_CSV = "./hmdb_confusion_matrix.csv"
+CONFUSION_MATRIX_CSV = "./hmdb_confusion_matrix_new.csv"
 
 # 定义函数: 评估 Top-k 准确率
 def eval_accuracy(preds, labels, topk=(1, 5)):
