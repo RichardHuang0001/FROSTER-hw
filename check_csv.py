@@ -6,25 +6,27 @@ import time
 
 '''
 # 基本使用
-python check_csv.py /path/to/dataset test.csv --remove --savelog
+python check_csv.py /path/to/dataset test.csv --remove --savelog --dup
 
 参数说明：
 - 第一个参数是数据集根目录路径
 - 第二个参数是CSV文件路径
 - --remove：是否从CSV中删除不存在的条目
+- --dup：是否去除重复条目
 - --savelog：是否保存检查结果到json文件
 '''
 
-def check_paths(dataset_root, csv_path, remove=False, savelog=False):
-    """检查CSV文件中的视频路径是否存在
+def check_paths(dataset_root, csv_path, remove=False, savelog=False, dedup=False):
+    """检查CSV文件中的视频路径是否存在，并处理重复条目
     
     Args:
         dataset_root: 数据集根目录路径
         csv_path: CSV文件路径
         remove: 是否删除不存在的条目
         savelog: 是否保存检查结果到json文件
+        dedup: 是否去除重复条目
     """
-    print(f"开始检查CSV文件: {csv_path}")
+    print(f"\n开始检查CSV文件: {csv_path}")
     
     # 读取CSV文件
     try:
@@ -59,7 +61,20 @@ def check_paths(dataset_root, csv_path, remove=False, savelog=False):
             print(f"进度: {idx+1}/{total_entries} ({(idx+1)/total_entries*100:.2f}%) "
                   f"耗时: {elapsed_time:.2f}秒")
 
+    # 检查重复条目
+    duplicated_entries = df[df.duplicated(keep=False)]
+    num_duplicates = len(duplicated_entries)
+    print(f"\n重复条目数: {num_duplicates}")
+    if num_duplicates > 0:
+        print("重复的条目列表:")
+        print(duplicated_entries[0].tolist())
 
+    # 如果需要去重
+    if dedup and num_duplicates > 0:
+        print("\n正在去除重复条目...")
+        df = df.drop_duplicates(keep='first')
+        df.to_csv(csv_path, header=False, index=False)
+        print(f"已去除重复条目，更新后的CSV文件保存为: {csv_path}")
 
     # 如果有缺失的文件，打印它们
     if results['missing']:
@@ -91,14 +106,16 @@ def check_paths(dataset_root, csv_path, remove=False, savelog=False):
         print(f"已更新原CSV文件: {csv_path}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='检查CSV文件中的视频路径是否存在')
+    parser = argparse.ArgumentParser(description='检查CSV文件中的视频路径是否存在，并处理重复条目')
     parser.add_argument('dataset_root', type=str, help='数据集根目录路径')
     parser.add_argument('csv_path', type=str, help='CSV文件路径')
     parser.add_argument('--remove', action='store_true', 
                         help='是否删除不存在的条目并创建新的CSV文件')
+    parser.add_argument('--dup', action='store_true',
+                        help='是否去除重复条目')
     parser.add_argument('--savelog', action='store_true',
                         help='是否保存检查结果到json文件')
     
     args = parser.parse_args()
     
-    check_paths(args.dataset_root, args.csv_path, args.remove, args.savelog)
+    check_paths(args.dataset_root, args.csv_path, args.remove, args.savelog, args.dup)
