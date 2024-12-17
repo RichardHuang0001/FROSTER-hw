@@ -1,7 +1,7 @@
 
 执行训练脚本并把输出重定向到log文件
 
-bash script/testing/temporal_test_b16/hmdb_clip_B2N.sh > test_hmdb_same2.log 2>&1
+nohup bash script/training/temporal_b16/train_clip_B2N_ucf.sh > train_ucf_exp02.log 2>&1
 
 CUDA_VISIBLE_DEVICES=0,1,2,3 nohup script/training/temporal_b16/train_clip_B2N_ssv2.sh > train_ssv2.log 2>&1 &    
 
