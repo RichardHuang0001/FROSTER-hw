@@ -1,7 +1,7 @@
 nohup: ignoring input
 config files: ['configs/Kinetics/TemporalCLIP_vitb16_8x16_STAdapter_HMDB51.yaml']
-[12/17 23:16:37][INFO] test_net.py:  319: Test with config:
-[12/17 23:16:37][INFO] test_net.py:  320: AUG:
+[12/17 23:32:33][INFO] test_net.py:  319: Test with config:
+[12/17 23:32:33][INFO] test_net.py:  320: AUG:
   AA_TYPE: rand-m7-n4-mstd0.5-inc1
   COLOR_JITTER: 0.4
   ENABLE: False
@@ -428,613 +428,613 @@ X3D:
   DIM_C5: 2048
   SCALE_RES2: False
   WIDTH_FACTOR: 1.0
-[12/17 23:16:41][INFO] temporalclip_video_model.py:  658: load pretrained CLIP:<All keys matched successfully>
-[12/17 23:16:45][INFO] test_net.py:  333: Loading custom network weights from /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00012.pyth.
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.positional_embedding
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.text_projection
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.logit_scale
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.class_embedding
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.positional_embedding
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.proj
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.conv1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.ln_pre.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.ln_pre.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.ln_post.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.visual.ln_post.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.attn.in_proj_weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.attn.in_proj_bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.attn.out_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.attn.out_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.ln_1.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.ln_1.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.mlp.c_fc.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.mlp.c_fc.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.mlp.c_proj.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.mlp.c_proj.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.ln_2.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.ln_2.bias
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.token_embedding.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.ln_final.weight
-[12/17 23:16:46][INFO] test_net.py:  404: missing parameters
-[12/17 23:16:46][INFO] test_net.py:  405: module.raw_model.ln_final.bias
-[12/17 23:16:46][INFO] misc.py:  185: Model:
+[12/17 23:32:37][INFO] temporalclip_video_model.py:  658: load pretrained CLIP:<All keys matched successfully>
+[12/17 23:32:41][INFO] test_net.py:  333: Loading custom network weights from /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00012.pyth.
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.positional_embedding
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.text_projection
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.logit_scale
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.class_embedding
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.positional_embedding
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.proj
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.conv1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.ln_pre.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.ln_pre.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.0.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.1.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.2.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.3.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.4.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.5.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.6.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.7.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.8.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.9.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.10.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.transformer.resblocks.11.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.ln_post.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.visual.ln_post.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.0.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.1.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.2.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.3.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.4.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.5.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.6.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.7.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.8.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.9.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.10.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.attn.in_proj_weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.attn.in_proj_bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.attn.out_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.attn.out_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.ln_1.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.ln_1.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.mlp.c_fc.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.mlp.c_fc.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.mlp.c_proj.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.mlp.c_proj.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.ln_2.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.transformer.resblocks.11.ln_2.bias
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.token_embedding.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.ln_final.weight
+[12/17 23:32:42][INFO] test_net.py:  404: missing parameters
+[12/17 23:32:42][INFO] test_net.py:  405: module.raw_model.ln_final.bias
+[12/17 23:32:42][INFO] misc.py:  185: Model:
 DistributedDataParallel(
   (module): TemporalClipVideo(
     (model): WCLIP(
@@ -1354,10 +1354,10 @@ DistributedDataParallel(
     )
   )
 )
-[12/17 23:16:46][INFO] misc.py:  187: Params: 150,669,313
-[12/17 23:16:46][INFO] misc.py:  188: Mem: 1.1396026611328125 MB
-[12/17 23:16:46][INFO] misc.py:  197: nvidia-smi
-Tue Dec 17 23:16:46 2024       
+[12/17 23:32:42][INFO] misc.py:  187: Params: 150,669,313
+[12/17 23:32:42][INFO] misc.py:  188: Mem: 1.1396026611328125 MB
+[12/17 23:32:42][INFO] misc.py:  197: nvidia-smi
+Tue Dec 17 23:32:42 2024       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
@@ -1370,31 +1370,31 @@ Tue Dec 17 23:16:46 2024
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   1  NVIDIA GeForce ...  Off  | 00000000:23:00.0 Off |                  Off |
-| 41%   24C    P2    65W / 450W |   3878MiB / 24564MiB |      3%      Default |
+| 41%   24C    P2    64W / 450W |   3878MiB / 24564MiB |     12%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   2  NVIDIA GeForce ...  Off  | 00000000:41:00.0 Off |                  Off |
-| 41%   25C    P2    70W / 450W |   3878MiB / 24564MiB |     15%      Default |
+| 41%   26C    P2    70W / 450W |   3878MiB / 24564MiB |     16%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   3  NVIDIA GeForce ...  Off  | 00000000:61:00.0 Off |                  Off |
-| 40%   24C    P2    68W / 450W |   3878MiB / 24564MiB |      8%      Default |
+| 40%   25C    P2    68W / 450W |   3878MiB / 24564MiB |     15%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   4  NVIDIA GeForce ...  Off  | 00000000:81:00.0 Off |                  Off |
-| 42%   22C    P8    27W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 42%   21C    P8    27W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   5  NVIDIA GeForce ...  Off  | 00000000:A1:00.0 Off |                  Off |
-| 41%   21C    P8    28W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 41%   20C    P8    27W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   6  NVIDIA GeForce ...  Off  | 00000000:C1:00.0 Off |                  Off |
-| 42%   22C    P8    14W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 42%   21C    P8    14W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   7  NVIDIA GeForce ...  Off  | 00000000:E1:00.0 Off |                  Off |
-| 39%   21C    P8    19W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 39%   20C    P8    19W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -1404,19 +1404,19 @@ Tue Dec 17 23:16:46 2024
 |        ID   ID                                                   Usage      |
 |=============================================================================|
 |    0   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
-|    0   N/A  N/A   3068709      C   .../envs/slowfast/bin/python     3870MiB |
+|    0   N/A  N/A   3085270      C   .../envs/slowfast/bin/python     3870MiB |
 |    1   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
-|    1   N/A  N/A   3068710      C   .../envs/slowfast/bin/python     3870MiB |
+|    1   N/A  N/A   3085271      C   .../envs/slowfast/bin/python     3870MiB |
 |    2   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
-|    2   N/A  N/A   3068711      C   .../envs/slowfast/bin/python     3870MiB |
+|    2   N/A  N/A   3085272      C   .../envs/slowfast/bin/python     3870MiB |
 |    3   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
-|    3   N/A  N/A   3068712      C   .../envs/slowfast/bin/python     3870MiB |
+|    3   N/A  N/A   3085273      C   .../envs/slowfast/bin/python     3870MiB |
 |    4   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
 |    5   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
 |    6   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
 |    7   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
 +-----------------------------------------------------------------------------+
-[12/17 23:16:47][INFO] misc.py:  185: Model:
+[12/17 23:32:43][INFO] misc.py:  185: Model:
 DistributedDataParallel(
   (module): TemporalClipVideo(
     (model): WCLIP(
@@ -1736,10 +1736,10 @@ DistributedDataParallel(
     )
   )
 )
-[12/17 23:16:47][INFO] misc.py:  187: Params: 150,669,313
-[12/17 23:16:47][INFO] misc.py:  188: Mem: 1.1396026611328125 MB
-[12/17 23:16:47][INFO] misc.py:  197: nvidia-smi
-Tue Dec 17 23:16:47 2024       
+[12/17 23:32:43][INFO] misc.py:  187: Params: 150,669,313
+[12/17 23:32:43][INFO] misc.py:  188: Mem: 1.1396026611328125 MB
+[12/17 23:32:43][INFO] misc.py:  197: nvidia-smi
+Tue Dec 17 23:32:43 2024       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
@@ -1752,7 +1752,7 @@ Tue Dec 17 23:16:47 2024
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   1  NVIDIA GeForce ...  Off  | 00000000:23:00.0 Off |                  Off |
-| 41%   23C    P2    62W / 450W |   3878MiB / 24564MiB |      0%      Default |
+| 41%   24C    P2    63W / 450W |   3878MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   2  NVIDIA GeForce ...  Off  | 00000000:41:00.0 Off |                  Off |
@@ -1760,23 +1760,23 @@ Tue Dec 17 23:16:47 2024
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   3  NVIDIA GeForce ...  Off  | 00000000:61:00.0 Off |                  Off |
-| 40%   24C    P2    66W / 450W |   3878MiB / 24564MiB |      0%      Default |
+| 40%   24C    P2    69W / 450W |   3878MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   4  NVIDIA GeForce ...  Off  | 00000000:81:00.0 Off |                  Off |
-| 42%   22C    P8    27W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 42%   21C    P8    28W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   5  NVIDIA GeForce ...  Off  | 00000000:A1:00.0 Off |                  Off |
-| 41%   21C    P8    28W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 41%   20C    P8    27W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   6  NVIDIA GeForce ...  Off  | 00000000:C1:00.0 Off |                  Off |
-| 42%   22C    P8    14W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 42%   21C    P8    14W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   7  NVIDIA GeForce ...  Off  | 00000000:E1:00.0 Off |                  Off |
-| 39%   21C    P8    19W / 450W |      8MiB / 24564MiB |      0%      Default |
+| 39%   20C    P8    20W / 450W |      8MiB / 24564MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -1786,58 +1786,48 @@ Tue Dec 17 23:16:47 2024
 |        ID   ID                                                   Usage      |
 |=============================================================================|
 |    0   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
-|    0   N/A  N/A   3068709      C   .../envs/slowfast/bin/python     3870MiB |
+|    0   N/A  N/A   3085270      C   .../envs/slowfast/bin/python     3870MiB |
 |    1   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
-|    1   N/A  N/A   3068710      C   .../envs/slowfast/bin/python     3870MiB |
+|    1   N/A  N/A   3085271      C   .../envs/slowfast/bin/python     3870MiB |
 |    2   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
-|    2   N/A  N/A   3068711      C   .../envs/slowfast/bin/python     3870MiB |
+|    2   N/A  N/A   3085272      C   .../envs/slowfast/bin/python     3870MiB |
 |    3   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
-|    3   N/A  N/A   3068712      C   .../envs/slowfast/bin/python     3870MiB |
+|    3   N/A  N/A   3085273      C   .../envs/slowfast/bin/python     3870MiB |
 |    4   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
 |    5   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
 |    6   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
 |    7   N/A  N/A      3082      G   /usr/lib/xorg/Xorg                  4MiB |
 +-----------------------------------------------------------------------------+
-[12/17 23:16:48][INFO] kinetics.py:   94: Constructing Kinetics test...
+[12/17 23:32:43][INFO] kinetics.py:   94: Constructing Kinetics test...
 path: ---------------------------- /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/test_new.csv
-[12/17 23:16:48][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 2250 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/test_new.csv 
-[12/17 23:16:48][INFO] test_net.py:  434: Testing model for 10 iterations
-exponential temporal pooling in test
-alpha:0.2
-[12/17 23:17:03][INFO] logging.py:   99: json_stats: {"cur_iter": "1", "eta": "0:02:31", "split": "test_iter", "time_diff": 15.14914468}
-exponential temporal pooling in test
-alpha:0.2
-[12/17 23:17:05][INFO] logging.py:   99: json_stats: {"cur_iter": "2", "eta": "0:00:15", "split": "test_iter", "time_diff": 1.68234488}
-exponential temporal pooling in test
-alpha:0.2
-[12/17 23:17:06][INFO] logging.py:   99: json_stats: {"cur_iter": "3", "eta": "0:00:07", "split": "test_iter", "time_diff": 0.98456224}
-exponential temporal pooling in test
-alpha:0.2
-[12/17 23:17:07][INFO] logging.py:   99: json_stats: {"cur_iter": "4", "eta": "0:00:07", "split": "test_iter", "time_diff": 1.02543713}
-exponential temporal pooling in test
-alpha:0.2
-[12/17 23:17:08][INFO] logging.py:   99: json_stats: {"cur_iter": "5", "eta": "0:00:05", "split": "test_iter", "time_diff": 0.98087980}
-exponential temporal pooling in test
-alpha:0.2
-[12/17 23:17:09][INFO] logging.py:   99: json_stats: {"cur_iter": "6", "eta": "0:00:04", "split": "test_iter", "time_diff": 0.98297286}
-exponential temporal pooling in test
-alpha:0.2
-[12/17 23:17:10][INFO] logging.py:   99: json_stats: {"cur_iter": "7", "eta": "0:00:03", "split": "test_iter", "time_diff": 0.98275780}
-exponential temporal pooling in test
-alpha:0.2
-[12/17 23:17:11][INFO] logging.py:   99: json_stats: {"cur_iter": "8", "eta": "0:00:02", "split": "test_iter", "time_diff": 0.98033914}
-exponential temporal pooling in test
-alpha:0.2
-[12/17 23:17:12][INFO] logging.py:   99: json_stats: {"cur_iter": "9", "eta": "0:00:01", "split": "test_iter", "time_diff": 0.97790048}
-exponential temporal pooling in test
-alpha:0.2
-[12/17 23:17:12][INFO] logging.py:   99: json_stats: {"cur_iter": "10", "eta": "0:00:00", "split": "test_iter", "time_diff": 0.47919559}
+[12/17 23:32:43][INFO] kinetics.py:  172: Constructing kinetics dataloader (size: 2250 skip_rows 0) from /mnt/SSD8T/home/huangwei/projects/FROSTER/zs_label_db/B2N_hmdb/test_new.csv 
+[12/17 23:32:43][INFO] test_net.py:  434: Testing model for 10 iterations
+meanpooling in test,pred shape:torch.Size([480, 25]),batchsize:60,clip_len:8
+[12/17 23:32:59][INFO] logging.py:   99: json_stats: {"cur_iter": "1", "eta": "0:02:35", "split": "test_iter", "time_diff": 15.55180082}
+meanpooling in test,pred shape:torch.Size([480, 25]),batchsize:60,clip_len:8
+[12/17 23:33:01][INFO] logging.py:   99: json_stats: {"cur_iter": "2", "eta": "0:00:16", "split": "test_iter", "time_diff": 1.81179795}
+meanpooling in test,pred shape:torch.Size([480, 25]),batchsize:60,clip_len:8
+[12/17 23:33:02][INFO] logging.py:   99: json_stats: {"cur_iter": "3", "eta": "0:00:09", "split": "test_iter", "time_diff": 1.22048548}
+meanpooling in test,pred shape:torch.Size([480, 25]),batchsize:60,clip_len:8
+[12/17 23:33:03][INFO] logging.py:   99: json_stats: {"cur_iter": "4", "eta": "0:00:06", "split": "test_iter", "time_diff": 0.97651526}
+meanpooling in test,pred shape:torch.Size([480, 25]),batchsize:60,clip_len:8
+[12/17 23:33:04][INFO] logging.py:   99: json_stats: {"cur_iter": "5", "eta": "0:00:05", "split": "test_iter", "time_diff": 0.97588338}
+meanpooling in test,pred shape:torch.Size([480, 25]),batchsize:60,clip_len:8
+[12/17 23:33:05][INFO] logging.py:   99: json_stats: {"cur_iter": "6", "eta": "0:00:04", "split": "test_iter", "time_diff": 0.97622625}
+meanpooling in test,pred shape:torch.Size([480, 25]),batchsize:60,clip_len:8
+[12/17 23:33:06][INFO] logging.py:   99: json_stats: {"cur_iter": "7", "eta": "0:00:03", "split": "test_iter", "time_diff": 0.98021304}
+meanpooling in test,pred shape:torch.Size([480, 25]),batchsize:60,clip_len:8
+[12/17 23:33:07][INFO] logging.py:   99: json_stats: {"cur_iter": "8", "eta": "0:00:02", "split": "test_iter", "time_diff": 0.97584294}
+meanpooling in test,pred shape:torch.Size([480, 25]),batchsize:60,clip_len:8
+[12/17 23:33:08][INFO] logging.py:   99: json_stats: {"cur_iter": "9", "eta": "0:00:01", "split": "test_iter", "time_diff": 0.97806403}
+meanpooling in test,pred shape:torch.Size([184, 25]),batchsize:23,clip_len:8
+[12/17 23:33:09][INFO] logging.py:   99: json_stats: {"cur_iter": "10", "eta": "0:00:00", "split": "test_iter", "time_diff": 0.47562656}
 clip count Ids=tensor([[14, 53]]) = tensor([4, 4]) (should be 3)
 clip count Ids=tensor([[14, 53]]) = tensor([4, 4]) (should be 3)
 clip count Ids=tensor([[14, 53]]) = tensor([4, 4]) (should be 3)
-[12/17 23:17:13][INFO] test_net.py:  234: Successfully saved prediction results to /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/testing/temp.pyth
-[12/17 23:17:13][WARNING] meters.py:  394: clip count Ids=tensor([[14, 53]]) = tensor([4, 4]) (should be 3)
-[12/17 23:17:13][INFO] logging.py:   99: json_stats: {"split": "test_final", "top1_acc": "60.00", "top5_acc": "89.87"}
-[12/17 23:17:13][INFO] test_net.py:  474: Finalized testing with 3 temporal clips and 1 spatial crops
-[12/17 23:17:13][INFO] test_net.py:  496: _p150.67_f10.00_3a60.00 Top5 Acc: 89.87 MEM: 11.83 f: 10.0000
-[12/17 23:17:13][INFO] test_net.py:  497: _p150.67_f10.00_3a60.00
+[12/17 23:33:10][INFO] test_net.py:  234: Successfully saved prediction results to /mnt/SSD8T/home/huangwei/projects/FROSTER/checkpoints/basetraining/B2N_hmdb51_froster/testing/temp.pyth
+[12/17 23:33:10][WARNING] meters.py:  394: clip count Ids=tensor([[14, 53]]) = tensor([4, 4]) (should be 3)
+[12/17 23:33:10][INFO] logging.py:   99: json_stats: {"split": "test_final", "top1_acc": "60.13", "top5_acc": "90.67"}
+[12/17 23:33:10][INFO] test_net.py:  474: Finalized testing with 3 temporal clips and 1 spatial crops
+[12/17 23:33:10][INFO] test_net.py:  496: _p150.67_f10.00_3a60.13 Top5 Acc: 90.67 MEM: 12.09 f: 10.0000
+[12/17 23:33:10][INFO] test_net.py:  497: _p150.67_f10.00_3a60.13
