@@ -207,149 +207,127 @@ class TemporalClipVideo(nn.Module):
     def update_state(self):
         self.dynamic_classifier = self.achieve_csf_matrix(self.text_dict, self.model)
 
+
+    '''修改为了pre mean的forward函数，直接对img_encode进行meanpooling'''
     def forward(self, x=None, update=False):
         # shape of x(input) is (bz, channel, clip_len, h, w)
-        # print("x shape:", x.shape) #TODO 这里打印了进入forward的x的形状
         assert len(x) == self.num_pathways
         x = x[0]
+
+        # 如果输入是图像，将其变成视频格式
         if len(x.shape) == 4:
-            # image input
             x = x.unsqueeze(2)
-        
-        # ensure eval state all the time, cost time ?
+
+        # 确保 raw_model 在评估模式，避免计算开销
         if self.keep_raw_model:
             self.raw_model.eval()
 
+        # 获取输入形状信息
         bz, channel_dim, clip_len, h, w = x.shape
         x = x.permute(0, 2, 1, 3, 4)
-        x = x.reshape(bz*clip_len, channel_dim, h, w) #同样地，把batch里多个视频的多个帧展平
-        
+        x = x.reshape(bz * clip_len, channel_dim, h, w)
 
-        #在这里输入x，形状是[bz*clip_len, channel_dim, h, w]，生成img_encode，形状是[bz*clip_len, feat_size]
+        # 获取 img_encode 特征
         if self.record_routing:
             img_encode, routing_state = self.model.encode_image(x)
         else:
             img_encode = self.model.encode_image(x)
-            
-        feature = None
+
+        # 如果 img_encode 是列表，则提取主特征
         if isinstance(img_encode, list):
-            img_encode, feature = img_encode
-            c = feature.shape[-1]
+            img_encode, _ = img_encode
+
+        # 对 img_encode 进行 L2 归一化
+        img_encode = img_encode / img_encode.norm(dim=-1, keepdim=True)
+
+        # 融合 clip_len 特征，平均池化成单帧
+        print(f"img_encode shape: {img_encode.shape},bz: {bz},clip_len: {clip_len}")
+        
+        img_encode = img_encode.reshape(bz, clip_len, -1).mean(dim=1)
+
+        print(f"meanpooling in forward,on img_encode,after:img_encode shape:{img_encode.shape}")
+
+        # img_encode 的形状： (bz, feat_size)
 
         if self.training:
-            # img encode [bz, feat_size]
-            # text_dict  {id: [400, feat_size]},
-            # pre_img_encode = img_encode
-
-            img_encode = img_encode / img_encode.norm(dim=-1, keepdim=True)
-            
+            # 训练模式下，计算分类预测
             if self.tune_head:
                 norm_head = self.head / self.head.norm(dim=-1, keepdim=True)
                 pred = self.model.logit_scale.exp() * img_encode @ norm_head.T
             elif self.text_prompting:
-                # encode head.  在这里生成text_embedding
-                text_embedding = torch.cat((self.token_prefix, 
-                            self.prompt_embed.unsqueeze(0).expand(len(self.classnames), -1, -1), 
-                            self.token_suffix
-                            ), 1)
-                norm_head = self.model.prompt_encode_text(text_embedding, self.tokenized_prompts,)
+                # 生成 text_embedding 并计算分类预测
+                text_embedding = torch.cat(
+                    (self.token_prefix, 
+                    self.prompt_embed.unsqueeze(0).expand(len(self.classnames), -1, -1), 
+                    self.token_suffix), 
+                    1
+                )
+                norm_head = self.model.prompt_encode_text(text_embedding, self.tokenized_prompts)
                 norm_head /= norm_head.norm(dim=-1, keepdim=True)
-                #这里计算点积（余弦相似度），产生preds
-                pred = self.model.logit_scale.exp() * img_encode @ norm_head.T 
-            else: #默认配置是False，会执行这个块，而不是楼上的块的。
-                # csf_matrix = self.dynamic_classifier / self.dynamic_classifier.norm(dim=-1, keepdim=True)
+                pred = self.model.logit_scale.exp() * img_encode @ norm_head.T
+            else:
+                # 默认情况下使用 dynamic_classifier
                 text_dict = self.text_prompt(os.path.join(self.cfg.DATA.INDEX_LABEL_MAPPING_FILE))
                 dynamic_classifier_new = self.achieve_csf_matrix(text_dict, self.model, trainable=True)
                 pred = self.model.logit_scale.exp() * img_encode @ dynamic_classifier_new.T
-            #preds形状： (bz * clip_len, num_classes)
-            # 通过reshape变回(bz, clip_len, num_classes)，然后平均池化
-            print(f" meanpooling in train,pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}") #TODO 测试完记得删掉
-            pred = pred.reshape(bz, clip_len, -1).mean(1) #这里有个平均池化meanpooling
-            # #执行完上一行，在clip_len维度上取平均，得到最终的preds形pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}状(bz, num_classes)
 
-            # #指数移动平均
-            # print("exponential temporal pooling in train")
-            # pred = pred.reshape(bz, clip_len, -1)
-            # pred = exponential_temporal_pooling(pred, alpha=0.2)
+            # pred 的形状： (bz, num_classes)
 
-            # add distillation here（if training是上一级的if，这里也包含在training模式的代码块里）
+            # 添加蒸馏逻辑（如果启用）
             if self.keep_raw_model and (self.ensemble_pred or self.distillation):
-                # pass
                 with torch.no_grad():
-                    raw_img_encode = self.raw_model.encode_image(x)#这里获取原始模型的img_encode
+                    raw_img_encode = self.raw_model.encode_image(x)  # 获取原始模型的 img_encode
                     if isinstance(raw_img_encode, list):
                         raw_img_encode = raw_img_encode[0]
                     raw_img_encode /= raw_img_encode.norm(dim=-1, keepdim=True)
-                    # raw_pred = self.raw_model.logit_scale.exp() * raw_img_encode @ self.dynamic_classifier_raw.T
-                    # raw_pred = raw_pred.reshape(bz, clip_len, -1).mean(1)
+
+                    # 对 raw_img_encode 进行 mean pooling，确保与 img_encode 形状一致
+                    raw_img_encode = raw_img_encode.reshape(bz, clip_len, -1).mean(1)
 
                 dynamic_classifier_raw = self.achieve_csf_matrix(text_dict, self.raw_model, trainable=False)
                 
                 alpha = 0.1
                 img_encode = img_encode + alpha * self.projector_v(img_encode)
-                
                 dynamic_classifier_new = dynamic_classifier_new + alpha * self.projector_t(dynamic_classifier_new)
 
-                print(f"in temporalclip_video_model.py,return [pred, img_encode, dynamic_classifier_new], [None, raw_img_encode, dynamic_classifier_raw]")
                 return [pred, img_encode, dynamic_classifier_new], [None, raw_img_encode, dynamic_classifier_raw]
-                # return [pred, dynamic_classifier_new], [None, dynamic_classifier_raw]
-            
+
+
             if self.record_routing:
                 return pred, routing_state
             return pred
-        else: #测试模式
-            # img_encode [bz, feat_size]
-            # dynamic_clf shape [type_num * cls_num, feat_size]
-            # pre_img_encode = img_encode
 
-            img_encode /= img_encode.norm(dim=-1, keepdim=True)
-
+        else:  # 测试模式
+            # 计算预测结果
             if self.tune_head:
                 norm_head = self.head / self.head.norm(dim=-1, keepdim=True)
                 pred = self.model.logit_scale.exp() * img_encode @ norm_head.T
-
             elif self.text_prompting:
-                # encode head.
-                text_embedding = torch.cat((self.token_prefix, 
-                            self.prompt_embed.unsqueeze(0).expand(len(self.classnames), -1, -1), 
-                            self.token_suffix
-                            ), 1)
-                
-                norm_head = self.model.prompt_encode_text(text_embedding, self.tokenized_prompts,)
+                text_embedding = torch.cat(
+                    (self.token_prefix, 
+                    self.prompt_embed.unsqueeze(0).expand(len(self.classnames), -1, -1), 
+                    self.token_suffix), 
+                    1
+                )
+                norm_head = self.model.prompt_encode_text(text_embedding, self.tokenized_prompts)
                 norm_head /= norm_head.norm(dim=-1, keepdim=True)
                 pred = self.model.logit_scale.exp() * img_encode @ norm_head.T
             else:
                 text_dict = self.text_prompt(os.path.join(self.cfg.DATA.INDEX_LABEL_MAPPING_FILE))
                 dynamic_classifier_new = self.achieve_csf_matrix(text_dict, self.model, trainable=False)
                 pred = self.model.logit_scale.exp() * img_encode @ dynamic_classifier_new.T
-            
-            print(f"meanpooling in test,pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}")#TODO 测试完记得删掉
-            pred = pred.reshape(bz, clip_len, -1).mean(1) #TODO 测试完记得改回mean
-            # pred = pred.reshape(bz, clip_len, -1).min(1).values
-            # print(f"maxpooling in test,pred shape:{pred.shape},batchsize:{bz},clip_len:{clip_len}")
-            # pred = pred.reshape(bz, clip_len, -1).max(1).values
-            # pred = pred.reshape(bz, clip_len, -1)[:, 1, :] #取最后一帧
 
-            # #指数移动平均
-            # print("exponential temporal pooling in test")
-            # pred = pred.reshape(bz, clip_len, -1)
-            # pred = exponential_temporal_pooling(pred, alpha=0.2)
-            
+            # pred 的形状： (bz, num_classes)
+
             if self.keep_raw_model and (self.ensemble_pred or self.distillation):
-                pass
+                return [pred, None], [None, None]
 
             if self.record_routing:
                 return pred, routing_state
-            
-            if self.keep_raw_model and (self.ensemble_pred or self.distillation):
-                return [pred, None], [None, None]
-            
+
             return pred
-            # if feature is not None:
-            #     return [pred, feature.view(bz, -1, c)]
-            # else:
-            #     return pred
-    
+
+
     def text_prompt(self, data_file):
         '''
         假设数据文件（标注）为：

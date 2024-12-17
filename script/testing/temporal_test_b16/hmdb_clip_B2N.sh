@@ -1,7 +1,7 @@
 ROOT=/mnt/SSD8T/home/huangwei/projects/FROSTER
 CKPT=$ROOT/checkpoints/basetraining/B2N_hmdb51_froster
 OUT_DIR=$CKPT/testing
-LOAD_CKPT_FILE=$ROOT/checkpoints/basetraining/B2N_hmdb51_froster_same2/checkpoints/checkpoint_epoch_00012.pyth
+LOAD_CKPT_FILE=$ROOT/checkpoints/basetraining/B2N_hmdb51_froster/checkpoints/checkpoint_epoch_00012.pyth
 
 # TEST_FILE can be set as val.csv (base set) or test.csv (novel set).
 # rephrased_file can be set as train_rephrased.json (base set) or test_rephrased.json (novel set)
