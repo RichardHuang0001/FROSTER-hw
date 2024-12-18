@@ -10,7 +10,7 @@ B2N_hmdb_file=B2N_hmdb
 TRAIN_FILE=train.csv
 VAL_FILE=val.csv
 TEST_FILE=test.csv
-rephrased_file=test_rephrased.json  #改成了test.csv之后，变成Novel类，有25个类要改一下这里
+rephrased_file=test_rephrased.json  #改成了test.csv之后，变成Novel类，有25个类要改一下这里 zs_label_db/B2N_hmdb/raw_test_idx2cls.json
 NUM_CLASSES=25
 
 cd $ROOT

@@ -10,6 +10,7 @@ TEST_FILE=test.csv
 
 rephrased_file=test_rephrased.json 
 # hmdb_file can be set as hmdb_full, hmdb_split1, hmdb_split2, hmdb_split3
+# 这个测试但凡使用多GPU测试就会出现某个进程异常退出的情况，不清楚什么原因
 
 cd $ROOT
 python -W ignore -u tools/run_net.py \
